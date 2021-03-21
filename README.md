@@ -22,3 +22,15 @@ Bit of background
 https://en.wikipedia.org/wiki/Iris_flower_data_set
 https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5
 
+20/21 March
+Just finding my feet!
+Getting used to accessing, reading, parsing the data.
+Did some simple calculations. Overall average measurements and then individual averages for each species.
+Did a simple scatter plot - no idea the relevance just yet!
+Think I'll carry on like this for a while and see where it leads!
+
+Intro
+So we're dealing with a dataset introduced by statistician Ronald Fisher and collected by botanist Edgar Anderson. It consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
+
+
+
