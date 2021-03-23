@@ -14,4 +14,5 @@ petalWidth = iris['petal_width']
 species = iris['species']
 plt.scatter(petalLength, sepalLength, color = 'r')
 plt.scatter(petalWidth, sepalWidth, color = 'b')
-plt.show()
+# plt.show()
+print(iris.describe())

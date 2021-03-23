@@ -29,6 +29,9 @@ Did some simple calculations. Overall average measurements and then individual a
 Did a simple scatter plot - no idea the relevance just yet!
 Think I'll carry on like this for a while and see where it leads!
 
+23 March
+After pandas lecture I discovered a few new tricks which make things a lot simpler! Firther investigation of pandas required! Now I have this new data, I need to try and understand what it means!
+
 Intro
 So we're dealing with a dataset introduced by statistician Ronald Fisher and collected by botanist Edgar Anderson. It consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
 

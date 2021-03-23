@@ -41,3 +41,12 @@ print("The average petal width of versicolor variety is:", str(averageVersicolor
 
 # prints dict of averages
 print(versicolorAverages)
+
+# or I could have done this which will find the mean amongst a few other things!!!!!!!! :)
+versicolor_stats = versicolor.describe()
+print(versicolor_stats)
+# finds out the data type
+print(type(versicolor.describe()))
+# finds correlation between all of the data
+versicolor_correlation = versicolor.corr()
+print (versicolor_correlation)

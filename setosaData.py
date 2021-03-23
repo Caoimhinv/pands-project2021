@@ -6,8 +6,6 @@
 # Author: Caoimhin Vallely
 
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 iris = pd.read_csv('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/irisDataset.csv')
 
@@ -45,4 +43,11 @@ print("The average petal width of Setosa variety is:", str(averageSetosaPetalWid
 # prints dict of averages
 print(setosaAverages)
 
-
+# or I could have done this which will find the mean amongst a few other things!!!!!!!! :)
+setosa_stats = setosa.describe()
+print(setosa_stats)
+# finds out the data type
+print(type(setosa.describe()))
+# finds correlation between all of the data
+setosa_correlation = setosa.corr()
+print (setosa_correlation)

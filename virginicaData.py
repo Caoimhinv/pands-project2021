@@ -39,3 +39,12 @@ print("The average petal width of virginica variety is:", str(averageVirginicaPe
 # prints dict of averages
 print(virginicaAverages)
 
+# or I could have done this which will find the mean amongst a few other things!!!!!!!! :)
+virginica_stats = virginica.describe()
+print(virginica_stats)
+# finds out the data type
+print(type(virginica.describe()))
+# finds correlation between all of the data
+virginica_correlation = virginica.corr()
+print (virginica_correlation)
+
