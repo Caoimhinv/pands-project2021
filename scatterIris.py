@@ -6,13 +6,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-iris = pd.read_csv("irisDataset.csv")
-sepalLength = iris['sepal_length']
-sepalWidth = iris['sepal_width']
-petalLength = iris['petal_length']
-petalWidth = iris['petal_width']
+iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/scatterIris.py")
+sepal_length = iris['sepal_length']
+sepal_width = iris['sepal_width']
+petal_length = iris['petal_length']
+petal_width = iris['petal_width']
 species = iris['species']
-plt.scatter(petalLength, sepalLength, color = 'r')
-plt.scatter(petalWidth, sepalWidth, color = 'b')
-# plt.show()
-print(iris.describe())
+plt.scatter(petal_length, sepal_length, color = 'r')
+plt.scatter(petal_width, sepal_width, color = 'b')
+plt.show()
