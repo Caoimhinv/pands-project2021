@@ -53,10 +53,11 @@ Started work on histograms. Distribution of each variable between the species
 Intro
 So we're dealing with a dataset introduced by statistician Ronald Fisher and collected by botanist Edgar Anderson. It consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
 
-![Image of Irises](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_images.png)
+![Image of the 3 different species of Iris.](iris_images.png)
 
-Does this work?
-ref - https://morioh.com/p/eafb28ccf4e3
+Does this work?  
+
+ref for image - https://morioh.com/p/eafb28ccf4e3
 
 
 
