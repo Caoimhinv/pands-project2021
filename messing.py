@@ -3,9 +3,6 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
-
 
 # overall overview
 # some borrowed from https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
