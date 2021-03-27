@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 # some borrowed from https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
 
-iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/irisDataset.csv")
+iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
 # overview
 # prints 3 rows
@@ -77,7 +77,7 @@ l3 = axs[3,2].scatter(setosa_sepal_width, setosa_sepal_length, s=2, color = 'y',
 axs[0,0].set_title("Petal length (cm)", fontsize=6)
 axs[0,0].set_ylabel('Petal lenth (cm)', fontsize=6)
 axs[0,0].legend([l1, l2, l3],['versicolor', 'setosa', 'virginica'], loc='center', mode='expand', frameon=False, scatterpoints=3, markerscale=2)
-# https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
+
 axs[0,1].scatter(virginica_petal_length, virginica_petal_width, s=2, color = 'r', label='virginica')
 axs[0,1].scatter(versicolor_petal_length, versicolor_petal_width, s=2, color = 'b', label='versicolor')
 axs[0,1].scatter(setosa_petal_length, setosa_petal_width, s=2, color = 'y', label='setosa')
@@ -142,11 +142,8 @@ axs[3,2].set_xlabel("Sepal length (cm)", fontsize=6)
 axs[3,3].set_xlabel("Sepal width (cm)", fontsize=6)
 
 axs[3,3].legend([l1, l2, l3],['versicolor', 'setosa', 'virginica'], loc='center', mode='expand', frameon=False, scatterpoints=3, markerscale=2)
-# set main title - https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/
+
 plt.suptitle('Variable comparison scatterplots')
 plt.show()
-# https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
-
-# https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
 
 
