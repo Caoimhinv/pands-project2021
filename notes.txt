@@ -41,6 +41,18 @@ Started work on README
 Created new doc - analysis.py where all the final code will reside
 Started trasnferring and updating/editing all of the code from the 'practice' files
 
+28 March
+A lot of work on the scatter plots. realised that i was doing something extremely stupid!
+Sorted now I think but it's a lot of code! Fairly certain there's a simpler and more efficent solution!
+
+29 March
+scatter matrix!!!!!!!!!!!!
+And seaborn!!!!!
+So the seaborn pairplot - does very quickly and easily what I spend all weekend trying to do!
+So, I think I just need to do separate scatter plots for petals/sepals comparison between each species
+i.e. 4 plots
+Looks like the histograms are much easier and ncier looking in seaborn as well!
+
 
 
 
@@ -60,3 +72,10 @@ https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
 https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
 https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
 https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas
+https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller
+https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
+https://www.marsja.se/pandas-scatter-matrix-pair-plot/
+https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
+https://seaborn.pydata.org/generated/seaborn.pairplot.html
+https://seaborn.pydata.org/generated/seaborn.histplot.html
+
