@@ -76,16 +76,11 @@ virginica_sepal_w = virginica['sepal_width']
 virginica_petal_l = virginica['petal_length']
 virginica_petal_w = virginica['petal_width']
 
-# creating scatter plots for each combination of variablea
-# there are 16 variables, but subracting the 4 where it's not necesary to compare
-# a variable to itself, that leaves 12
-
-# using subplot() so I can compare them all side by side. 4 rows x 3 columns.
-# I'm sharing the attributes for all of the axes (sharex and sharey)
+# creating scatter plots for each combination of variables petal,sepal length and width and vice versa.
+# using subplot() so I can compare them side by side. 2 rows x 2 columns.
 fig, axs = plt.subplots(2, 2)
 
 # ax1. They are layed out in the form [0,0] where the first number represents the row and the second the column
-# I'm only including titles at the top and bottom, and on the left axes, just to avoid clutter.
 axs[0,0].scatter(setosa_sepal_l, setosa_sepal_w, s=12, marker='o', color = 'yellowgreen', label='setosa')
 axs[0,0].scatter(versicolor_sepal_l, versicolor_sepal_w, s=12, marker='s', color = 'teal', label='versicolor')
 axs[0,0].scatter(virginica_sepal_l, virginica_sepal_w, s=12, marker='D', color = 'tomato', label='virginica')
@@ -126,12 +121,11 @@ axs[1,1].set_xlabel("petal width (cm)", fontsize=6)
 axs[1,1].set_ylabel("petal length (cm)", fontsize=6)
 axs[1,1].set_title("petal width v length", fontsize=9, loc='right')
 
-# # set main title
+# set main title
 plt.suptitle('Scatter plots for each pair of variables', fontsize=15, fontname='fantasy')
 plt.show()
 
 # creating histograms for distribution of each variable - sepal length and width, and petal length and width
-
 # sets up 4 plots - 2x2.
 fig, axs = plt.subplots(2,2)
 
@@ -166,7 +160,7 @@ axs[1,1].legend(frameon=False, fontsize=6)
 axs[1,1].tick_params(axis='both', which='both', labelsize=4)
 
 plt.suptitle('Distribution histogram of each variable', fontsize=15, fontname='fantasy')
-# plt.show()
+plt.show()
 
 # creating a scatter matrix plot for all the variables
 
