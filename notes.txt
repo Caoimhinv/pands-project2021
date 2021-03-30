@@ -78,4 +78,5 @@ https://www.marsja.se/pandas-scatter-matrix-pair-plot/
 https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
 https://seaborn.pydata.org/generated/seaborn.pairplot.html
 https://seaborn.pydata.org/generated/seaborn.histplot.html
+https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot
 
