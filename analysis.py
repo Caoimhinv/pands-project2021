@@ -9,6 +9,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+sns.set_style("darkgrid")
+
 # reads in the dataframe
 iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
@@ -166,4 +168,37 @@ plt.show()
 
 sns.pairplot(iris, hue="species",markers=["o", "s", "D"], palette=['yellowgreen','teal','tomato'])
 plt.suptitle('Matrix scatter plot', fontsize=15, fontname='fantasy')
+plt.show()
+
+# 2x2 grid of boxplots
+f, axes = plt.subplots(2,2)
+sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0])
+sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1])
+sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0])
+sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1])
+plt.show()
+
+# the same as violin plots
+f, axes = plt.subplots(2,2)
+sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0])
+sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1])
+sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0])
+sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1])
+plt.show()
+
+# violin plot stacked on a violin plot. Stingray!
+f, axes = plt.subplots(2,2)
+sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0])
+sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1])
+sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0])
+sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1])
+sns.swarmplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], size=3, color='white', edgecolor='b')
+sns.swarmplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], size=3, color='white', edgecolor='b')
+sns.swarmplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], size=3, color='white', edgecolor='b')
+sns.swarmplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], size=3, color='white', edgecolor='b')
+plt.show()
+
+# heat map based on correlation (all species)
+iris_mx = iris.corr()
+sns.heatmap(iris_mx, annot=True, cmap='Blues')
 plt.show()
