@@ -53,7 +53,8 @@ So, I think I just need to do separate scatter plots for petals/sepals compariso
 i.e. 4 plots
 Looks like the histograms are much easier and ncier looking in seaborn as well!
 
-
+30 March
+Getting stuck into seaborn. So had a go at all of the different plots on offer! Great fun! :)
 
 
 
@@ -79,4 +80,11 @@ https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
 https://seaborn.pydata.org/generated/seaborn.pairplot.html
 https://seaborn.pydata.org/generated/seaborn.histplot.html
 https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot
+https://seaborn.pydata.org/tutorial/axis_grids.html
+https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+YouTube video on seaborn - https://www.youtube.com/watch?v=6GUZXDef2U0
+https://seaborn.pydata.org/tutorial/color_palettes.html
+https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/
+
 
