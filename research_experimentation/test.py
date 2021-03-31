@@ -32,9 +32,9 @@ virginica_petal_w = virginica['petal_width']
 
 # sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', kde=True)
 
-sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', multiple="stack", kde=True)
+# sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', multiple="stack", kde=True, palette=['yellowgreen','teal','tomato'])
 
-plt.show()
+# plt.show()
 
 #messing with boxplot.
 # sns.violinplot(x = 'species', y='petal_length', data = iris, palette='magma', label='petal_length')
@@ -102,10 +102,21 @@ plt.show()
 # plt.show()
 
 f, axes = plt.subplots(2, 2)
-sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species', ax=axes[0,0])
-sns.scatterplot(data=iris, x='sepal_width', y='sepal_length', hue='species', ax=axes[0,1])
-sns.scatterplot(data=iris, x='petal_length', y='petal_width', hue='species', ax=axes[1,0])
-sns.scatterplot(data=iris, x='petal_width', y='petal_length', hue='species', ax=axes[1,1])
+sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species', palette=['yellowgreen','teal','tomato'], ax=axes[0,0])
+sns.scatterplot(data=iris, x='sepal_width', y='sepal_length', hue='species', palette=['yellowgreen','teal','tomato'], ax=axes[0,1])
+sns.scatterplot(data=iris, x='petal_length', y='petal_width', hue='species', palette=['yellowgreen','teal','tomato'], ax=axes[1,0])
+sns.scatterplot(data=iris, x='petal_width', y='petal_length', hue='species', palette=['yellowgreen','teal','tomato'], ax=axes[1,1])
 
 
 plt.show()
+
+# f, axes = plt.subplots(2,2)
+# sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], palette=['yellowgreen','teal','tomato'])
+# sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], palette=['yellowgreen','teal','tomato'])
+# sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], palette=['yellowgreen','teal','tomato'])
+# sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], palette=['yellowgreen','teal','tomato'])
+# sns.swarmplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], size=3, color='white', edgecolor='black', linewidth=.5)
+# sns.swarmplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], size=3, color='white', edgecolor='black', linewidth=.5)
+# sns.swarmplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], size=3, color='white', edgecolor='black', linewidth=.5)
+# sns.swarmplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], size=3, color='white', edgecolor='black', linewidth=.5)
+# plt.show()
