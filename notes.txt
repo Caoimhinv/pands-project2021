@@ -56,7 +56,10 @@ Looks like the histograms are much easier and ncier looking in seaborn as well!
 30 March
 Getting stuck into seaborn. So had a go at all of the different plots on offer! Great fun! :)
 
-
+31 March
+Lots of editing of plots. Changed everything over to seaborn.
+Trying to create a global uniform style. 
+Need to investigate ways of reducing amount of code!
 
 
 Refs
@@ -86,5 +89,6 @@ https://seaborn.pydata.org/generated/seaborn.scatterplot.html
 YouTube video on seaborn - https://www.youtube.com/watch?v=6GUZXDef2U0
 https://seaborn.pydata.org/tutorial/color_palettes.html
 https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/
+https://stackoverflow.com/questions/52096050/seaborn-title-position
 
 
