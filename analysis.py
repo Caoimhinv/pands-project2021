@@ -102,10 +102,10 @@ plt.show()
 
 # 2x2 grid of boxplots
 f, axes = plt.subplots(2,2)
-sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme)
-sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme)
-sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme)
-sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], fliersize=3, linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], fliersize=3, linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], fliersize=3, linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], fliersize=3, linewidth=0.5, palette=color_theme)
 axes[0,0].set_xlabel("Species", fontsize=7)
 axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
 axes[0,1].set_xlabel("Species", fontsize=7)
@@ -124,7 +124,10 @@ axes[1,1].tick_params(axis='both', which='major', labelsize=7)
 plt.suptitle('Boxplots', fontsize=15, fontname='fantasy')
 plt.show()
 
-sns.boxplot(data=iris, orient="h", linewidth=0.5, palette=color_theme)
+# boxplot of individual elements
+sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme)
+plt.xticks(fontsize=7)
+plt.yticks(fontsize=7)
 plt.suptitle('Overall boxplot of individual element values', fontsize=15, fontname='fantasy')
 plt.show()
 
@@ -177,6 +180,29 @@ axes[1,0].tick_params(axis='both', which='major', labelsize=7)
 axes[1,1].tick_params(axis='both', which='major', labelsize=7)
 
 plt.suptitle('Swarm plot - scatterplot on violinplot', fontsize=15, fontname='fantasy')
+plt.show()
+
+# kde plots
+fig, axes = plt.subplots(2,2)
+sns.kdeplot(data=iris, x="sepal_length", y="sepal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,0])
+sns.kdeplot(data=iris, x="sepal_width", y="sepal_length", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,1])
+sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,0])
+sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,1])
+axes[0,0].set_xlabel("Sepal length (cm)", fontsize=7)
+axes[0,0].set_ylabel("Sepal width (cm)", fontsize=7)
+axes[0,1].set_xlabel("Sepal width (cm)", fontsize=7)
+axes[0,1].set_ylabel("Sepal length (cm)", fontsize=7)
+axes[1,0].set_xlabel("Petal length (cm)", fontsize=7)
+axes[1,0].set_ylabel("Petal width (cm)", fontsize=7)
+axes[1,1].set_xlabel("Petal width (cm)", fontsize=7)
+axes[1,1].set_ylabel("Petal length (cm)", fontsize=7)
+# set tick format
+axes[0,0].tick_params(axis='both', which='major', labelsize=7)
+axes[0,1].tick_params(axis='both', which='major', labelsize=7)
+axes[1,0].tick_params(axis='both', which='major', labelsize=7)
+axes[1,1].tick_params(axis='both', which='major', labelsize=7)
+
+plt.suptitle('kde plots', fontsize=15, fontname='fantasy')
 plt.show()
 
 # heat map based on correlation (all species)
