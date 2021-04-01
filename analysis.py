@@ -9,76 +9,32 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# sets background style, and colour palette for all the plots
 sns.set_style("darkgrid")
+color_theme = ['yellowgreen','teal','tomato']
 
 # reads in the dataframe
 iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
 # this is an initial exploration of the data using all the conventional methods that pandas has to offer
-print("----------")
-print("Initial data exploration")
-print("----------")
-print("COUNT() - entries per column\n", iris.count())
-print("----------")
-print("MAX() - highest value per column\n", iris.max())
-print("----------")
-print("MIN() - lowest value per column\n", iris.min())
-print("----------")
-print("MEAN() - mean value per column\n", iris.mean())
-print("----------")
-print("MEDIAN() - median value per column\n", iris.median())
-print("----------")
-print("MODE() - mode value per column\n", iris.mode())
-print("----------")
-print("STD() - standard deviation per column\n", iris.std())
-print("----------")
-print("HEAD() - first five rows of the dataframe\n", iris.head())
-print("----------")
-print("COLUMNS() - column labels - \n",iris.columns)
-print("----------")
-print("SHAPE() - number of rows and columns\n",iris.shape)
-print("----------")
-print("SIZE() - number of entries\n",iris.size)
-print("----------")
-# in reality, this finds most of the above on it's own!
-print("DESCRIBE() - overview of the dataframe\n", iris.describe())
-print("----------")
-print("INFO() - further info on dataframe")
-print(iris.info())
-print("----------")
-print("CORR() - correlation among the data\n", iris.corr())
-print("----------")
+str1 = ("----------\nInitial data exploration\n----------\n")
+str2 = ("SIZE() - the total number of entries in the dataframe\n" + str(iris.size) + "\n----------\n")
+str3 = ("SHAPE() - the number of rows and columns\n" + str(iris.shape) + "\n----------\n")
+str4 = ("COLUMNS() - these are the column labels and the data tyoe\n" + str(iris.columns) + "\n----------\n")
+str5 = ("COUNT() - the number of entries per column\n" + str(iris.count()) + "\n----------\n")
+str6 = ("HEAD() - this is a printout of the first five rows of the dataframe\n" + str(iris.head()) + "\n----------\n")
+str7 = ("MAX() - this is the highest value per column\n" + str(iris.max()) + "\n----------\n")
+str8 = ("MIN() - this is the lowest value per column\n" + str(iris.min()) + "\n----------\n")
+str9 = ("MEAN() - this is the mean value per column\n" + str(iris.mean()) + "\n----------\n")
+str10 = ("MEDIAN() - this the median value per column\n" + str(iris.median()) + "\n----------\n")
+str11 = ("MODE() - this is the mode per column\n" + str(iris.mode()) + "\n----------\n")
+str12 = ("STD() - this is the standard deviation per column\n" + str(iris.std()) + "\n----------\n----------\n")
+str13 = ("DESCRIBE() - this is an overview of the dataframe (including a lot of the above again)\n" + str(iris.describe()) + "\n----------\n")
+str14 = ("CORR() - this is the correlation among the data\n" + str(iris.corr()) + "\n----------\n")
 
-# creating variables for each element - petal length and width, and sepal length and width
-iris_sepal_length = iris['sepal_length']
-iris_sepal_width = iris['sepal_width']
-iris_petal_length = iris['petal_length']
-iris_petal_width = iris['petal_width']
-
-# creating variables for each species and each element within species
-# - petal length and width, and sepal length and width
-# setosa
-setosa = iris[0:50]
-setosa_sepal_l = setosa['sepal_length']
-setosa_sepal_w = setosa['sepal_width']
-setosa_petal_l = setosa['petal_length']
-setosa_petal_w = setosa['petal_width']
-
-# versicolor
-versicolor = iris[50:100]
-versicolor_sepal_l = versicolor['sepal_length']
-versicolor_sepal_w = versicolor['sepal_width']
-versicolor_petal_l = versicolor['petal_length']
-versicolor_petal_w = versicolor['petal_width']
-
-# virginica
-virginica = iris[100:150]
-virginica_sepal_l = virginica['sepal_length']
-virginica_sepal_w = virginica['sepal_width']
-virginica_petal_l = virginica['petal_length']
-virginica_petal_w = virginica['petal_width']
-
-color_theme = ['yellowgreen','teal','tomato']
+# prints all of the above info to a text file - iris_data.txt
+with open('iris_data.txt','w') as out:
+    out.writelines([str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14])
 
 # creating scatter plots for each combination of variables petal,sepal length and width and vice versa.
 # using subplot() so I can compare them side by side. 2 rows x 2 columns.
@@ -146,10 +102,10 @@ plt.show()
 
 # 2x2 grid of boxplots
 f, axes = plt.subplots(2,2)
-sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], palette=color_theme)
-sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], palette=color_theme)
-sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], palette=color_theme)
-sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], palette=color_theme)
+sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme)
+sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme)
 axes[0,0].set_xlabel("Species", fontsize=7)
 axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
 axes[0,1].set_xlabel("Species", fontsize=7)
@@ -168,13 +124,16 @@ axes[1,1].tick_params(axis='both', which='major', labelsize=7)
 plt.suptitle('Boxplots', fontsize=15, fontname='fantasy')
 plt.show()
 
+sns.boxplot(data=iris, orient="h", linewidth=0.5, palette=color_theme)
+plt.suptitle('Overall boxplot of individual element values', fontsize=15, fontname='fantasy')
+plt.show()
 
 # the same as violin plots
 f, axes = plt.subplots(2,2)
-sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], palette=color_theme)
-sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], palette=color_theme)
-sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], palette=color_theme)
-sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], palette=color_theme)
+sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme)
+sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme)
+sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme)
+sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme)
 axes[0,0].set_xlabel("Species", fontsize=7)
 axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
 axes[0,1].set_xlabel("Species", fontsize=7)
@@ -189,20 +148,15 @@ axes[0,0].tick_params(axis='both', which='major', labelsize=7)
 axes[0,1].tick_params(axis='both', which='major', labelsize=7)
 axes[1,0].tick_params(axis='both', which='major', labelsize=7)
 axes[1,1].tick_params(axis='both', which='major', labelsize=7)
-# format x,y labels
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
 plt.suptitle('Violin plots', fontsize=15, fontname='fantasy')
 plt.show()
 
 # violin plot stacked on a violin plot. Stingray!
 f, axes = plt.subplots(2,2)
-sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], palette=color_theme)
-sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], palette=color_theme)
-sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], palette=color_theme)
-sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], palette=color_theme)
+sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme)
+sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme)
+sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme)
+sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme)
 sns.swarmplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], size=3, color='white', edgecolor='black', linewidth=.5)
 sns.swarmplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], size=3, color='white', edgecolor='black', linewidth=.5)
 sns.swarmplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], size=3, color='white', edgecolor='black', linewidth=.5)
