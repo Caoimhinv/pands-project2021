@@ -33,7 +33,7 @@ str13 = ("DESCRIBE() - this is an overview of the dataframe (including a lot of 
 str14 = ("CORR() - this is the correlation among the data\n" + str(iris.corr()) + "\n----------\n")
 
 # prints all of the above info to a text file - iris_data.txt
-with open('iris_data.txt','w') as out:
+with open('outputted_iris_data_textfile.txt','w') as out:
     out.writelines([str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14])
 
 # creating scatter plots for each combination of variables petal,sepal length and width and vice versa.
