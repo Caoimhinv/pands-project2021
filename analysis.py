@@ -1,4 +1,4 @@
-# this is an analysis script for the Fisher iris dataset as part of 
+# this is an analysis script on Fisher's iris dataset as part of 
 # a project for the Programming and scripting module of HDIP in Data
 # Analytics at GMIT (2021)
 
