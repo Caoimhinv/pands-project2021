@@ -68,6 +68,11 @@ Looked at printing the data to a text file so think that's done. Not 100% sure i
 or the most efficient way of doing it but we'll see!
 A bit more formatting of the plots.
 
+2 April
+Removed violin plot and overall boxplot. Not sure if they're offering anything that isn't there already.
+More formatting!!
+Did a good bit more on the README. Need to really learn what all of this means!!
+
 Refs
 https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
 https://www.questionpro.com/blog/quantitative-data/
@@ -99,4 +104,5 @@ https://stackoverflow.com/questions/52096050/seaborn-title-position
 https://www.w3schools.com/python/ref_file_writelines.asp
 https://seaborn.pydata.org/generated/seaborn.kdeplot.html
 https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
+image for irises - https://morioh.com/p/eafb28ccf4e3
 
