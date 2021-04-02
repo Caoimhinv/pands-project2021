@@ -17,87 +17,87 @@ color_theme = ['yellowgreen','teal','tomato']
 iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
 # this is an initial exploration of the data using all the conventional methods that pandas has to offer
-str1 = ("----------\nInitial data exploration\n----------\n")
-str2 = ("SIZE() - the total number of entries in the dataframe\n" + str(iris.size) + "\n----------\n")
-str3 = ("SHAPE() - the number of rows and columns\n" + str(iris.shape) + "\n----------\n")
-str4 = ("COLUMNS() - these are the column labels and the data tyoe\n" + str(iris.columns) + "\n----------\n")
-str5 = ("COUNT() - the number of entries per column\n" + str(iris.count()) + "\n----------\n")
-str6 = ("HEAD() - this is a printout of the first five rows of the dataframe\n" + str(iris.head()) + "\n----------\n")
-str7 = ("MAX() - this is the highest value per column\n" + str(iris.max()) + "\n----------\n")
-str8 = ("MIN() - this is the lowest value per column\n" + str(iris.min()) + "\n----------\n")
-str9 = ("MEAN() - this is the mean value per column\n" + str(iris.mean()) + "\n----------\n")
-str10 = ("MEDIAN() - this the median value per column\n" + str(iris.median()) + "\n----------\n")
-str11 = ("MODE() - this is the mode per column\n" + str(iris.mode()) + "\n----------\n")
-str12 = ("STD() - this is the standard deviation per column\n" + str(iris.std()) + "\n----------\n----------\n")
-str13 = ("DESCRIBE() - this is an overview of the dataframe (including a lot of the above again)\n" + str(iris.describe()) + "\n----------\n")
-str14 = ("CORR() - this is the correlation among the data\n" + str(iris.corr()) + "\n----------\n")
+I1 = ("----------\nInitial data exploration\n----------\n")
+I2 = ("SIZE() - the total number of entries in the dataset\n" + str(iris.size) + "\n----------\n")
+I3 = ("SHAPE() - the number of rows and columns\n" + str(iris.shape) + "\n----------\n")
+I4 = ("COLUMNS() - these are the column labels and the data tyoe\n" + str(iris.columns) + "\n----------\n")
+I5 = ("HEAD() - this is a printout of the first five rows of the dataset\n" + str(iris.head()) + "\n----------\n")
+I6 = ("DESCRIBE() - this is an overview of the dataset\n" + str(iris.describe()) + "\n----------\n")
+I7 = ("GROUPBY.DESCRIBE() - this is an overview of the dataset by species\n" + str(iris.groupby('species').describe()) + "\n----------\n")
+I8 = ("CORR() - this is the correlation in the dataset\n" + str(iris.corr()) + "\n----------\n")
 
 # prints all of the above info to a text file - iris_data.txt
-with open('outputted_iris_data_textfile.txt','w') as out:
-    out.writelines([str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14])
+with open('outputted_iris_data_textfile.txt','w') as d_a:
+    d_a.writelines([I1, I2, I3, I4, I5, I6, I7, I8])
 
-# creating scatter plots for each combination of variables petal,sepal length and width and vice versa.
-# using subplot() so I can compare them side by side. 2 rows x 2 columns.
+# # creating scatter plots for each combination of variables petal,sepal length and width and vice versa.
+# # using subplot() so I can compare them side by side. 2 rows x 2 columns.
 f, axes = plt.subplots(2, 2)
 sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species', palette=color_theme, ax=axes[0,0])
 sns.scatterplot(data=iris, x='sepal_width', y='sepal_length', hue='species', palette=color_theme, ax=axes[0,1])
 sns.scatterplot(data=iris, x='petal_length', y='petal_width', hue='species', palette=color_theme, ax=axes[1,0])
 sns.scatterplot(data=iris, x='petal_width', y='petal_length', hue='species', palette=color_theme, ax=axes[1,1])
 
-axes[0,0].set_xlabel("Sepal length (cm)", fontsize=7)
-axes[0,0].set_ylabel("Sepal width (cm)", fontsize=7)
-axes[0,1].set_xlabel("Sepal width (cm)", fontsize=7)
-axes[0,1].set_ylabel("Sepal length (cm)", fontsize=7)
-axes[1,0].set_xlabel("Petal length (cm)", fontsize=7)
-axes[1,0].set_ylabel("Petal width (cm)", fontsize=7)
-axes[1,1].set_xlabel("Petal width (cm)", fontsize=7)
-axes[1,1].set_ylabel("Petal length (cm)", fontsize=7)
+axes[0,0].set_xlabel(" ", fontsize=7)
+axes[0,0].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+axes[0,0].set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
+axes[0,1].set_xlabel(" ", fontsize=7)
+axes[0,1].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+axes[0,1].set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,0].set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+axes[1,0].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,1].set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,1].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
 # set tick format
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
-
+axes[0,0].tick_params(axis='both', which='major', labelsize=5)
+axes[0,1].tick_params(axis='both', which='major', labelsize=5)
+axes[1,0].tick_params(axis='both', which='major', labelsize=5)
+axes[1,1].tick_params(axis='both', which='major', labelsize=5)
 # set legends
-axes[0,0].legend(fontsize=7, scatterpoints=3)
-axes[0,1].legend(fontsize=7, scatterpoints=3)
-axes[1,0].legend(fontsize=7, scatterpoints=3)
-axes[1,1].legend(fontsize=7, scatterpoints=3)
+axes[0,0].legend(fontsize=6, scatterpoints=3)
+axes[0,1].legend(fontsize=6, scatterpoints=3)
+axes[1,0].legend(fontsize=6, scatterpoints=3)
+axes[1,1].legend(fontsize=6, scatterpoints=3)
 
-plt.suptitle('Scatter plots for each pair of variables', fontsize=15, fontname='fantasy')
+# prints title
+plt.suptitle('Scatter plots', fontsize=15, fontname='fantasy')
+plt.show()
 
 # creating histograms for distribution of each variable - sepal length and width, and petal length and width
 # sets up 4 plots - 2x2.
 fig, axes = plt.subplots(2,2)
 
-sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', multiple="stack", kde=True, palette=color_theme, ax=axes[0,0])
-sns.histplot(data=iris, x='sepal_width', binwidth=0.1, hue='species', multiple="stack", kde=True, palette=color_theme, ax=axes[0,1])
-sns.histplot(data=iris, x='petal_length', binwidth=0.1, hue='species', multiple="stack", kde=True, palette=color_theme, ax=axes[1,0])
-sns.histplot(data=iris, x='petal_width', binwidth=0.1, hue='species', multiple="stack", kde=True, palette=color_theme, ax=axes[1,1])
+SP1 = sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme, legend=False, ax=axes[0,0])
+SP2 = sns.histplot(data=iris, x='sepal_width', binwidth=0.1, hue='species', kde=True, palette=color_theme, legend=False, ax=axes[0,1])
+SP3 = sns.histplot(data=iris, x='petal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme, legend=False, ax=axes[1,0])
+SP4 = sns.histplot(data=iris, x='petal_width', binwidth=0.1, hue='species', kde=True, palette=color_theme, ax=axes[1,1])
 
-axes[0,0].set_xlabel("Sepal length (cm)", fontsize=7)
-axes[0,0].set_ylabel("Count", fontsize=7)
-axes[0,1].set_xlabel("Sepal width (cm)", fontsize=7)
-axes[0,1].set_ylabel("Count", fontsize=7)
-axes[1,0].set_xlabel("Petal length (cm)", fontsize=7)
-axes[1,0].set_ylabel("Count", fontsize=7)
-axes[1,1].set_xlabel("Petal width (cm)", fontsize=7)
-axes[1,1].set_ylabel("Count", fontsize=7)
+# formats x/y labels
+SP1.set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
+SP1.set_xlabel(" ", fontsize=7)
+SP1.set_ylabel("count", fontsize=7, fontname='fantasy')
+SP2.set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
+SP2.set_xlabel(" ", fontsize=7)
+SP2.set_ylabel("count", fontsize=7, fontname='fantasy')
+SP3.set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+SP3.set_ylabel("count", fontsize=7)
+SP4.set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+SP4.set_ylabel("count", fontsize=7)
 
-# set tick format
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
+# formats ticks
+SP1.tick_params(axis='both', which='major', labelsize=5)
+SP2.tick_params(axis='both', which='major', labelsize=5)
+SP3.tick_params(axis='both', which='major', labelsize=5)
+SP4.tick_params(axis='both', which='major', labelsize=5)
 
-plt.suptitle('Distribution histograms of each variable', fontsize=15, fontname='fantasy')
+# set title
+plt.suptitle('Histograms', fontsize=15, fontname='fantasy')
 plt.show()
 
-# creating a scatter matrix plot for all the variables
-
+# creating a pairplot for all the variables
 sns.pairplot(iris, hue="species", palette=color_theme)
 plt.subplots_adjust(top=.95)
-plt.suptitle('Matrix scatter plot', fontsize=15, fontname='fantasy')
+plt.suptitle('Pair Plot', fontsize=15, fontname='fantasy')
 plt.show()
 
 # 2x2 grid of boxplots
@@ -106,52 +106,22 @@ sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], fliersiz
 sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], fliersize=3, linewidth=0.5, palette=color_theme)
 sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], fliersize=3, linewidth=0.5, palette=color_theme)
 sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], fliersize=3, linewidth=0.5, palette=color_theme)
-axes[0,0].set_xlabel("Species", fontsize=7)
-axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
-axes[0,1].set_xlabel("Species", fontsize=7)
-axes[0,1].set_ylabel("Sepal Width (cm)", fontsize=7)
-axes[1,0].set_xlabel("Species", fontsize=7)
-axes[1,0].set_ylabel("Petal Length (cm)", fontsize=7)
-axes[1,1].set_xlabel("Species", fontsize=7)
-axes[1,1].set_ylabel("Petal Width (cm)", fontsize=7)
+axes[0,0].set_xlabel(" ", fontsize=7)
+axes[0,0].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+axes[0,1].set_xlabel(" ", fontsize=7)
+axes[0,1].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,0].set_xlabel(" ", fontsize=7)
+axes[1,0].set_ylabel("petal_Length (cm)", fontsize=7, fontname='fantasy')
+axes[1,1].set_xlabel(" ", fontsize=7)
+axes[1,1].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
 
 # format x,y labels
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
+axes[0,0].tick_params(axis='both', which='major', labelsize=6)
+axes[0,1].tick_params(axis='both', which='major', labelsize=6)
+axes[1,0].tick_params(axis='both', which='major', labelsize=6)
+axes[1,1].tick_params(axis='both', which='major', labelsize=6)
 
 plt.suptitle('Boxplots', fontsize=15, fontname='fantasy')
-plt.show()
-
-# boxplot of individual elements
-sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme)
-plt.xticks(fontsize=7)
-plt.yticks(fontsize=7)
-plt.suptitle('Overall boxplot of individual element values', fontsize=15, fontname='fantasy')
-plt.show()
-
-# the same as violin plots
-f, axes = plt.subplots(2,2)
-sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme)
-sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme)
-sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme)
-sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme)
-axes[0,0].set_xlabel("Species", fontsize=7)
-axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
-axes[0,1].set_xlabel("Species", fontsize=7)
-axes[0,1].set_ylabel("Sepal Width (cm)", fontsize=7)
-axes[1,0].set_xlabel("Species", fontsize=7)
-axes[1,0].set_ylabel("Petal Length (cm)", fontsize=7)
-axes[1,1].set_xlabel("Species", fontsize=7)
-axes[1,1].set_ylabel("Petal Width (cm)", fontsize=7)
-
-# format x,y labels
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
-plt.suptitle('Violin plots', fontsize=15, fontname='fantasy')
 plt.show()
 
 # violin plot stacked on a violin plot. Stingray!
@@ -164,49 +134,53 @@ sns.swarmplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], size=3
 sns.swarmplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], size=3, color='white', edgecolor='black', linewidth=.5)
 sns.swarmplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], size=3, color='white', edgecolor='black', linewidth=.5)
 sns.swarmplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], size=3, color='white', edgecolor='black', linewidth=.5)
-axes[0,0].set_xlabel("Species", fontsize=7)
-axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
-axes[0,1].set_xlabel("Species", fontsize=7)
-axes[0,1].set_ylabel("Sepal Width (cm)", fontsize=7)
-axes[1,0].set_xlabel("Species", fontsize=7)
-axes[1,0].set_ylabel("Petal Length (cm)", fontsize=7)
-axes[1,1].set_xlabel("Species", fontsize=7)
-axes[1,1].set_ylabel("Petal Width (cm)", fontsize=7)
+axes[0,0].set_xlabel(" ", fontsize=7)
+axes[0,0].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+axes[0,1].set_xlabel(" ", fontsize=7)
+axes[0,1].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,0].set_xlabel(" ", fontsize=7)
+axes[1,0].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+axes[1,1].set_xlabel(" ", fontsize=7)
+axes[1,1].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
 
 # format x,y labels
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
+axes[0,0].tick_params(axis='both', which='major', labelsize=6)
+axes[0,1].tick_params(axis='both', which='major', labelsize=6)
+axes[1,0].tick_params(axis='both', which='major', labelsize=6)
+axes[1,1].tick_params(axis='both', which='major', labelsize=6)
 
-plt.suptitle('Swarm plot - scatterplot on violinplot', fontsize=15, fontname='fantasy')
+plt.suptitle('Swarm plot', fontsize=15, fontname='fantasy')
 plt.show()
 
-# kde plots
+# kde plots - need to work on transparency
 fig, axes = plt.subplots(2,2)
-sns.kdeplot(data=iris, x="sepal_length", y="sepal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,0])
-sns.kdeplot(data=iris, x="sepal_width", y="sepal_length", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,1])
-sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,0])
-sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,1])
-axes[0,0].set_xlabel("Sepal length (cm)", fontsize=7)
-axes[0,0].set_ylabel("Sepal width (cm)", fontsize=7)
-axes[0,1].set_xlabel("Sepal width (cm)", fontsize=7)
-axes[0,1].set_ylabel("Sepal length (cm)", fontsize=7)
-axes[1,0].set_xlabel("Petal length (cm)", fontsize=7)
-axes[1,0].set_ylabel("Petal width (cm)", fontsize=7)
-axes[1,1].set_xlabel("Petal width (cm)", fontsize=7)
-axes[1,1].set_ylabel("Petal length (cm)", fontsize=7)
-# set tick format
-axes[0,0].tick_params(axis='both', which='major', labelsize=7)
-axes[0,1].tick_params(axis='both', which='major', labelsize=7)
-axes[1,0].tick_params(axis='both', which='major', labelsize=7)
-axes[1,1].tick_params(axis='both', which='major', labelsize=7)
+sns.kdeplot(data=iris, x="sepal_length", y="sepal_width", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[0,0])
+sns.kdeplot(data=iris, x="sepal_width", y="sepal_length", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[0,1])
+sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[1,0])
+sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[1,1])
 
-plt.suptitle('kde plots', fontsize=15, fontname='fantasy')
+axes[0,0].set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
+axes[0,0].set_xlabel(" ", fontsize=7)
+axes[0,0].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+axes[0,1].set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
+axes[0,1].set_xlabel(" ", fontsize=7)
+axes[0,1].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+axes[1,0].set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+axes[1,0].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,1].set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+axes[1,1].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+# set tick format
+axes[0,0].tick_params(axis='both', which='major', labelsize=6)
+axes[0,1].tick_params(axis='both', which='major', labelsize=6)
+axes[1,0].tick_params(axis='both', which='major', labelsize=6)
+axes[1,1].tick_params(axis='both', which='major', labelsize=6)
+
+plt.suptitle('KDE plots', fontsize=15, fontname='fantasy')
 plt.show()
 
 # heat map based on correlation (all species)
 iris_mx = iris.corr()
-sns.heatmap(iris_mx, annot=True, cmap="cubehelix")
-plt.suptitle('Heatmap of correlation', fontsize=15, fontname='fantasy')
+sns.heatmap(iris_mx, annot=True, cmap="cubehelix", linewidths=1, linecolor='grey')
+plt.tick_params(axis='both', which='major', labelsize=7)
+plt.suptitle('Heatmap', fontsize=15, fontname='fantasy')
 plt.show()
