@@ -164,9 +164,12 @@ virginica_petal_w = virginica['petal_width']
 # axs[1,1].set_title("petal width v length", fontsize=9, loc='right')
 
 
-fig, axes = plt.subplots(2,2)
-sns.kdeplot(data=iris, x="sepal_length", y="sepal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,0])
-sns.kdeplot(data=iris, x="sepal_width", y="sepal_length", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,1])
-sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,0])
-sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,1])
-plt.show()
+# fig, axes = plt.subplots(2,2)
+# sns.kdeplot(data=iris, x="sepal_length", y="sepal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,0])
+# sns.kdeplot(data=iris, x="sepal_width", y="sepal_length", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[0,1])
+# sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,0])
+# sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,1])
+# plt.show()
+
+summary = iris.groupby('species').describe()
+print(summary)

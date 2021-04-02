@@ -29,3 +29,34 @@ f, axes = plt.subplots(2, 2)
 # plt.show()
 
 print(iris.info())
+
+
+# # boxplot of individual elements
+# sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme)
+# plt.xticks(fontsize=7)
+# plt.yticks(fontsize=7)
+# plt.suptitle('Overall boxplot of individual element values', fontsize=15, fontname='fantasy')
+# plt.show()
+
+# # the same as violin plots
+# f, axes = plt.subplots(2,2)
+# sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme)
+# sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme)
+# sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme)
+# sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme)
+# axes[0,0].set_xlabel("Species", fontsize=7)
+# axes[0,0].set_ylabel("Sepal Length (cm)", fontsize=7)
+# axes[0,1].set_xlabel("Species", fontsize=7)
+# axes[0,1].set_ylabel("Sepal Width (cm)", fontsize=7)
+# axes[1,0].set_xlabel("Species", fontsize=7)
+# axes[1,0].set_ylabel("Petal Length (cm)", fontsize=7)
+# axes[1,1].set_xlabel("Species", fontsize=7)
+# axes[1,1].set_ylabel("Petal Width (cm)", fontsize=7)
+
+# # format x,y labels
+# axes[0,0].tick_params(axis='both', which='major', labelsize=7)
+# axes[0,1].tick_params(axis='both', which='major', labelsize=7)
+# axes[1,0].tick_params(axis='both', which='major', labelsize=7)
+# axes[1,1].tick_params(axis='both', which='major', labelsize=7)
+# plt.suptitle('Violin plots', fontsize=15, fontname='fantasy')
+# plt.show()
