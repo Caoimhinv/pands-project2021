@@ -31,31 +31,56 @@ The results can all be viewed in the outputted textfile <<outputted_iris_data_te
 We can see straight away.........!
 
 ## part 2 visualisation
-- scatter
-Visualising data can make it easier to interpret. We began by creating scatter plots looking at the relationship between each pair of variables. We do this using **myplotlib.pyplot** and **seaborn.scatterplot()** and create 4 **.subplots()** - 1. sepal length v width; 2. sepal width v length; 3. petal length v width; 4. petal width v length. 
-I've set a colour theme and grid style (**.set_style()**)for all of the visualisations. I've formatted a lot of the other elements including the various font sizes and names, and the legend.
-The first thing that jumps out is that the setosa species is quite distinct from the other two in each of the aspects. In terms of sepal dimensions, versicoler and virginica are quite closely aligned but much less so when it comes to petal dimensions where we can see it bit of divergence.
-![insert scatter plots maybe?](insert_image.png)
+Visualising data can make it easier to interpret. I'm using the **myplotlib.pyplot** and **seaborn** libraries for this. I've set a global colour theme and grid style (**.set_style()**) for all of the visualisations to give a bit of consistency.
+I spent a lot of time formatting a lot of the stylitic elements including the various font sizes and styles; the legends; marker sizes and styles; linestyles and sizes, etc. This was both to make everything more aesthetically pleasing and also to make the information clearer and easier to interpret and understand.
 
-- kde
-We can see the same data visualised here as a **kdeplot()** (kde = kernal density estimation). Again we can clearly see the setosa variety as distinct from the others. But we can see more clearly the centre kernal of both petal dimensions of the other two species more clearly defined.
-![insert kde plots maybe?](insert_image.png)
+2.1
+- boxplots. 
+![boxplot explained](box_plot_explained.gif)
 
--boxplot
-Next I tried boxplots. Here we can see some of the same patterns, i.e. the setosa species distinct from the others. But can also define better the comparison between other two species in terms of petal dimensions. In this box plot, the horozontal line in the middle of each box represents the median value while the upper and lower limits of the box represent one standard deviation from there ( I think!). The outstretched arms with lines then represent the 25% and 75% quartiles (I think), while the diamonds represent outliers. What does that all mean!!!! :)
+Next I tried boxplots. Explanation?
+First we have an overall boxplot.
 
--swarmplot
-This looks at the same data as the box plot. It's basically a scatter plot superimposed on a violin plot. I don't think it tells us anything we didn't know already but it looks nice and kind of like a flower (or a ray!)
+![overall boxplot](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/plots_visuals/boxplot.png)
 
+Blah blah blah
+We need to isolate the classes. I've created a grid of 4 boxplots using the **.subplots()** method.
+
+![separated boxplot](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/plots_visuals/boxplot2.png)
+
+Here we can see ...... the setosa species distinct from the others. But can also define better the comparison between other two species in terms of petal dimensions. In this box plot, the horozontal line in the middle of each box represents the median value while the upper and lower limits of the box represent one standard deviation from there ( I think!). The outstretched arms with lines then represent the 25% and 75% quartiles (I think), while the diamonds represent outliers. What does that all mean!!!! :)
+
+2.2
+- violin plot
+A violin plot is ........!
+![insert histogram plots here](violinplot.png)
+We can get some extra understanding of same data here. We can see a split in the petal visualisationg suggesting some separation.
+Tghe following plots are swarm plots - violin plots with the data points 'scattered' in place. I've isolated each of the classes out again and we can see the pattern more clearly. The setosa petal is definitely distinct from the other species.
+![insert histogram plots here](swarmplot.png)
+I like this visualisation as it looks more "flower-like' (or a ray!) and I play the violin! :)
+
+2.3
 -histograms
-I created 4 subplots of histograms - one for each element. Again the same findings.
+histograms are.......!
+I created 4 subplots of histograms - one for each element. Again we can see similar patterns as above. findings.
+![insert histogram plots here](histogram.png)
 
--pairplot
-This gives us a good overview of the entire dataset. Here we can see a bit more daylight between the virginica and versicolor species when we compare some of the other non-related variuables against each other. In particular petal length against sepal length and width.
+3.1
+Up until now the plotting all involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis to become **bivariate**. Scatterplots are a very simple method to see any relationships etc that may be present.
 
--heatmap
-Correlation heatmap. We can see here the elements that are clearly correlated and those that aren't, e.g. sepal length with petal length and width; petal length and width; petal length and width with sepal length.
- 
+A scatterplot is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together.
+
+I created a matrix scatterplot which plots every combination of variable pair against each other. The four diagonal boxes show stacked histograms, a slight variation on that shown above in fig. x
+![insert pairgrid Scatter here](pairgrid1.png)
+
+This is another visualisation of the same data using KDE (kernal density estimation). 
+![insert pairgrid KDE here](pairgrid2.png)
+
+
+The first thing that jumps out again is that the setosa species is quite distinct from the other two in each of the aspects. In terms of sepal dimensions, versicoler and virginica are quite closely aligned but  less so when it comes to petal dimensions where we can see it bit of divergence. However it doesn't quite separate them.
+
+4.1
+The next logical step is seeing whether the data we can predict the species of flower just based on the dimensions of sepal and/or petal. This brings us into machine learning which is outside the breadth of this course but a little research introduced me to the following......!
 
 
 
