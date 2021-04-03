@@ -60,3 +60,38 @@ print(iris.info())
 # axes[1,1].tick_params(axis='both', which='major', labelsize=7)
 # plt.suptitle('Violin plots', fontsize=15, fontname='fantasy')
 # plt.show()
+
+# # # creating scatter plots for each combination of variables petal,sepal length and width and vice versa.
+# # # using subplot() so I can compare them side by side. 2 rows x 2 columns.
+# f, axes = plt.subplots(2, 2)
+# sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species', palette=color_theme, ax=axes[0,0])
+# sns.scatterplot(data=iris, x='sepal_width', y='sepal_length', hue='species', palette=color_theme, ax=axes[0,1])
+# sns.scatterplot(data=iris, x='petal_length', y='petal_width', hue='species', palette=color_theme, ax=axes[1,0])
+# sns.scatterplot(data=iris, x='petal_width', y='petal_length', hue='species', palette=color_theme, ax=axes[1,1])
+
+# axes[0,0].set_xlabel(" ", fontsize=7)
+# axes[0,0].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[0,0].set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
+# axes[0,1].set_xlabel(" ", fontsize=7)
+# axes[0,1].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+# axes[0,1].set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[1,0].set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+# axes[1,0].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[1,1].set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[1,1].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+# # set tick format
+# axes[0,0].tick_params(axis='both', which='major', labelsize=5)
+# axes[0,1].tick_params(axis='both', which='major', labelsize=5)
+# axes[1,0].tick_params(axis='both', which='major', labelsize=5)
+# axes[1,1].tick_params(axis='both', which='major', labelsize=5)
+# # set legends
+# axes[0,0].legend(fontsize=6, scatterpoints=3)
+# axes[0,1].legend(fontsize=6, scatterpoints=3)
+# axes[1,0].legend(fontsize=6, scatterpoints=3)
+# axes[1,1].legend(fontsize=6, scatterpoints=3)
+
+# # prints title
+# plt.suptitle('Scatter plots', fontsize=15, fontname='fantasy')
+# plt.show()
+
+

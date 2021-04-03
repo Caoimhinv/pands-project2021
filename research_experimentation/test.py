@@ -62,13 +62,7 @@ virginica_petal_w = virginica['petal_width']
 # sns.clustermap(iris)
 # plt.show()
 
-# iris_g = sns.PairGrid(iris, hue = 'species')
-# iris_g.map_diag(plt.hist)
-# # iris_g.map_offdiag(plt.scatter)
-# iris_g.map_upper(plt.scatter)
-# iris_g.map_lower(sns.kdeplot)
 
-# plt.show()
 
 # so maybe kde or cluster or heat map for matrix?
 # f, axes = plt.subplots(2,2)
@@ -171,5 +165,48 @@ virginica_petal_w = virginica['petal_width']
 # sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", palette=['yellowgreen','teal','tomato'], shade=True, ax=axes[1,1])
 # plt.show()
 
-summary = iris.groupby('species').describe()
-print(summary)
+# summary = iris.groupby('species').describe()
+# print(summary)
+
+iris_g = sns.PairGrid(iris, hue = 'species')
+iris_g.map_diag(plt.hist)
+iris_g.map_upper(sns.kdeplot, shade=True)
+iris_g.map_lower(sns.kdeplot, shade=True)
+
+plt.show()
+
+# # kde plots - need to work on transparency
+# fig, axes = plt.subplots(2,2)
+# sns.kdeplot(data=iris, x="sepal_length", y="sepal_width", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[0,0])
+# sns.kdeplot(data=iris, x="sepal_width", y="sepal_length", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[0,1])
+# sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[1,0])
+# sns.kdeplot(data=iris, x="petal_length", y="petal_width", hue="species", legend=False, palette=['yellowgreen','teal','tomato'], fill=True, ax=axes[1,1])
+
+# axes[0,0].set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
+# axes[0,0].set_xlabel(" ", fontsize=7)
+# axes[0,0].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[0,1].set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[0,1].set_xlabel(" ", fontsize=7)
+# axes[0,1].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+# axes[1,0].set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+# axes[1,0].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[1,1].set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+# axes[1,1].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+# # set tick format
+# axes[0,0].tick_params(axis='both', which='major', labelsize=6)
+# axes[0,1].tick_params(axis='both', which='major', labelsize=6)
+# axes[1,0].tick_params(axis='both', which='major', labelsize=6)
+# axes[1,1].tick_params(axis='both', which='major', labelsize=6)
+
+# plt.suptitle('KDE plots', fontsize=15, fontname='fantasy')
+# plt.show()
+
+# # heat map based on correlation (all species)
+# iris_mx = iris.corr()
+# sns.heatmap(iris_mx, annot=True, cmap="cubehelix", linewidths=1, linecolor='grey')
+# plt.tick_params(axis='both', which='major', labelsize=7)
+# plt.suptitle('Heatmap', fontsize=15, fontname='fantasy')
+# plt.show()
+
+# x = iris.loc[iris['species'] == "setosa"].describe()
+# print(x)
