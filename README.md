@@ -19,7 +19,7 @@ Intro
 Fisher's Iris data set is a multivarate dataset introduced by statistician Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonuic problems*. It was collected by botanist Edgar Anderson, whom it is also sometimes named after, "to quantify the morphologic variation of Iris flowers of three related species".
 The data set consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
 
-![Image of the 3 different species of Iris.](iris_images.png)
+![Image of the 3 different species of Iris.](image_of_irises.png)
 
 Above we can see what exactly what we're referring to.
 
