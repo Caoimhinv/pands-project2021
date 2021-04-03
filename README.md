@@ -41,12 +41,12 @@ I spent a lot of time formatting a lot of the stylitic elements including the va
 Next I tried boxplots. Explanation?
 First we have an overall boxplot.
 
-![overall boxplot](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/plots_visuals/boxplot.png)
+![overall boxplot](boxplot.png)
 
 Blah blah blah
 We need to isolate the classes. I've created a grid of 4 boxplots using the **.subplots()** method.
 
-![separated boxplot](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/plots_visuals/boxplot2.png)
+![separated boxplot](boxplot2.png)
 
 Here we can see ...... the setosa species distinct from the others. But can also define better the comparison between other two species in terms of petal dimensions. In this box plot, the horozontal line in the middle of each box represents the median value while the upper and lower limits of the box represent one standard deviation from there ( I think!). The outstretched arms with lines then represent the 25% and 75% quartiles (I think), while the diamonds represent outliers. What does that all mean!!!! :)
 
