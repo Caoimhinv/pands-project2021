@@ -73,6 +73,16 @@ Removed violin plot and overall boxplot. Not sure if they're offering anything t
 More formatting!!
 Did a good bit more on the README. Need to really learn what all of this means!!
 
+3 April
+Did a bit more research on other peoples attempts at this. Seems I'm on the right track anyway! Or at least a similar track!
+Did a bit more reformatting on the plots. Got rid of a few duplicates.
+Did a bit more work on the README.
+
+5 April 
+More work on README. 
+More comments added.
+Replaced swarmplot with stripplot
+
 Refs
 https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
 https://www.questionpro.com/blog/quantitative-data/
@@ -105,4 +115,7 @@ https://www.w3schools.com/python/ref_file_writelines.asp
 https://seaborn.pydata.org/generated/seaborn.kdeplot.html
 https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
 image for irises - https://morioh.com/p/eafb28ccf4e3
-
+https://matplotlib.org/stable/gallery/color/named_colors.html
+https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+https://seaborn.pydata.org/generated/seaborn.violinplot.html
+https://seaborn.pydata.org/generated/seaborn.swarmplot.html
