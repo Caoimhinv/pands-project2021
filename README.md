@@ -45,7 +45,6 @@ The first major thing to jump out is the setosa species has a much lower mean pe
 
 The results can all be viewed in the outputted textfile <<outputted_iris_data_textfile.txt>>. 
 
-
 ## part 2 - visualisation
 ### 2.1
 Visualising data can make it easier to interpret. I've set a global colour theme and grid style (**.set_style()**) for all of the visualisations to give a bit of consistency.
@@ -76,12 +75,12 @@ Here we can see ...... the setosa species distinct from the others. But can also
 ![insert violin plots here](violinplot.png)
 
 We can get some extra understanding of same data here. We can see a split in the petal visualisationg suggesting some separation.
-- swarm plot
+- strip plot
 >"a good complement to a box or violin plot in cases where you want to show all observations along with some representation of the underlying distribution."
 
 These are in effect violin plots with the data points 'scattered' to represent the distribution of values. I've isolated each of the classes out again and we can see the pattern more clearly. The setosa petal again emerges distinct from the other species.
 
-![insert swarm plots here](swarmplot.png)
+![insert strip plots here](stripplot.png)
 
 *I like this visualisation as it looks more "flower-like' (or a ray!) and I play the violin! :)*
 
@@ -90,7 +89,7 @@ These are in effect violin plots with the data points 'scattered' to represent t
 histograms are the most commonly used graph to show frequency distributions. I've created 4 subplots of histograms - one for each variable. 
 ![insert histogram plots here](histogram.png)
 
-??????
+I've also included a KDE curve.
 
 ### 2.5
 Up until now the plotting all involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest method to explore this.
