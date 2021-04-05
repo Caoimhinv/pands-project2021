@@ -42,7 +42,7 @@ Visualising data can make it much easier to interpret and present, so I put a lo
 I've set a global colour theme and grid style (**.set_style()**) for all of the visualisations to give a bit of consistency. I spent a lot of time formatting a lot of the stylitic elements including the various font sizes and styles; the legends; marker sizes and styles; linestyles and sizes, etc. This was both to make everything more aesthetically pleasing and also to make the information clearer and easier to interpret and understand.
 
 ### 2.2
-- box plots. 
+- **box plot**  
 >"A boxplot is a standardized way of displaying the distribution of data based on a five number summary (“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). It can tell you about your outliers and what their values are. It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed."
 
 ![boxplot explained](box_plot_explained2.png)
@@ -56,44 +56,45 @@ To find out more we need to isolate the elements and see what is going on with e
 
 ![separated boxplot](boxplot1.png)
 
-Here we can see the setosa species emerging as being quite distinct from the others particularly in terms of petal length and width. But we can also define somewhat a difference between the other two species in terms of petal dimensions.
+Here we can see the setosa species emerging as being quite distinct from the others particularly in terms of petal length and width. But we can also define somewhat of a difference between the other two species in terms of petal dimensions.
 
-### 2.3
-- violin plot
+### 2.3  
+- **violin plot**  
 >"A violin plot plays a similar role as a box ... plot. It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared. Unlike a box plot, in which all of the plot components correspond to actual datapoints, the violin plot features a kernel density estimation of the underlying distribution."
 
 ![insert violin plots here](violinplot.png)
 
-We can get some extra understanding of same data here. We can see a split in the petal visualisationg suggesting some separation.
-- strip plot
+We can get some extra understanding of same data here. We can see a split in the petal visualisationg suggesting some separation.  
+
+- **strip plot**  
 >"a good complement to a box or violin plot in cases where you want to show all observations along with some representation of the underlying distribution."
 
 These are in effect violin plots with the data points 'scattered' to represent the distribution of values. I've isolated each of the classes out again and we can see the pattern more clearly. The setosa petal again emerges distinct from the other species when we look at the petal dimensions.
 
 ![insert strip plots here](stripplot.png)
 
-*I like this visualisation as it looks more "flower-like' (or a ray!) and I play the violin! :)*
-
-### 2.4
--histograms
+### 2.4  
+- **histogram**  
 histograms are the most commonly used graph to show frequency distributions. I've created 4 subplots of histograms - one for each variable. 
+
 ![insert histogram plots here](histogram.png)
 
-I've also included a KDE curve.
+I've also included a KDE curve which estimated the density between the data points. We can clearly see the same  pattern as above with the setosa petal quite separate to the others.
 
 ### 2.5
-Up until now the plotting all involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest method to explore this.
-
+Up until now all of the plotting has involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest and most common method to explore this.
+- **scatter plot**
 >"A scatterplot is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together."
 
-I've used the seaborn **.PairGrid()** tool to create a **scatterplot matrix** where every combination of variable is plotted against each other. The four diagonal boxes show histograms, a clearer example of which is to follow.
+I've used the seaborn **.PairGrid()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms.
+
 ![insert pairgrid Scatter here](pairgrid1.png)
 
-This is another visualisation of the same data this time using KDE (kernal density estimation), which is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visuyally pleasing and less cluttered than the scatter plots while revealing the same information
+Below is another visualisation of the same data this time using KDE (kernal density estimation), which is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information
 
 ![insert pairgrid KDE here](pairgrid2.png)
 
-Again we can see clearly that the setosa species is quite distinct from the other two in each of the aspects, especially petal dimensions. In terms of sepal dimensions, versicoler and virginica are quite closely aligned but  less so when it comes to petal dimensions where we can see it bit of divergence. However it doesn't quite separate them.
+Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned but  less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
 ### 2.6
 So it looks like we can quite easily separate and identify the setosa species, but the other two aren't as easily defined. We can have a good idea but nothing conclusive.
