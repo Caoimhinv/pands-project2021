@@ -83,6 +83,13 @@ More work on README.
 More comments added.
 Replaced swarmplot with stripplot
 
+A bit of a break to concentrate on other modules!
+
+9 April
+Added some new analysis. totals and means per row.
+And reformatted a lot of the txt section
+Updated README
+
 Refs
 https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
 https://www.questionpro.com/blog/quantitative-data/
@@ -119,3 +126,4 @@ https://matplotlib.org/stable/gallery/color/named_colors.html
 https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 https://seaborn.pydata.org/generated/seaborn.violinplot.html
 https://seaborn.pydata.org/generated/seaborn.swarmplot.html
+https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
