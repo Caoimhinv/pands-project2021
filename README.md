@@ -24,7 +24,9 @@ I read the file using **pandas** with the following:
     iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
 ### 1.2
-I was then able to start some initial parsing of the data. I found the **.size()** and **.shape()** of the data, followed then by the column names (**.columns()**), and then printed out the first and last 5 lines of the data set using the **.head()** and **.tail()** tools, plus a random/sample 5 rows using the **.sample()** tool. We can see that there is 750 entries divided into 150 rows and 5 columns. The columns are titled 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', and 'species'. The printout out of the first 5 rows shows that they are all the same species - 'setosa' - and that all the values are 5.1 and less, with the sepal being considerably bigger than the petal. The last 5 rows are all of the 'virginica' species' with the dimensions being quite different but less of a difference between sepal and petal size. The sample 5 rows displayed out show a 3rd species, versicolor, and also display a siginificant range in values in the petal dimensions.
+*Note: the program writes a summation of all of the following findings to the text file <outputted_iris_data_textfile.txt>, a copy of which is inclued in this repositry.*
+I was then able to start some initial parsing of the data. I found the **.size()** and **.shape()** of the data, followed then by the column names (**.columns()**). **.isnull()** tells me their are no missing values in the dataset. I then printed out the first and last 5 lines of the data set using the **.head()** and **.tail()** tools, plus a random/sample 5 rows using the **.sample()** tool. We can see that there are 750 entries divided into 150 rows and 5 columns.
+The columns are titled 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', and 'species'. The printout out of the first 5 rows shows that they are all the same species - 'setosa' - and that all the values are 5.1 and less, with the sepal being considerably bigger than the petal. The last 5 rows are all of the 'virginica' species' with the dimensions being quite different but less of a difference between sepal and petal size. The sample 5 rows displayed out show a 3rd species, versicolor, and also display a siginificant range in values in the petal dimensions. **.value_counts()** tells me that the 150 rows are divided evenly between these 3 species.
 
 ### 1.3
 I used the **.describe()** method to delve a bit deeper into the data. This produced a lot of useful information such as the maximum and minimum values, the mean, and the standard deviation. We can quickly see that what was suggested above about the petal dimensions is very much the case with a very significant range between the lowest and highest petal length (1.0 - 6.9) and a standard deviation of 1.76.
@@ -34,7 +36,10 @@ To dig further we needed to apply the same method to each variety in isolation. 
 
 The first major thing to emerge is that the setosa species has a much lower mean petal length and width than the other 2 varieties. The virginica has the highest mean petal length but surprisingly the setosa has the highest mean petal width. The standard deviations are all much lower suggesting much less variance when each species is taken in isolation.
 
-The results are all saved and printed to a text file (<outputted_iris_data_textfile.txt>) once the program is run. This can  be viewed in the repositry.
+I then decided to add all of the dimensions on each row and create a new column entitled **'totals'**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
+I then isolated each species and viewed the **head** of each with the new columns, and then calculated the mean and standard deviation for the **totals** column. I could have used **describe()** again but I'm not sure how much useful extra information that would produce. So we can clearly see a distinction here with the setosa species appearing considerably smaller, with a relatively low standard deviation. The others are a little closer in dimension with a higher SD.
+
+Again all of these results can be viewed in the text file <outputted_iris_data_textfile.txt> in the repositry.
 
 ## part 2 - visualisation
 ### 2.1
@@ -139,7 +144,10 @@ https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 https://seaborn.pydata.org/generated/seaborn.violinplot.html
 https://seaborn.pydata.org/generated/seaborn.swarmplot.html
 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
-
+https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
+https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
+https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03
+https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
 
 
 
