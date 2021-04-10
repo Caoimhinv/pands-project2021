@@ -108,46 +108,56 @@ So it looks like we can quite easily separate and identify the setosa species, b
 The next logical step is seeing whether the data we can predict the species of flower just based on the dimensions of sepal and/or petal. This brings us into machine learning which is outside the breadth of this course but a little research introduced me to the following......!
 
 ## References
-https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
-https://www.questionpro.com/blog/quantitative-data/
-https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
-https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
-https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter
-https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
-https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
-https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/
-https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
-https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
-https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
-https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
-https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas
-https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller
-https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
-https://www.marsja.se/pandas-scatter-matrix-pair-plot/
-https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
-https://seaborn.pydata.org/generated/seaborn.pairplot.html
-https://seaborn.pydata.org/generated/seaborn.histplot.html
-https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot
-https://seaborn.pydata.org/tutorial/axis_grids.html
-https://seaborn.pydata.org/generated/seaborn.scatterplot.html
-https://seaborn.pydata.org/generated/seaborn.scatterplot.html
-YouTube video on seaborn - https://www.youtube.com/watch?v=6GUZXDef2U0
-https://seaborn.pydata.org/tutorial/color_palettes.html
-https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/
-https://stackoverflow.com/questions/52096050/seaborn-title-position
-https://www.w3schools.com/python/ref_file_writelines.asp
-https://seaborn.pydata.org/generated/seaborn.kdeplot.html
-https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
-image for irises - https://morioh.com/p/eafb28ccf4e3
-https://matplotlib.org/stable/gallery/color/named_colors.html
-https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
-https://seaborn.pydata.org/generated/seaborn.violinplot.html
-https://seaborn.pydata.org/generated/seaborn.swarmplot.html
-https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
-https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
-https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
-https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03
-https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
+### Background and source code
+- *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the origin!) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
+- *Iris Data Set* (source for code and some background) - https://archive.ics.uci.edu/ml/datasets/Iris
+- Another source for code - https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv
+- *Iris flower data set* (Wikipedia) - https://en.wikipedia.org/wiki/Iris_flower_data_set
+- *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui - https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5
+- *Quantitative Data: Definition, Types, Analysis and Examples* - https://www.questionpro.com/blog/quantitative-data/
+- *Your Guide to Qualitative and Quantitative Data Analysis Methods* - https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
+
+### Initial data exploration
+- *Exploratory Data Analysis of IRIS Data Set Using Python* by Venkata Sai Reddy Avuluri - https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
+- *Python File writelines() Method* - https://www.w3schools.com/python/ref_file_writelines.asp
+- *Python – Basics of Pandas using Iris Dataset* - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
+- *How to Export Pandas DataFrame to CSV* - https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03
+- *Python Set copy() Method* - https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
+- *Source for irises image* - https://morioh.com/p/eafb28ccf4e3
+
+### Data visualisation
+- *Scatter plots in matplotlib.pyplot* - https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
+- "How to Set Axis Range (xlim, ylim) in Matplotlib" - https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
+- *Multiple subplots in matplotlib.pyplot* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
+- *Set a Single Main Title for All the Subplots in Matplotlib* - https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/
+- *Legend in matplotlib.pyplot* - https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
+- *Matplotlib legends in subplot* - https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
+- *Creating multiple subplots using plt.subplots* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
+- *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn* - https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas
+- *Matplotlib make tick labels font size smaller* - https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller
+- *Set_linestyle in matplotlib.pyplot* - https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
+- *How to use Pandas Scatter Matrix (Pair Plot) to Visualize Trends in Data8 - Erik Marsja - https://www.marsja.se/pandas-scatter-matrix-pair-plot/
+- *Pair plots using Scatter matrix in Pandas* - https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
+- *List of named colors in matplotlib* - https://matplotlib.org/stable/gallery/color/named_colors.html
+- *Understanding Boxplots* (and source for 'boxplots explained' image) - Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+- "matplotlib.pyplot" - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
+
+#### Seaborn
+- *Seaborn Tutorial 2020* (YouTube) - Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0
+- *seaborn.pairplot* - https://seaborn.pydata.org/generated/seaborn.pairplot.html
+- *seaborn.histplot* - https://seaborn.pydata.org/generated/seaborn.histplot.html
+- *seaborn.scatterplot* - https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+- *seaborn.kdeplot* - https://seaborn.pydata.org/generated/seaborn.kdeplot.html
+- *seaborn.violinplot* - https://seaborn.pydata.org/generated/seaborn.violinplot.html
+- *seaborn.swarmplot* - https://seaborn.pydata.org/generated/seaborn.swarmplot.html
+- *Subplot for seaborn boxplot* - https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot
+- *Building structured multi-plot grids in seaborn* - https://seaborn.pydata.org/tutorial/axis_grids.html
+- *Choosing color palettes in seaborn* - https://seaborn.pydata.org/tutorial/color_palettes.html
+- *How To Change Edge Color on Seaborn Scatter Plot* - https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/
+- *Seaborn Title Position* - https://stackoverflow.com/questions/52096050/seaborn-title-position
+- *KDE Plot Visualization with Pandas and Seaborn* - https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
+
+
 
 
 
