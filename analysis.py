@@ -44,16 +44,16 @@ setosa = iris2.loc[iris2["species"] == "setosa"]
 versicolor = iris2.loc[iris2["species"] == "versicolor"]
 virginica = iris2.loc[iris2["species"] == "virginica"]
 
-I16 = ("\nThe following are the first 5 rows of the updated dataset with totals and means of each row\n")
+I16 = ("\nThe following are the first 5 rows of each class with totals and means of each row included\n")
 I17 = ("--setosa--\n" + str(setosa.head()) + "\n\n")
 I18 = ("--versicolor--\n" + str(versicolor.head()) + "\n\n")
 I19 = ("--virginica--\n" + str(virginica.head()) + "\n\n----------\n")
 
 I20 = ("\nmean for setosa " + str(setosa[["totals"]].mean()) + "\n")
 I21 = ("mean for versicolor " + str(versicolor[["totals"]].mean()) + "\n")
-I22 = ("mean for virginica " + str(virginica[["totals"]].mean()) + "\n----------\n")
+I22 = ("mean for virginica " + str(virginica[["totals"]].mean()) + "\n\n----------\n")
 
-I23 = ("standard deviation for setosa " + str(setosa[['totals']].std()) + "\n")
+I23 = ("\nstandard deviation for setosa " + str(setosa[['totals']].std()) + "\n")
 I24 = ("standard deviation for versicolor " + str(versicolor[['totals']].std()) + "\n")
 I25 = ("standard deviation for virginica " + str(virginica[['totals']].std()) + "\n")
 
@@ -64,7 +64,7 @@ with open('outputted_iris_data_textfile.txt','w') as d_a:
 
 # writes updated csv file with totals and means per row
 # seems to produce lots of decimals????
-iris2.to_csv('iris_dataset_with_totals.csv')
+iris2.to_csv('iris_dataset_with_totals.csv', float_format='%.2f')
 
 # # Visualisations
 

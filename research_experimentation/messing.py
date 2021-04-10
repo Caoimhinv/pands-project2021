@@ -159,8 +159,10 @@ iris["mean"] = original_columns.mean(axis=1)
 # # iris.to_csv('iris_dataset_with_totals.csv')
 # # print(iris.describe())
 # # print(iris.head())
-# # totals = iris[["totals"]]
-# # print (totals.head(10))  
+totals = iris[["totals"]]
+print (totals)  
+print(iris.head(10))
+iris.to_csv('itest.csv', float_format='%.2f')
 
 # # print(setosa.describe())
 # # print(versicolor.describe())

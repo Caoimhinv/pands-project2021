@@ -111,7 +111,8 @@ Again we can see clearly that the setosa species is quite distinct from the othe
 ### 2.6
 So it looks like we can quite easily discriminate between the setosa species, but the other two aren't as easily defined. We can have a good idea but nothing conclusive.
 
-## References
+## References  
+
 ### Background and source code
 - *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the origin!) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
 - *Iris Data Set* (source for code and some background) - https://archive.ics.uci.edu/ml/datasets/Iris
@@ -128,10 +129,11 @@ So it looks like we can quite easily discriminate between the setosa species, bu
 - *How to Export Pandas DataFrame to CSV* - https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03
 - *Python Set copy() Method* - https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
 - *Source for irises image* - https://morioh.com/p/eafb28ccf4e3
+- *round when sending to .csv file* - https://github.com/pandas-dev/pandas/issues/13159
 
 ### Data visualisation
 
-### pandas/matplotlib.pyplot
+#### pandas/matplotlib.pyplot
 - *matplotlib.pyplot* - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
 - *Scatter plots* - https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
 - *How to Set Axis Range (xlim, ylim) in Matplotlib* - https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/

@@ -15,10 +15,10 @@ iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/p
 # sns.jointplot(data=iris, x='petal_width', y='petal_length', kind='kde', ax=axes[1,1])
 
 # plt.show()
-color_theme2 = ['yellowgreen','teal','tomato', 'plum']
-iris_mx = iris.corr()
-sns.heatmap(iris_mx, annot=True, cmap="cubehelix")
-plt.show()
+# color_theme2 = ['yellowgreen','teal','tomato', 'plum']
+# iris_mx = iris.corr()
+# sns.heatmap(iris_mx, annot=True, cmap="cubehelix")
+# plt.show()
 
 # species = iris.pop('species')
 # versicolor = species
@@ -28,8 +28,9 @@ plt.show()
 # sns.clustermap(iris)
 # plt.show()
 
-print(iris.info())
 
+iris1 = iris.style.format({'sepal_length': "{:+.2f}", 'totals': '{:+.2f}'})
+print(type(iris))
 
 # # boxplot of individual elements
 # sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme)
