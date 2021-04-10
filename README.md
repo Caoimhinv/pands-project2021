@@ -50,7 +50,7 @@ I've set a global colour theme and grid style (**.set_style()**) for all of the 
 - **box plot**  
 >"A boxplot is a standardized way of displaying the distribution of data based on a five number summary (“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). It can tell you about your outliers and what their values are. It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed."
 
-![boxplot explained](Programming2021/pands-project2021/plots_visuals/box_plot_explained2.png)
+![boxplot explained](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/plots_visuals/box_plot_explained2.png)
 
 The box plot seemed to be the best place to start to get an overall impression of the data. We started with an overall boxplot taking in all of the data at once:
 
