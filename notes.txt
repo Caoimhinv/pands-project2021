@@ -90,40 +90,7 @@ Added some new analysis. totals and means per row.
 And reformatted a lot of the txt section
 Updated README
 
-Refs
-https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
-https://www.questionpro.com/blog/quantitative-data/
-https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
-https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
-https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter
-https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
-https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
-https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/
-https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
-https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
-https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
-https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
-https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas
-https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller
-https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
-https://www.marsja.se/pandas-scatter-matrix-pair-plot/
-https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
-https://seaborn.pydata.org/generated/seaborn.pairplot.html
-https://seaborn.pydata.org/generated/seaborn.histplot.html
-https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot
-https://seaborn.pydata.org/tutorial/axis_grids.html
-https://seaborn.pydata.org/generated/seaborn.scatterplot.html
-https://seaborn.pydata.org/generated/seaborn.scatterplot.html
-YouTube video on seaborn - https://www.youtube.com/watch?v=6GUZXDef2U0
-https://seaborn.pydata.org/tutorial/color_palettes.html
-https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/
-https://stackoverflow.com/questions/52096050/seaborn-title-position
-https://www.w3schools.com/python/ref_file_writelines.asp
-https://seaborn.pydata.org/generated/seaborn.kdeplot.html
-https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
-image for irises - https://morioh.com/p/eafb28ccf4e3
-https://matplotlib.org/stable/gallery/color/named_colors.html
-https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
-https://seaborn.pydata.org/generated/seaborn.violinplot.html
-https://seaborn.pydata.org/generated/seaborn.swarmplot.html
-https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
+10 April
+Updating and formatting reference section.
+Organising repositry better.
+

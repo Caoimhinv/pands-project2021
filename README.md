@@ -102,16 +102,13 @@ Below is another visualisation of the same data this time using KDE (kernal dens
 Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned but  less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
 ### 2.6
-So it looks like we can quite easily separate and identify the setosa species, but the other two aren't as easily defined. We can have a good idea but nothing conclusive.
-
-### Part 3 further!
-The next logical step is seeing whether the data we can predict the species of flower just based on the dimensions of sepal and/or petal. This brings us into machine learning which is outside the breadth of this course but a little research introduced me to the following......!
+So it looks like we can quite easily discriminate between the setosa species, but the other two aren't as easily defined. We can have a good idea but nothing conclusive.
 
 ## References
 ### Background and source code
 - *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the origin!) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
 - *Iris Data Set* (source for code and some background) - https://archive.ics.uci.edu/ml/datasets/Iris
-- Another source for code - https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv
+- *Another source for code* - https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv
 - *Iris flower data set* (Wikipedia) - https://en.wikipedia.org/wiki/Iris_flower_data_set
 - *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui - https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5
 - *Quantitative Data: Definition, Types, Analysis and Examples* - https://www.questionpro.com/blog/quantitative-data/
@@ -126,24 +123,26 @@ The next logical step is seeing whether the data we can predict the species of f
 - *Source for irises image* - https://morioh.com/p/eafb28ccf4e3
 
 ### Data visualisation
-- *Scatter plots in matplotlib.pyplot* - https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
-- "How to Set Axis Range (xlim, ylim) in Matplotlib" - https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
-- *Multiple subplots in matplotlib.pyplot* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
+
+### pandas/matplotlib.pyplot
+- *matplotlib.pyplot* - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
+- *Scatter plots* - https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
+- *How to Set Axis Range (xlim, ylim) in Matplotlib* - https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
+- *Multiple subplots* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
 - *Set a Single Main Title for All the Subplots in Matplotlib* - https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/
-- *Legend in matplotlib.pyplot* - https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
-- *Matplotlib legends in subplot* - https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
+- *Legend* - https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
+- *Legends in subplot* - https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
 - *Creating multiple subplots using plt.subplots* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
 - *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn* - https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas
 - *Matplotlib make tick labels font size smaller* - https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller
-- *Set_linestyle in matplotlib.pyplot* - https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
-- *How to use Pandas Scatter Matrix (Pair Plot) to Visualize Trends in Data8 - Erik Marsja - https://www.marsja.se/pandas-scatter-matrix-pair-plot/
+- *set_linestyle* - https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
+- *How to use Pandas Scatter Matrix (Pair Plot) to Visualize Trends in Data* by Erik Marsja - https://www.marsja.se/pandas-scatter-matrix-pair-plot/
 - *Pair plots using Scatter matrix in Pandas* - https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
 - *List of named colors in matplotlib* - https://matplotlib.org/stable/gallery/color/named_colors.html
-- *Understanding Boxplots* (and source for 'boxplots explained' image) - Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
-- "matplotlib.pyplot" - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
+- *Understanding Boxplots* (and source for 'boxplots explained' image) by Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 
 #### Seaborn
-- *Seaborn Tutorial 2020* (YouTube) - Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0
+- *Seaborn Tutorial 2020* (YouTube) by Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0
 - *seaborn.pairplot* - https://seaborn.pydata.org/generated/seaborn.pairplot.html
 - *seaborn.histplot* - https://seaborn.pydata.org/generated/seaborn.histplot.html
 - *seaborn.scatterplot* - https://seaborn.pydata.org/generated/seaborn.scatterplot.html

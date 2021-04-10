@@ -76,7 +76,7 @@ b = sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme2) # c
                                                                             # marker size (fliersize), and colour palette defined
 plt.tick_params(axis='both', which='major', labelsize=7) # formats ticks on each axis
 b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with font and fontsize
-plt.suptitle('Boxplot (all irises)', fontsize=15, fontname='fantasy') # prints title and sets font and fontsize
+plt.suptitle('Boxplot (all classes)', fontsize=15, fontname='fantasy') # prints title and sets font and fontsize
 plt.show()
 
 # boxplot grid separating out each species
@@ -103,7 +103,7 @@ axes[0,1].tick_params(axis='both', which='major', labelsize=6)
 axes[1,0].tick_params(axis='both', which='major', labelsize=6)
 axes[1,1].tick_params(axis='both', which='major', labelsize=6)
 # prints title and formatting
-plt.suptitle('Boxplots (species separated)', fontsize=15, fontname='fantasy')
+plt.suptitle('Boxplots (classes separated)', fontsize=15, fontname='fantasy')
 plt.show()
 
 # creating violin plots
@@ -111,7 +111,7 @@ plt.show()
 b = sns.violinplot(data=iris, linewidth=0.5, fliersize=6, inner='point', palette=color_theme2) # creates plot with formatting
 plt.tick_params(axis='both', which='major', labelsize=7) # sets ticks
 b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with formatting
-plt.suptitle('Violinplot (all irises)', fontsize=15, fontname='fantasy') # sets title with formatting
+plt.suptitle('Violinplot (all classes)', fontsize=15, fontname='fantasy') # sets title with formatting
 plt.show()
 
 # Stripplots
@@ -142,7 +142,7 @@ axes[0,1].tick_params(axis='both', which='major', labelsize=6)
 axes[1,0].tick_params(axis='both', which='major', labelsize=6)
 axes[1,1].tick_params(axis='both', which='major', labelsize=6)
 # sets title with formatting
-plt.suptitle('Strip plots (species separated and data points scattered)', fontsize=13, fontname='fantasy')
+plt.suptitle('Strip plots (classes separated and data points scattered)', fontsize=13, fontname='fantasy')
 plt.show()
 
 # histograms to show distribution of each variable
