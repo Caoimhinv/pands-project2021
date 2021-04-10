@@ -19,7 +19,9 @@ Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width',
 
 ----------
 
-ISNULL() - this returns if there are any null or missing values. Everything here is FALSE which means no null values     sepal_length  sepal_width  petal_length  petal_width  species
+ISNULL() - this returns if there are any null or missing values.
+Everything here is FALSE which means no null values
+     sepal_length  sepal_width  petal_length  petal_width  species
 0           False        False         False        False    False
 1           False        False         False        False    False
 2           False        False         False        False    False
@@ -58,18 +60,18 @@ TAIL() - this is a printout of the last five rows of the dataset:
 
 SAMPLE() - this is a printout of a random five rows of the dataset:
      sepal_length  sepal_width  petal_length  petal_width     species
-69            5.6          2.5           3.9          1.1  versicolor
-10            5.4          3.7           1.5          0.2      setosa
-2             4.7          3.2           1.3          0.2      setosa
-147           6.5          3.0           5.2          2.0   virginica
-98            5.1          2.5           3.0          1.1  versicolor
+64            5.6          2.9           3.6          1.3  versicolor
+36            5.5          3.5           1.3          0.2      setosa
+52            6.9          3.1           4.9          1.5  versicolor
+110           6.5          3.2           5.1          2.0   virginica
+106           4.9          2.5           4.5          1.7   virginica
 
 ----------
 
-VALUE_COUNTS() - this shows how many values for each species
+VALUE_COUNTS() - this shows how many values for each class/species
+virginica     50
 versicolor    50
 setosa        50
-virginica     50
 Name: species, dtype: int64
 
 ----------
@@ -83,7 +85,7 @@ petal_width   150.0  1.198667  0.763161  0.1  0.3  1.30  1.8  2.5
 
 ----------
 
-DESCRIBE() by species - same overview but with each species isolated
+DESCRIBE() by class - same overview but with each class isolated
 --setosa--
               count   mean       std  min    25%  50%    75%  max
 sepal_length   50.0  5.006  0.352490  4.3  4.800  5.0  5.200  5.8
@@ -104,6 +106,15 @@ sepal_length   50.0  6.588  0.635880  4.9  6.225  6.50  6.900  7.9
 sepal_width    50.0  2.974  0.322497  2.2  2.800  3.00  3.175  3.8
 petal_length   50.0  5.552  0.551895  4.5  5.100  5.55  5.875  6.9
 petal_width    50.0  2.026  0.274650  1.4  1.800  2.00  2.300  2.5
+
+----------
+
+CORR() - this shows the correlation between the variables in the data:
+              sepal_length  sepal_width  petal_length  petal_width
+sepal_length      1.000000    -0.109369      0.871754     0.817954
+sepal_width      -0.109369     1.000000     -0.420516    -0.356544
+petal_length      0.871754    -0.420516      1.000000     0.962757
+petal_width       0.817954    -0.356544      0.962757     1.000000
 
 ----------
 

@@ -34,27 +34,34 @@ To dig further we needed to apply the same method to each variety in isolation. 
 
     iris.loc[iris['species'] == "setosa"].describe()
 
-The first major thing to emerge is that the setosa species has a much lower mean petal length and width than the other 2 varieties. The virginica has the highest mean petal length but surprisingly the setosa has the highest mean petal width. The standard deviations are all much lower suggesting much less variance when each species is taken in isolation.
+The first major thing to emerge is that the setosa species has a much lower mean petal length and width than the other 2 varieties. The virginica has the highest mean petal length but surprisingly the setosa has the highest mean petal width. The standard deviations are all much lower suggesting much less variance when each species is taken in isolation.  
 
-I then decided to add all of the dimensions on each row and create a new column entitled **'totals'**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
+I then looked at correlation in the dataset with the **.corr()** tool. This reveals stong correlation between petal width and length, but considerably less between sepal length and width. Interestingly there is also a strong correlation between sepal length and both petal length and width.
+
+Next, I decided to add all of the dimensions on each row and create a new column entitled **'totals'**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
 I then isolated each species and viewed the **head** of each with the new columns, and then calculated the mean and standard deviation for the **totals** column. I could have used **describe()** again but I'm not sure how much useful extra information that would produce. So we can clearly see a distinction here with the setosa species appearing considerably smaller, with a relatively low standard deviation. The others are a little closer in dimension with a higher SD.
 
 Again all of these results can be viewed in the text file <outputted_iris_data_textfile.txt> in the repositry.
 
 ## part 2 - visualisation
-### 2.1
+
 Visualising data can make it much easier to interpret and present, so I put a lot of energy into this aspect of the project. The libraries **matplotlib.pyplot** and its relative **seaborn** contain many powerful and highly effective analysis and visualisation tools in this area, so I endeavoured to get the most of them that I could.
 I've set a global colour theme and grid style (**.set_style()**) for all of the visualisations to give a bit of consistency. I spent a lot of time formatting a lot of the stylitic elements including the various font sizes and styles; the legends; marker sizes and styles; linestyles and sizes, etc. This was both to make everything more aesthetically pleasing and also to make the information clearer and easier to interpret and understand.
+
+### 2.1
+- **heatmap**
+We begin by creating a heatmap based on the correlation we investigated above. The findings are very clear when presented like this, i.e. the darker areas representing the least correlation and vice versa.
+![heatmap](heatmap.png)
 
 ### 2.2
 - **box plot**  
 >"A boxplot is a standardized way of displaying the distribution of data based on a five number summary (“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). It can tell you about your outliers and what their values are. It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed."
 
-![boxplot explained](/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/plots_visuals/box_plot_explained2.png)
+![boxplot explained](box_plot_explained2.png)
 
 The box plot seemed to be the best place to start to get an overall impression of the data. We started with an overall boxplot taking in all of the data at once:
 
-![overall boxplot](Programming2021/pands-project2021/plots_visuals/boxplot.png)
+![overall boxplot](boxplot.png)
 
 We can see all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We can see this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
 To find out more we need to isolate the elements and see what is going on with each individual species. I've created a grid of 4 boxplots here using the **.subplots()** tool.
