@@ -50,11 +50,11 @@ I've set a global colour theme and grid style (**.set_style()**) for all of the 
 - **box plot**  
 >"A boxplot is a standardized way of displaying the distribution of data based on a five number summary (“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). It can tell you about your outliers and what their values are. It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed."
 
-![boxplot explained](box_plot_explained2.png)
+![boxplot explained](Programming2021/pands-project2021/plots_visuals/box_plot_explained2.png)
 
 The box plot seemed to be the best place to start to get an overall impression of the data. We started with an overall boxplot taking in all of the data at once:
 
-![overall boxplot](boxplot.png)
+![overall boxplot](Programming2021/pands-project2021/plots_visuals/boxplot.png)
 
 We can see all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We can see this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
 To find out more we need to isolate the elements and see what is going on with each individual species. I've created a grid of 4 boxplots here using the **.subplots()** tool.
