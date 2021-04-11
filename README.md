@@ -2,18 +2,33 @@
 ## Programming and Scripting project 2021  
 -----
 ## Intro  
-Fisher's Iris data set is a multivarate dataset introduced by statistician Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonic problems*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, "to quantify the morphologic variation of Iris flowers of three related species".
-The data set consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
+Fisher's Iris data set is a multivarate dataset introduced by statistician Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonic problems* in the journal *Annals of Eugenics*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, "to quantify the morphologic variation of Iris flowers of three related species".
+The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
 *Below we can see what exactly what we're referring to.*
 
 ![Image of the 3 different species of Iris.](image_of_irises.png)
 
 
+>**Taxonomy** - *"... the scientific study of naming, defining and classifying groups of biological organisms based on shared characteristics."*  
+
+I felt a good place to start was reading the original paper where the dataset was introduced - *'The Use of Multiple Measurement in Taxonomic Problems'* by R. A. Fisher published in 1936. I found this a diffcult read! A lot of statistical terminology and processes that are beyond my level of understanding at this point (and I guess/hope the remit of this module!) 
+
+>**Linear discriminant analysis** - *"... method used in statistics and other fields, to find a linear combination of features that characterizes or separates two or more classes of objects or events."*
+
+The wikipedia entry on the dataset tells us that the dataset has become an important testcase in many fields, and in particular machine learning. Although the paragragh on use of the dataset focuses on machine learning which again is outside the breadth of this module.
+
+The article *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui gives a more general overview of the dataset, and to me at least, is a bit more accessible. We get some more background on each of the main protagonists and their further contributions to their respective fields.
+It's quite interesting to find out that although Fisher developed this model to discriminate between the species, botanists (including Anderson himself), discovered that seed size a more reliable differentiator. My experience of, and interest in gardening has up until this point exceded that of statistics so this gave me a chuckle! Anyway, the main takeaway from this article for me, is that appreciating and trying to understand something about the actual data subject matter is quite important, and one shouldn't just focus on the figures in isolation.
+
+In preparation, I did some revision (and learning!) of basic statistics techniques. However, apart from that, I haven't ventured outside subjects and methods covered in the lectures to date. There was a temptation to delve into machine learning, which this dataset seems ideal for, but I resisted, reckoning I'd be better euipped for that further down the line.
+
 ## part 1 - initial data exploration
 ### 1.1
-My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the csv (comma separated value) file <<iris_dataset.csv>> in this repositry. I imported the **pandas**, **matplotlib.pyplot**, and **seaborn** libraries to assist in the reading, analysis and visualisation of the data.
+My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the csv (comma separated value) file <<iris_dataset.csv>> in this repositry. I cross referenced this with another, more authentic looking version from https://archive.ics.uci.edu/ml/datasets/Iris but they were identical.
+I imported the **pandas**, **csv**, **matplotlib.pyplot**, and **seaborn** libraries to assist in the reading, analysis and visualisation of the data.
 - **pandas** - > "... is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
 built on top of the Python programming language."
+- **csv** - > "The csv library provides functionality to both read from and write to CSV files."
 - **matplotlib.pyplot** - > "...is a state-based interface to matplotlib. It provides a MATLAB-like way of plotting. Pyplot is mainly intended for interactive plots and simple cases of programmatic plot generation."
 - **seaborn** - > "... is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics."
 
@@ -115,10 +130,13 @@ So it looks like we can quite easily discriminate between the setosa species, bu
 
 ### Background and source code
 - *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the origin!) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
+- *Taxonomy* - https://en.wikipedia.org/wiki/Taxonomy_(biology)
+- *Linear Discriminant Analysis* - https://en.wikipedia.org/wiki/Linear_discriminant_analysis
 - *Iris Data Set* (source for code and some background) - https://archive.ics.uci.edu/ml/datasets/Iris
 - *Another source for code* - https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv
 - *Iris flower data set* (Wikipedia) - https://en.wikipedia.org/wiki/Iris_flower_data_set
 - *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui - https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5
+- *Basic statistics* - https://www.statisticshowto.com/statistics-basics/
 - *Quantitative Data: Definition, Types, Analysis and Examples* - https://www.questionpro.com/blog/quantitative-data/
 - *Your Guide to Qualitative and Quantitative Data Analysis Methods* - https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
 
@@ -126,6 +144,7 @@ So it looks like we can quite easily discriminate between the setosa species, bu
 - *Exploratory Data Analysis of IRIS Data Set Using Python* by Venkata Sai Reddy Avuluri - https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
 - *Python File writelines() Method* - https://www.w3schools.com/python/ref_file_writelines.asp
 - *Python – Basics of Pandas using Iris Dataset* - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
+- *Reading and Writing CSV Files in Python* - https://realpython.com/python-csv/
 - *How to Export Pandas DataFrame to CSV* - https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03
 - *Python Set copy() Method* - https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
 - *Source for irises image* - https://morioh.com/p/eafb28ccf4e3
