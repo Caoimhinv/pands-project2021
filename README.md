@@ -160,7 +160,7 @@ A further progression on this project would be to create an algorithim to test w
 ## References  
 
 ### Background and source code
-- *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the origin!) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
+- *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the original) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
 - *Taxonomy* - https://en.wikipedia.org/wiki/Taxonomy_(biology)
 - *Linear Discriminant Analysis* - https://en.wikipedia.org/wiki/Linear_discriminant_analysis
 - *Iris Data Set* (source for code and some background) - https://archive.ics.uci.edu/ml/datasets/Iris
