@@ -4,7 +4,7 @@
 
 -----
 ## Intro  
-Fisher's Iris dataset is a multivarate dataset named after the statistician Ronald Fisher who introduced it in his 1936 paper *The use of multiple measurements in taxonic problems* which was published in the journal *Annals of Eugenics*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, with the aim *"to quantify the morphologic variation of Iris flowers of three related species"*.  
+Fisher's Iris dataset is a multivarate dataset named after the statistician Ronald Fisher who introduced it in his 1936 paper *"The Use of Multiple Measurements in Taxonic Problems* which was published in the journal *'Annals of Eugenics'*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, with the aim *"to quantify the morphologic variation of Iris flowers of three related species"*.  
 
 ### Background
 The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four attributes were measured from each sample - lengths and widths of both sepals and petals in cemtimetres. The samples from the setosa and versicolar were were all collected on the same day from the same field by the same person. The third species was collected elsewhere.
@@ -24,7 +24,7 @@ I felt a good place to start was reading Ronald Fisher's original paper. I found
 The wikipedia entry on the dataset, along with some more general background information, tells us that the dataset has become an important testcase in many fields. Although the paragragh on uses of the dataset focuses mostly on machine learning which is outside the breadth of this module.
 
 The article *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui gives a more general overview of the dataset, and to me at least, is a bit more accessible. We get some more background on each of the main protagonists and their further contributions to their respective fields.
-It's quite interesting to find out that although Fisher developed this model to discriminate between the species, botanists (including Anderson himself), discovered that seed size a more reliable differentiator. My experience of, and interest in gardening has up until this point exceded that of statistics so this gave me a chuckle! Anyway, the main takeaway from this article for me, is that appreciating and trying to understand something about the actual data subject matter is important, and one shouldn't just focus on the figures in isolation.
+It's quite interesting to find out that although Fisher developed this model to discriminate between the species, botanists (including Anderson himself), discovered that seed size a more reliable differentiator. My experience of, and interest in gardening has up until this point exceded that of statistics so this gave me a chuckle :smile:! Anyway, the main takeaway from this article for me, is that appreciating and trying to understand something about the actual data subject matter is important, and one shouldn't just focus on the figures in isolation.
 
 In preparation, I did some revision (and learning!) of basic statistical methods. However, apart from that, I haven't ventured outside the subject matter and methods covered in the lectures to date. There was a temptation to delve into machine learning, which it is suggested this dataset is quite appropriate for, but I resisted, reckoning I'd be better equipped for that further down the line.
 
@@ -59,10 +59,10 @@ The first major point to emerge is that the setosa species has a much lower mean
 
 I then looked at correlation in the dataset with the **.corr()** tool. This reveals stong correlation between petal width and length, but considerably less between sepal length and width. Interestingly there is also a strong correlation between sepal length and both petal length and width.
 
-Next, I decided to add all of the dimensions on each row and create a new column entitled **totals**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
+Next, I created a **.copy()** of the iris dataset **iris2** so I could don some perform some further calculations on it without affecting the rest of the subsequent code. I decided to add all of the attributes on each row and create a new column entitled **totals**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
 I then isolated each species and printed the **head** of each with the new columns, and then calculated the mean and standard deviation for the **totals** column. I could have used **describe()** again but I'm not sure how much useful extra information that would produce. We can clearly see a distinction here with the setosa species appearing considerably smaller, with a relatively low standard deviation. The others are a little closer in dimension with a higher SD.
 
-Again all of these results can be viewed in the text file <outputted_iris_data_textfile.txt> in the repositry.
+All of the above calculations, along with some formatting, were saved as variables and then printed to the file <outputted_iris_data_textfile.txt> using the **writeslines()** method. This file can be viewed in the repositry.
 
 ## part 2 - visualisation
 
@@ -71,8 +71,11 @@ I've set a global colour theme and grid style (**.set_style()**) for all of the 
 
 ### 2.1
 - **heatmap**
-We begin by creating a heatmap based on the correlation we investigated above. The findings are very clear when presented like this, i.e. the darker areas representing the least correlation and vice versa.  
-![heatmap](./Images/heatmap.png)
+We begin by creating a heatmap based on the correlation we investigated above. We save **iris.corr()** as the variable **iris_hm** and then create the heatmap with seaborn **sns.heatmap()**. **annot=True** prints the values on each square, while **cmap="cubehelix"** is the colour palette used. Unfortunately my own colour themes weren't really that effective here so I went with one of the defaults.  
+
+![heatmap](./Images/heatmap.png)  
+
+The findings are very clear when presented like this with the darker areas representing the least correlation and vice versa.  
 
 ### 2.2
 - **box plot**  
@@ -84,10 +87,15 @@ The box plot seemed to be the best place to start to get an overall impression o
 
 ![overall boxplot](./Images/boxplot.png)
 
-We can see all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
-To find out more we need to isolate the attributes and see what is going on with each individual class. I've created a grid of 4 boxplots here using the **.subplots()** tool.
+I created this boxplot with seaborn **sns.boxplot()**. I formatted the **linewidth** and **fliersize** (diamonds representing outliers), and set the colour palette to my customised **color_theme2**. I formatted the **ticks_params** a little (**axis='both', which='major', labelsize=7**), and the **ylabel** - **"(cm)", fontsize=7, fontname='fantasy'**. I'm using the **fantasy** font and trying to use the same fontsizes globally for each element for consistency. The xlabel didn't need anything more than the class names which are there by default.
+
+We can see here clearly all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
+
+To find out more we need to isolate the attributes and see what is happening within each individual class. 
 
 ![separated boxplot](./Images/boxplot1.png)
+
+I've created a grid here of 4 boxplots here using the **plt.subplots()** tool. **(2,2)** defines 2 rows and 2 columns. Within the code for each boxplot I've defined the position, e.g. **ax=axes[0,1]** where the first digit is the row and the second the column (with the 0 being the first row and 1 being the 2nd column). I've formatted all of the same elements as above trying to maintain consistency in the style.
 
 Here we can see the setosa species emerging as being quite distinct from the others particularly in terms of petal length and width. But we can also define somewhat of a difference between the other two species in terms of petal dimensions.
 
@@ -96,6 +104,8 @@ Here we can see the setosa species emerging as being quite distinct from the oth
 >"A violin plot plays a similar role as a box ... plot. It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared. Unlike a box plot, in which all of the plot components correspond to actual datapoints, the violin plot features a kernel density estimation of the underlying distribution."
 
 ![insert violin plots here](./Images/violinplot.png)
+
+This violin plot is created using seaborn **sns.violinplot()**. The formatting is nearly the same as the boxplot except an extra element **inner='point'** is defined - this refers to the data points inside the plot.
 
 We can get some extra understanding of same data here. We can see a split in the petal visualisation suggesting some discrimination between the classes.  
 
@@ -106,13 +116,26 @@ These are in effect violin plots with the data points 'scattered' to represent t
 
 ![insert strip plots here](./Images/stripplot.png)
 
+We created these by first defining the grid as we did with the boxplots **plt.subplots**, then the violin plot as above **sns.violinplot**, and then **sns.stripplot**. The extra formatting for the stripplot concerns the data points - **size=2, color='white', edgecolor='black', linewidth=.5**. A bit of time was spent experimenting with the right combination for each of these to maximise legibility. This actually started out as a **swarmplot**, which adjusts the locations of the data points to avoid overlap, but this was proving problematic with the code. VSC was suggesting making the data points smaller and smaller until it got to the point they were becoming irrelevent! Stripplot while not as pretty and symmetrical behaved better in this regard.
+
 ### 2.4  
 - **histogram**  
 histograms are the most commonly used graph to show frequency distributions. I've created 4 subplots of histograms - one for each variable. 
 
 ![insert histogram plots here](./Images/histogram.png)
 
-I've also included a KDE curve which estimated the density between the data points. We can clearly see the same pattern as above with the setosa petal quite separate to the others. 
+We created these 4 histograms - 1 for each attribute - and again positioned them on a 2x2 grid using **plt.subplots**. A few extra elements were involved in the formatting here:
+
+    sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axes[0,0]
+
+**binwidth=0.1** refers to the value parameters of each 'bar'. I experimeted increasing and decreasing this but this seemed to fir best.
+**hue='species'** this separates the classes so we can see them all clearly side by side
+**kde=True** kde is kernal density estimation. It draws a continuous curved line which estimates the values between the data points
+**alpha=0.5** this allows some blended of the data so that one doesn't overlap the other
+**legend=False** as the legend is the same for all I've only included it on one.
+We've already seem **palette** and **ax** before.
+
+From these histograms, we can clearly see the same pattern as above with the setosa petal quite separate to the others. The KDE also shows the relative relationships to normal distribution, the most notable aspect of which is the narrowness, and proxomity to the mean, of the petal attributes of the setosa species.
 
 ### 2.5
 Up until now all of the plotting has involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest and most common method to explore this.  
@@ -120,9 +143,9 @@ Up until now all of the plotting has involved looking at one numeric parameter a
 - **scatter plot**
 >"A scatterplot is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together."
 
-I've used the seaborn **.PairGrid()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms.
-
 ![insert pairgrid Scatter here](./Images/pairgrid1.png)
+
+I've used the seaborn **.PairGrid()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms. 
 
 Below is another visualisation of the same data this time using KDE (kernal density estimation), which is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information
 
@@ -131,7 +154,7 @@ Below is another visualisation of the same data this time using KDE (kernal dens
 Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
 ### 2.6
-Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day!  
+Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day :confused:!  
 A further progression on this project would be to create an algorithim to test whether we could predict the species just from the attributes. I presume we'll be looking into this area later in the course.
 
 ## References  
@@ -147,6 +170,8 @@ A further progression on this project would be to create an algorithim to test w
 - *Basic statistics* - https://www.statisticshowto.com/statistics-basics/
 - *Quantitative Data: Definition, Types, Analysis and Examples* - https://www.questionpro.com/blog/quantitative-data/
 - *Your Guide to Qualitative and Quantitative Data Analysis Methods* - https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
+- *Markdown* - https://www.markdownguide.org/basic-syntax/
+- *Images in markdown* - https://stackoverflow.com/questions/41604263/how-do-i-display-local-image-in-markdown
 
 ### Initial data exploration
 - *Exploratory Data Analysis of IRIS Data Set Using Python* by Venkata Sai Reddy Avuluri - https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
@@ -157,6 +182,7 @@ A further progression on this project would be to create an algorithim to test w
 - *Python Set copy() Method* - https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
 - *Source for irises image* - https://morioh.com/p/eafb28ccf4e3
 - *round when sending to .csv file* - https://github.com/pandas-dev/pandas/issues/13159
+- *writelines()* - https://www.w3schools.com/python/ref_file_writelines.asp
 
 ### Data visualisation
 
