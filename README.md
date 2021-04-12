@@ -1,7 +1,6 @@
 # Fisher’s Iris dataset analysis project  
-## Programming and Scripting project 2021  
-
-![Ronan](./research_experimentation/Ronan.jpg)
+## Programming and Scripting module 2021  
+## Caoimhin Vallely
 
 -----
 ## Intro  
