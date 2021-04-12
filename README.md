@@ -1,33 +1,39 @@
 # Fisher’s Iris dataset analysis project  
 ## Programming and Scripting project 2021  
+
+![Ronan](./research_experimentation/Ronan.jpg)
+
 -----
 ## Intro  
-Fisher's Iris data set is a multivarate dataset introduced by statistician Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonic problems* in the journal *Annals of Eugenics*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, "to quantify the morphologic variation of Iris flowers of three related species".
-The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four elements were measured from each - petals and widths of sepals and petals.
-*Below we can see what exactly what we're referring to.*
+Fisher's Iris dataset is a multivarate dataset named after the statistician Ronald Fisher who introduced it in his 1936 paper *The use of multiple measurements in taxonic problems* which was published in the journal *Annals of Eugenics*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, with the aim *"to quantify the morphologic variation of Iris flowers of three related species"*.  
+
+### Background
+The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four attributes were measured from each sample - lengths and widths of both sepals and petals in cemtimetres. The samples from the setosa and versicolar were were all collected on the same day from the same field by the same person. The third species was collected elsewhere.
+
+- the following image shows the 3 species of Iris involved and what the petals and sepals actually are: 
 
 ![Image of the 3 different species of Iris.](image_of_irises.png)
 
-
+We already have a few terms that required looking up!
 >**Taxonomy** - *"... the scientific study of naming, defining and classifying groups of biological organisms based on shared characteristics."*  
-
-I felt a good place to start was reading the original paper where the dataset was introduced - *'The Use of Multiple Measurement in Taxonomic Problems'* by R. A. Fisher published in 1936. I found this a diffcult read! A lot of statistical terminology and processes that are beyond my level of understanding at this point (and I guess/hope the remit of this module!) 
-
 >**Linear discriminant analysis** - *"... method used in statistics and other fields, to find a linear combination of features that characterizes or separates two or more classes of objects or events."*
+>**Multivariate statistics** - *"... a subdivision of statistics encompassing the simultaneous observation and analysis of more than one outcome variable."*
+>**Morphology** - *"... the form and structure of an organism or one of its parts."*
 
-The wikipedia entry on the dataset tells us that the dataset has become an important testcase in many fields, and in particular machine learning. Although the paragragh on use of the dataset focuses on machine learning which again is outside the breadth of this module.
+I felt a good place to start was reading Ronald Fisher's original paper. I found this quite a diffcult read, with a lot of statistical terminology and methodology that is beyond my level of understanding at this point. What I did understand was very interesting though, and what impressed me most was that he did all of this without a calculator or computer!
+
+The wikipedia entry on the dataset, along with some more general background information, tells us that the dataset has become an important testcase in many fields. Although the paragragh on uses of the dataset focuses mostly on machine learning which is outside the breadth of this module.
 
 The article *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui gives a more general overview of the dataset, and to me at least, is a bit more accessible. We get some more background on each of the main protagonists and their further contributions to their respective fields.
-It's quite interesting to find out that although Fisher developed this model to discriminate between the species, botanists (including Anderson himself), discovered that seed size a more reliable differentiator. My experience of, and interest in gardening has up until this point exceded that of statistics so this gave me a chuckle! Anyway, the main takeaway from this article for me, is that appreciating and trying to understand something about the actual data subject matter is quite important, and one shouldn't just focus on the figures in isolation.
+It's quite interesting to find out that although Fisher developed this model to discriminate between the species, botanists (including Anderson himself), discovered that seed size a more reliable differentiator. My experience of, and interest in gardening has up until this point exceded that of statistics so this gave me a chuckle! Anyway, the main takeaway from this article for me, is that appreciating and trying to understand something about the actual data subject matter is important, and one shouldn't just focus on the figures in isolation.
 
-In preparation, I did some revision (and learning!) of basic statistics techniques. However, apart from that, I haven't ventured outside subjects and methods covered in the lectures to date. There was a temptation to delve into machine learning, which this dataset seems ideal for, but I resisted, reckoning I'd be better euipped for that further down the line.
+In preparation, I did some revision (and learning!) of basic statistical methods. However, apart from that, I haven't ventured outside the subject matter and methods covered in the lectures to date. There was a temptation to delve into machine learning, which it is suggested this dataset is quite appropriate for, but I resisted, reckoning I'd be better equipped for that further down the line.
 
 ## part 1 - initial data exploration
 ### 1.1
-My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the csv (comma separated value) file <<iris_dataset.csv>> in this repositry. I cross referenced this with another, more authentic looking version from https://archive.ics.uci.edu/ml/datasets/Iris but they were identical.
+My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the csv (comma separated value) file <iris_dataset.csv> in this repositry. I cross referenced this with another, more authentic looking version from https://archive.ics.uci.edu/ml/datasets/Iris but they were identical.
 I imported the **pandas**, **csv**, **matplotlib.pyplot**, and **seaborn** libraries to assist in the reading, analysis and visualisation of the data.
-- **pandas** - > "... is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
-built on top of the Python programming language."
+- **pandas** - > "... is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language."
 - **csv** - > "The csv library provides functionality to both read from and write to CSV files."
 - **matplotlib.pyplot** - > "...is a state-based interface to matplotlib. It provides a MATLAB-like way of plotting. Pyplot is mainly intended for interactive plots and simple cases of programmatic plot generation."
 - **seaborn** - > "... is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics."
@@ -39,33 +45,34 @@ I read the file using **pandas** with the following:
     iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
 ### 1.2
-*Note: the program writes a summation of all of the following findings to the text file <outputted_iris_data_textfile.txt>, a copy of which is inclued in this repositry.*
-I was then able to start some initial parsing of the data. I found the **.size()** and **.shape()** of the data, followed then by the column names (**.columns()**). **.isnull()** tells me their are no missing values in the dataset. I then printed out the first and last 5 lines of the data set using the **.head()** and **.tail()** tools, plus a random/sample 5 rows using the **.sample()** tool. We can see that there are 750 entries divided into 150 rows and 5 columns.
-The columns are titled 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', and 'species'. The printout out of the first 5 rows shows that they are all the same species - 'setosa' - and that all the values are 5.1 and less, with the sepal being considerably bigger than the petal. The last 5 rows are all of the 'virginica' species' with the dimensions being quite different but less of a difference between sepal and petal size. The sample 5 rows displayed out show a 3rd species, versicolor, and also display a siginificant range in values in the petal dimensions. **.value_counts()** tells me that the 150 rows are divided evenly between these 3 species.
+*Note: the program writes a summation of all of the following findings to the text file <outputted_iris_data_textfile.txt>, a copy of which is inclued in this repositry.*  
+  
+I was then able to start some initial parsing of the data. I found the **.size()** and **.shape()** of the data, followed then by the column names (**.columns()**). **.isnull()** tells me there are no missing values in the dataset. I then printed out the first and last 5 lines of the data set using the **.head()** and **.tail()** tools, plus a random/sample 5 rows using the **.sample()** tool.   
+We can see that there are 750 entries divided into 150 rows and 5 columns. The columns are titled 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', and 'species'. The printout of the first 5 rows shows that they are all the same species - 'setosa' - and that all the values are 5.1 and less, with the sepal being considerably bigger than the petal. The last 5 rows are all of the 'virginica' species, with the dimensions being quite different but less of a variance between sepal and petal size. The sample 5 rows printed out show a 3rd species, versicolor, and also display a siginificant range in values in the petal dimensions. **.value_counts()** tells me that the 150 rows are divided evenly between these 3 species.
 
 ### 1.3
-I used the **.describe()** method to delve a bit deeper into the data. This produced a lot of useful information such as the maximum and minimum values, the mean, and the standard deviation. We can quickly see that what was suggested above about the petal dimensions is very much the case with a very significant range between the lowest and highest petal length (1.0 - 6.9) and a standard deviation of 1.76.
+I used the **.describe()** method to delve a bit deeper into the data. This produced a lot of useful information such as the maximum and minimum values, the mean, and the standard deviation. We can quickly see that what was suggested above in relation to the petal dimensions is very much in evidence with quite a significant range between the lowest and highest petal length (1.0 - 6.9) and a standard deviation of 1.76.
 To dig further we needed to apply the same method to each variety in isolation. I did this first with **.groupby()** but that produced 32 columns which weren't that easy to read! The following command ran on each species worked better:
 
     iris.loc[iris['species'] == "setosa"].describe()
 
-The first major thing to emerge is that the setosa species has a much lower mean petal length and width than the other 2 varieties. The virginica has the highest mean petal length but surprisingly the setosa has the highest mean petal width. The standard deviations are all much lower suggesting much less variance when each species is taken in isolation.  
+The first major point to emerge is that the setosa species has a much lower mean petal length and width than the other 2 varieties. The virginica has the highest mean petal length but surprisingly the setosa has the highest mean petal width. The standard deviations are all much lower suggesting much less variance when each species is taken in isolation.  
 
 I then looked at correlation in the dataset with the **.corr()** tool. This reveals stong correlation between petal width and length, but considerably less between sepal length and width. Interestingly there is also a strong correlation between sepal length and both petal length and width.
 
-Next, I decided to add all of the dimensions on each row and create a new column entitled **'totals'**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
-I then isolated each species and viewed the **head** of each with the new columns, and then calculated the mean and standard deviation for the **totals** column. I could have used **describe()** again but I'm not sure how much useful extra information that would produce. So we can clearly see a distinction here with the setosa species appearing considerably smaller, with a relatively low standard deviation. The others are a little closer in dimension with a higher SD.
+Next, I decided to add all of the dimensions on each row and create a new column entitled **totals**. I also created a column for the **mean** of each row. A version of this new dataset is saved as a csv file entitled **iris_data_sets_with_totals.csv** in the repositry.
+I then isolated each species and printed the **head** of each with the new columns, and then calculated the mean and standard deviation for the **totals** column. I could have used **describe()** again but I'm not sure how much useful extra information that would produce. We can clearly see a distinction here with the setosa species appearing considerably smaller, with a relatively low standard deviation. The others are a little closer in dimension with a higher SD.
 
 Again all of these results can be viewed in the text file <outputted_iris_data_textfile.txt> in the repositry.
 
 ## part 2 - visualisation
 
-Visualising data can make it much easier to interpret and present, so I put a lot of energy into this aspect of the project. The libraries **matplotlib.pyplot** and its relative **seaborn** contain many powerful and highly effective analysis and visualisation tools in this area, so I endeavoured to get the most of them that I could.
+Visualising data can make it much easier to interpret and present, so I put a lot of energy into this aspect of the project. The libraries **matplotlib.pyplot** and its relative **seaborn** contain many powerful and highly effective analysis and visualisation tools, so I endeavoured to get the most of them that I could.
 I've set a global colour theme and grid style (**.set_style()**) for all of the visualisations to give a bit of consistency. I spent a lot of time formatting a lot of the stylitic elements including the various font sizes and styles; the legends; marker sizes and styles; linestyles and sizes, etc. This was both to make everything more aesthetically pleasing and also to make the information clearer and easier to interpret and understand.
 
 ### 2.1
 - **heatmap**
-We begin by creating a heatmap based on the correlation we investigated above. The findings are very clear when presented like this, i.e. the darker areas representing the least correlation and vice versa.
+We begin by creating a heatmap based on the correlation we investigated above. The findings are very clear when presented like this, i.e. the darker areas representing the least correlation and vice versa.  
 ![heatmap](heatmap.png)
 
 ### 2.2
@@ -78,8 +85,8 @@ The box plot seemed to be the best place to start to get an overall impression o
 
 ![overall boxplot](boxplot.png)
 
-We can see all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We can see this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
-To find out more we need to isolate the elements and see what is going on with each individual species. I've created a grid of 4 boxplots here using the **.subplots()** tool.
+We can see all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
+To find out more we need to isolate the attributes and see what is going on with each individual class. I've created a grid of 4 boxplots here using the **.subplots()** tool.
 
 ![separated boxplot](boxplot1.png)
 
@@ -91,7 +98,7 @@ Here we can see the setosa species emerging as being quite distinct from the oth
 
 ![insert violin plots here](violinplot.png)
 
-We can get some extra understanding of same data here. We can see a split in the petal visualisationg suggesting some separation.  
+We can get some extra understanding of same data here. We can see a split in the petal visualisation suggesting some discrimination between the classes.  
 
 - **strip plot**  
 >"a good complement to a box or violin plot in cases where you want to show all observations along with some representation of the underlying distribution."
@@ -106,10 +113,11 @@ histograms are the most commonly used graph to show frequency distributions. I'v
 
 ![insert histogram plots here](histogram.png)
 
-I've also included a KDE curve which estimated the density between the data points. We can clearly see the same  pattern as above with the setosa petal quite separate to the others.
+I've also included a KDE curve which estimated the density between the data points. We can clearly see the same pattern as above with the setosa petal quite separate to the others. 
 
 ### 2.5
-Up until now all of the plotting has involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest and most common method to explore this.
+Up until now all of the plotting has involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest and most common method to explore this.  
+
 - **scatter plot**
 >"A scatterplot is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together."
 
@@ -121,10 +129,11 @@ Below is another visualisation of the same data this time using KDE (kernal dens
 
 ![insert pairgrid KDE here](pairgrid2.png)
 
-Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned but  less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
+Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
 ### 2.6
-So it looks like we can quite easily discriminate between the setosa species, but the other two aren't as easily defined. We can have a good idea but nothing conclusive.
+Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day!  
+A further progression on this project would be to create an algorithim to test whether we could predict the species just from the attributes. I presume we'll be looking into this area later in the course.
 
 ## References  
 
