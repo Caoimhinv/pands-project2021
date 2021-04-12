@@ -94,3 +94,6 @@ Updated README
 Updating and formatting reference section.
 Organising repositry better.
 
+12 April
+Lot of work on README. Specifically explaining some of the code. And reworking intro and background.
+Reorganised repositry creating an images folder.
