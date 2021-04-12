@@ -1,23 +1,25 @@
-----------
-INITIAL DATA EXPLORATION
-----------
+-----FISHER'S IRIS DATASET ANALYSIS PROJECT-----
+
+------------INITIAL DATA EXPLORATION------------
+
+*****
 
 SIZE() - the total number of entries in the dataset:
 750
 
-----------
+******
 
 SHAPE() - the number of rows and columns:
 (150, 5)
 
-----------
+******
 
 COLUMNS() - these are the column labels and the data type:
 Index(['sepal_length', 'sepal_width', 'petal_length', 'petal_width',
        'species'],
       dtype='object')
 
-----------
+******
 
 ISNULL() - this returns if there are any null or missing values.
 Everything here is FALSE which means no null values
@@ -36,45 +38,48 @@ Everything here is FALSE which means no null values
 
 [150 rows x 5 columns]
 
-----------
+******
 
-HEAD() - this is a printout of the first five rows of the dataset:
+HEAD() - this is a printout of the first 6 rows of the dataset:
    sepal_length  sepal_width  petal_length  petal_width species
 0           5.1          3.5           1.4          0.2  setosa
 1           4.9          3.0           1.4          0.2  setosa
 2           4.7          3.2           1.3          0.2  setosa
 3           4.6          3.1           1.5          0.2  setosa
 4           5.0          3.6           1.4          0.2  setosa
+5           5.4          3.9           1.7          0.4  setosa
 
-----------
+******
 
-TAIL() - this is a printout of the last five rows of the dataset:
+TAIL() - this is a printout of the last 6 rows of the dataset:
      sepal_length  sepal_width  petal_length  petal_width    species
+144           6.7          3.3           5.7          2.5  virginica
 145           6.7          3.0           5.2          2.3  virginica
 146           6.3          2.5           5.0          1.9  virginica
 147           6.5          3.0           5.2          2.0  virginica
 148           6.2          3.4           5.4          2.3  virginica
 149           5.9          3.0           5.1          1.8  virginica
 
-----------
+******
 
-SAMPLE() - this is a printout of a random five rows of the dataset:
+SAMPLE() - this is a printout of a random 6 rows of the dataset:
      sepal_length  sepal_width  petal_length  petal_width     species
-60            5.0          2.0           3.5          1.0  versicolor
-122           7.7          2.8           6.7          2.0   virginica
-106           4.9          2.5           4.5          1.7   virginica
-40            5.0          3.5           1.3          0.3      setosa
-29            4.7          3.2           1.6          0.2      setosa
+72            6.3          2.5           4.9          1.5  versicolor
+1             4.9          3.0           1.4          0.2      setosa
+120           6.9          3.2           5.7          2.3   virginica
+94            5.6          2.7           4.2          1.3  versicolor
+41            4.5          2.3           1.3          0.3      setosa
+148           6.2          3.4           5.4          2.3   virginica
 
-----------
+******
 
 VALUE_COUNTS() - this shows how many values for each class/species
-setosa        50
-versicolor    50
 virginica     50
+versicolor    50
+setosa        50
 Name: species, dtype: int64
 
-----------
+******
 
 DESCRIBE() - this is a statistical overview of the dataset:
               count      mean       std  min  25%   50%  75%  max
@@ -83,7 +88,7 @@ sepal_width   150.0  3.054000  0.433594  2.0  2.8  3.00  3.3  4.4
 petal_length  150.0  3.758667  1.764420  1.0  1.6  4.35  5.1  6.9
 petal_width   150.0  1.198667  0.763161  0.1  0.3  1.30  1.8  2.5
 
-----------
+******
 
 DESCRIBE() by class - same overview but with each class isolated
 --setosa--
@@ -107,7 +112,7 @@ sepal_width    50.0  2.974  0.322497  2.2  2.800  3.00  3.175  3.8
 petal_length   50.0  5.552  0.551895  4.5  5.100  5.55  5.875  6.9
 petal_width    50.0  2.026  0.274650  1.4  1.800  2.00  2.300  2.5
 
-----------
+******
 
 CORR() - this shows the correlation between the variables in the data:
               sepal_length  sepal_width  petal_length  petal_width
@@ -116,9 +121,9 @@ sepal_width      -0.109369     1.000000     -0.420516    -0.356544
 petal_length      0.871754    -0.420516      1.000000     0.962757
 petal_width       0.817954    -0.356544      0.962757     1.000000
 
-----------
+******
 
-The following are the first 5 rows of each class with totals and means of each row included
+The following are the first 5 rows of each class with totals and means of each row included:
 --setosa--
    sepal_length  sepal_width  petal_length  petal_width species  totals   mean
 0           5.1          3.5           1.4          0.2  setosa    10.2  2.550
@@ -143,7 +148,7 @@ The following are the first 5 rows of each class with totals and means of each r
 103           6.3          2.9           5.6          1.8  virginica    16.6  4.150
 104           6.5          3.0           5.8          2.2  virginica    17.5  4.375
 
-----------
+******
 
 mean for setosa totals    10.132
 dtype: float64
@@ -152,7 +157,7 @@ dtype: float64
 mean for virginica totals    17.14
 dtype: float64
 
-----------
+******
 
 standard deviation for setosa totals    0.789068
 dtype: float64
