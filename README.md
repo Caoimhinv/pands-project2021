@@ -12,7 +12,7 @@ The dataset consists of 50 samples from each of three species of iris - Iris set
 
 - the following image shows the 3 species of Iris involved and what the petals and sepals actually are: 
 
-![Image of the 3 different species of Iris.](image_of_irises.png)
+![Image of the 3 different species of Iris.](./Images/image_of_irises.png)
 
 We already have a few terms that required looking up!
 >**Taxonomy** - *"... the scientific study of naming, defining and classifying groups of biological organisms based on shared characteristics."*  
@@ -73,22 +73,22 @@ I've set a global colour theme and grid style (**.set_style()**) for all of the 
 ### 2.1
 - **heatmap**
 We begin by creating a heatmap based on the correlation we investigated above. The findings are very clear when presented like this, i.e. the darker areas representing the least correlation and vice versa.  
-![heatmap](heatmap.png)
+![heatmap](./Images/heatmap.png)
 
 ### 2.2
 - **box plot**  
 >"A boxplot is a standardized way of displaying the distribution of data based on a five number summary (“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). It can tell you about your outliers and what their values are. It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed."
 
-![boxplot explained](box_plot_explained2.png)
+![boxplot explained](./Images/box_plot_explained2.png)
 
 The box plot seemed to be the best place to start to get an overall impression of the data. We started with an overall boxplot taking in all of the data at once:
 
-![overall boxplot](boxplot.png)
+![overall boxplot](./Images/boxplot.png)
 
 We can see all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
 To find out more we need to isolate the attributes and see what is going on with each individual class. I've created a grid of 4 boxplots here using the **.subplots()** tool.
 
-![separated boxplot](boxplot1.png)
+![separated boxplot](./Images/boxplot1.png)
 
 Here we can see the setosa species emerging as being quite distinct from the others particularly in terms of petal length and width. But we can also define somewhat of a difference between the other two species in terms of petal dimensions.
 
@@ -96,7 +96,7 @@ Here we can see the setosa species emerging as being quite distinct from the oth
 - **violin plot**  
 >"A violin plot plays a similar role as a box ... plot. It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared. Unlike a box plot, in which all of the plot components correspond to actual datapoints, the violin plot features a kernel density estimation of the underlying distribution."
 
-![insert violin plots here](violinplot.png)
+![insert violin plots here](./Images/violinplot.png)
 
 We can get some extra understanding of same data here. We can see a split in the petal visualisation suggesting some discrimination between the classes.  
 
@@ -105,13 +105,13 @@ We can get some extra understanding of same data here. We can see a split in the
 
 These are in effect violin plots with the data points 'scattered' to represent the distribution of values. I've isolated each of the classes out again and we can see the pattern more clearly. The setosa petal again emerges distinct from the other species when we look at the petal dimensions.
 
-![insert strip plots here](stripplot.png)
+![insert strip plots here](./Images/stripplot.png)
 
 ### 2.4  
 - **histogram**  
 histograms are the most commonly used graph to show frequency distributions. I've created 4 subplots of histograms - one for each variable. 
 
-![insert histogram plots here](histogram.png)
+![insert histogram plots here](./Images/histogram.png)
 
 I've also included a KDE curve which estimated the density between the data points. We can clearly see the same pattern as above with the setosa petal quite separate to the others. 
 
@@ -123,11 +123,11 @@ Up until now all of the plotting has involved looking at one numeric parameter a
 
 I've used the seaborn **.PairGrid()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms.
 
-![insert pairgrid Scatter here](pairgrid1.png)
+![insert pairgrid Scatter here](./Images/pairgrid1.png)
 
 Below is another visualisation of the same data this time using KDE (kernal density estimation), which is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information
 
-![insert pairgrid KDE here](pairgrid2.png)
+![insert pairgrid KDE here](./Images/pairgrid2.png)
 
 Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
