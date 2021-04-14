@@ -157,6 +157,16 @@ Again we can see clearly that the setosa species is quite distinct from the othe
 Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day :confused:!  
 A further progression on this project would be to create an algorithim to test whether we could predict the species just from the attributes. I presume we'll be looking into this area later in the course.
 
+## Guide to files in the repositry
+- The **Images** folder contains all of the visualisations created by the python script (**analysis.py**) that are included above. Plus a few other downloaded example images from the web.
+- **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
+- **README.md** is this!
+- **analysis.py** is the main script. The program carries out statistical analysis on the dataset and prints out the results to the text file **outputted_iris_data_textfile.txt**. It also creates the series of data visualisations contained in the **Images** folder. 
+- **iris_dataset.csv** is the dataset
+- **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
+- **notes.txt** is a rough journal of my progress through the project.
+- **outputted_iris_data_textfile.txt** is the data analysis created by the main program script **analysis.py**
+
 ## References  
 
 ### Background and source code
