@@ -97,3 +97,10 @@ Organising repositry better.
 12 April
 Lot of work on README. Specifically explaining some of the code. And reworking intro and background.
 Reorganised repositry creating an images folder.
+Some more work on comments in sript.
+
+14 April
+My birthday!
+Just a bit of research on other peoples work on the dataset just to see if I'm on the right track. Think i'm happy enough!
+Created a section in the readme describing the various files in the repositry.
+reordered the columns in the new csv file.
