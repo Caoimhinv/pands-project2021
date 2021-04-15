@@ -13,11 +13,11 @@ The dataset consists of 50 samples from each of three species of iris - Iris set
 
 ![Image of the 3 different species of Iris.](./Images/image_of_irises.png)
 
-We already have a few terms that required looking up!
+We already have a few terms that required looking up!  
 >**Taxonomy** - *"... the scientific study of naming, defining and classifying groups of biological organisms based on shared characteristics."*  
->**Linear discriminant analysis** - *"... method used in statistics and other fields, to find a linear combination of features that characterizes or separates two or more classes of objects or events."*
+>**Linear discriminant analysis** - *"... method used in statistics and other fields, to find a linear combination of features that characterizes or separates two or more classes of objects or events."*  
 >**Multivariate statistics** - *"... a subdivision of statistics encompassing the simultaneous observation and analysis of more than one outcome variable."*  
->**Morphology** - *"... the form and structure of an organism or one of its parts."*
+>**Morphology** - *"... the form and structure of an organism or one of its parts."*  
 
 I felt a good place to start was reading Ronald Fisher's original paper. I found this quite a diffcult read, with a lot of statistical terminology and methodology that is beyond my level of understanding at this point. What I did understand was very interesting though, and what impressed me most was that he did all of this without a calculator or computer!
 
@@ -89,7 +89,7 @@ The box plot seemed to be the best place to start to get an overall impression o
 
 I created this boxplot with seaborn **sns.boxplot()**. I formatted the **linewidth** and **fliersize** (diamonds representing outliers), and set the colour palette to my customised **color_theme2**. I formatted the **ticks_params** a little (**axis='both', which='major', labelsize=7**), and the **ylabel** - **"(cm)", fontsize=7, fontname='fantasy'**. I'm using the **fantasy** font and trying to use the same fontsizes globally for each element for consistency. The xlabel didn't need anything more than the class names which are there by default.
 
-We can see here clearly all the relative dimensions of each element. The sepal length is the longest dimension while the petal width is the smallest. The petal length has the biggest variance while the sepal width has the least. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner.  
+We can see here clearly all the relative dimensions of each element. Sepal_length has the greatest individual value, and highest median value, while petal_width has the smallest individual value and lowest median. Petal_length has the greatest dispersion while the sepal width has the least. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner. A normal distribution would be where all 4 quartiles are relatively even. We can see here that sepal_length is the closest in that regard, while both petal dimensions are quite skewed. Sepal_width contains quite a few outliers.
 
 To find out more we need to isolate the attributes and see what is happening within each individual class. 
 
@@ -162,7 +162,7 @@ A further progression on this project would be to create an algorithim to test w
 - **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
 - **README.md** is this!
 - **analysis.py** is the main script. The program carries out statistical analysis on the dataset and prints out the results to the text file **outputted_iris_data_textfile.txt**. It also creates the series of data visualisations contained in the **Images** folder. 
-- **iris_dataset.csv** is the dataset
+- **iris_dataset.csv** is the original dataset
 - **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
 - **notes.txt** is a rough journal of my progress through the project.
 - **outputted_iris_data_textfile.txt** is the data analysis created by the main program script **analysis.py**
@@ -212,6 +212,7 @@ A further progression on this project would be to create an algorithim to test w
 - *Pair plots using Scatter matrix in Pandas* - https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
 - *List of named colors in matplotlib* - https://matplotlib.org/stable/gallery/color/named_colors.html
 - *Understanding Boxplots* (and source for 'boxplots explained' image) by Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
+- *Interpretting boxolots* - https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric. 
 
 #### Seaborn
 - *Seaborn Tutorial 2020* (YouTube) by Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0
