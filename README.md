@@ -143,13 +143,13 @@ Up until now all of the plotting has involved looking at one numeric parameter a
 - **scatter plot**
 >"A scatterplot is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together."
 
-![insert pairgrid Scatter here](./Images/pairgrid1.png)
+![insert pairgrid Scatter here](./Images/pairplot.png)
 
-I've used the seaborn **.PairGrid()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms. 
+I've used the seaborn **.pairplot()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms. 
 
-Below is another visualisation of the same data this time using KDE (kernal density estimation), which is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information
+Below is another visualisation of the same data this time using KDE (kernal density estimation) on a pairgrid. KDE is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information. Pairgrid gives me some extra flexibility over pairplot as I can use different visualisations in different sections. 
 
-![insert pairgrid KDE here](./Images/pairgrid2.png)
+![insert pairgrid KDE here](./Images/pairgrid.png)
 
 Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 

@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import csv
 
+# pylint: disable=unused-variable
+
 # reads in the dataset
 iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
@@ -217,29 +219,34 @@ def histograms():
     plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/histogram.png')
     plt.show()
 
-# creating a pairgrid for all the variables
+# creating a pairplot for all the variables
 def pairplot():
-    pg_1 = sns.pairplot(iris, hue = 'species', palette=color_theme1)
-    pg_1.map_diag(plt.hist, alpha=0.5) # creates histogram on the diagonal
-    plt.subplots_adjust(top=.95) # creates apce above the plot for the title
+    pp_1 = sns.pairplot(iris, hue = 'species', palette=color_theme1)
+    pp_1.map_diag(plt.hist, alpha=0.5) # creates histogram on the diagonal
+    plt.subplots_adjust(top=.95) # creates space above the plot for the title
     plt.tick_params(axis='both', which='major', labelsize=5) # sets ticks
     # sets title with formatting
-    plt.suptitle('Pairs Plot (scatterplots and histograms)', fontsize=15, fontname='fantasy')
+    plt.suptitle('Pairplot (scatterplots and histograms)', fontsize=15, fontname='fantasy')
+    # removes default legend which I couldn't get to move?
+    pp_1._legend.remove()
+    # creates a new legend which I can position in a more suitable place
+    pp_1.add_legend(bbox_to_anchor=(0.98, 0.2))
     plt.tight_layout()
     plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairplot.png')
     plt.show()
 
-# another pairplot with KDE this time
+# pairgrid with KDE this time
 def pairgrid():
     pg_2 = sns.PairGrid(iris, hue = 'species', palette=color_theme1)
     pg_2.map_upper(sns.kdeplot, shade=True, alpha=0.5) # creates KDE above and below the diagonal. aplha set to 
-                                                        # so we can see through
+                                                                           # so we can see through
     pg_2.map_lower(sns.kdeplot, alpha=0.5)
     pg_2.map_diag(sns.kdeplot, shade=True, alpha=0.5) # KDE histogram on the diagonal
     plt.subplots_adjust(top=.95) # creates apce above the plot for the title
     plt.tick_params(axis='both', which='major', labelsize=5) # sets ticks
     # sets title and formatting
     plt.suptitle('Pair Grid (KDE scatterplots and histograms)', fontsize=13, fontname='fantasy')
+    pg_2.add_legend(bbox_to_anchor=(0.98, 0.22))
     plt.tight_layout()
     plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairgrid.png')
     plt.show()
@@ -287,13 +294,13 @@ def main_menu():
         elif y == '8':
             print("OK! Sorry to see you go!")
         else: 
-            print('Invalid selection')
+            print('Invalid selection1 Try again!')
             main_menu()
 
     elif x == '2':
         z = input("\nChoose from the following:\n\n\t1) Heatmap\n\t2) Boxplot (all classes)\n\
         3) Boxplots (classes separated)\n\t4) Violin Plots (all classes)\n\t5) Strip Plots (classes separated)\n\
-        6) Histograms\n\t7) Pairs Plot\n\t8) Pairgrid\n\t9) Quit\n\t")
+        6) Histograms\n\t7) Pairplot\n\t8) Pairgrid\n\t9) Quit\n\t")
         if z == '1':
             heatmap()
             try_again()
