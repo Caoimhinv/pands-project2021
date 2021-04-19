@@ -213,6 +213,7 @@ A further progression on this project would be to create an algorithim to test w
 - *List of named colors in matplotlib* - https://matplotlib.org/stable/gallery/color/named_colors.html
 - *Understanding Boxplots* (and source for 'boxplots explained' image) by Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 - *Interpretting boxolots* - https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric. 
+- *saving plots* - https://chartio.com/resources/tutorials/how-to-save-a-plot-to-a-file-using-matplotlib/
 
 #### Seaborn
 - *Seaborn Tutorial 2020* (YouTube) by Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0

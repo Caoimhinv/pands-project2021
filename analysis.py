@@ -38,7 +38,7 @@ I11 = ("\nDESCRIBE() - this is a statistical overview of the dataset:\n" + str(i
 set_des = iris.loc[iris['species'] == "setosa"].describe()
 ver_des = iris.loc[iris['species'] == "versicolor"].describe()
 vir_des = iris.loc[iris['species'] == "virginica"].describe()
-I12 = ("\nDESCRIBE() by class - same overview but with each class isolated\n")
+I12 = ("\nDESCRIBE() by class - overview with each class isolated\n")
 # using the same describe() function on the individual classes
 I13 = ("--setosa--\n" + str(set_des.transpose()) + "\n\n")
 I14 = ("--versicolor--\n" + str(ver_des.transpose()) + "\n\n")
@@ -74,10 +74,11 @@ I24 = ("\nstandard deviation for setosa " + str(setosa[['totals']].std()) + "\n"
 I25 = ("standard deviation for versicolor " + str(versicolor[['totals']].std()) + "\n")
 I26 = ("standard deviation for virginica " + str(virginica[['totals']].std()) + "\n")
 
+text_analysis = [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26]
+
 # prints all of the above info to a txt file - 'outputted_iris_data.txt'
 with open('outputted_iris_data_textfile.txt','w') as d_a:
-    d_a.writelines([I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, I17,
-                    I18, I19, I20, I21, I22, I23, I24, I25, I26])
+    d_a.writelines(text_analysis)
 
 # reorders columns so we have 'species' last as before
 iris2 = iris2[['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'totals', 'mean', 'species']]
@@ -95,131 +96,237 @@ color_theme1 = ['yellowgreen','teal','tomato']
 color_theme2 = ['yellowgreen','teal','tomato', 'plum']
 
 # Creates a heatmap based on correlation
-iris_hm = iris.corr()
-sns.heatmap(iris_hm, annot=True, cmap="cubehelix") # my color_themes weren't really appropriate here unfortunately!
-plt.show()
+def heatmap():
+    iris_hm = iris.corr()
+    sns.heatmap(iris_hm, annot=True, cmap="cubehelix") # my color_themes weren't really appropriate here unfortunately!
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/heatmap.png')
+    plt.show()
 
 # creates a boxplot of all elements
-b = sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme2) # creates a boxplot, with linesize, outlier
-                                                                            # marker size (fliersize), and colour palette defined
-plt.tick_params(axis='both', which='major', labelsize=7) # formats ticks on each axis
-b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with font and fontsize
-plt.suptitle('Boxplot (all classes)', fontsize=15, fontname='fantasy') # prints title and sets font and fontsize
-plt.show()
+def boxplot_overall():
+    b = sns.boxplot(data=iris, linewidth=0.5, fliersize=3, palette=color_theme2) # creates a boxplot, with linesize, outlier
+                                                                                # marker size (fliersize), and colour palette defined
+    plt.tick_params(axis='both', which='major', labelsize=7) # formats ticks on each axis
+    b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with font and fontsize
+    plt.suptitle('Boxplot (all classes)', fontsize=15, fontname='fantasy') # prints title and sets font and fontsize
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/boxplot.png')
+    plt.show()
 
 # boxplot grid separating out each species
-f, axes = plt.subplots(2,2) # this produces a 2x2 grid of boxplots
+def boxplot_species_separated():
+    f, axes = plt.subplots(2,2) # this produces a 2x2 grid of boxplots
 
-# 4 boxplots - axes[0,0] regfers to position on grid [row, column]
-# linesize, outlier marker size (fliersize), and colour palette defined
-sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], fliersize=3, linewidth=0.5, palette=color_theme1)
-sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], fliersize=3, linewidth=0.5, palette=color_theme1)
-sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], fliersize=3, linewidth=0.5, palette=color_theme1)
-sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], fliersize=3, linewidth=0.5, palette=color_theme1)
-# setting x and y labels. Don't think anything necessary on x axis so left as blank i.e. " "
-axes[0,0].set_xlabel(" ", fontsize=7)
-axes[0,0].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
-axes[0,1].set_xlabel(" ", fontsize=7)
-axes[0,1].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
-axes[1,0].set_xlabel(" ", fontsize=7)
-axes[1,0].set_ylabel("petal_Length (cm)", fontsize=7, fontname='fantasy')
-axes[1,1].set_xlabel(" ", fontsize=7)
-axes[1,1].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
-# format x,y ticks
-axes[0,0].tick_params(axis='both', which='major', labelsize=6)
-axes[0,1].tick_params(axis='both', which='major', labelsize=6)
-axes[1,0].tick_params(axis='both', which='major', labelsize=6)
-axes[1,1].tick_params(axis='both', which='major', labelsize=6)
-# prints title and formatting
-plt.suptitle('Boxplots (classes separated)', fontsize=15, fontname='fantasy')
-plt.show()
+    # 4 boxplots - axes[0,0] regfers to position on grid [row, column]
+    # linesize, outlier marker size (fliersize), and colour palette defined
+    sns.boxplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], fliersize=3, linewidth=0.5, palette=color_theme1)
+    sns.boxplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], fliersize=3, linewidth=0.5, palette=color_theme1)
+    sns.boxplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], fliersize=3, linewidth=0.5, palette=color_theme1)
+    sns.boxplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], fliersize=3, linewidth=0.5, palette=color_theme1)
+    # setting x and y labels. Don't think anything necessary on x axis so left as blank i.e. " "
+    axes[0,0].set_xlabel(" ", fontsize=7)
+    axes[0,0].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+    axes[0,1].set_xlabel(" ", fontsize=7)
+    axes[0,1].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+    axes[1,0].set_xlabel(" ", fontsize=7)
+    axes[1,0].set_ylabel("petal_Length (cm)", fontsize=7, fontname='fantasy')
+    axes[1,1].set_xlabel(" ", fontsize=7)
+    axes[1,1].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+    # format x,y ticks
+    axes[0,0].tick_params(axis='both', which='major', labelsize=6)
+    axes[0,1].tick_params(axis='both', which='major', labelsize=6)
+    axes[1,0].tick_params(axis='both', which='major', labelsize=6)
+    axes[1,1].tick_params(axis='both', which='major', labelsize=6)
+    # prints title and formatting
+    plt.suptitle('Boxplots (classes separated)', fontsize=15, fontname='fantasy')
+    plt.tight_layout()
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/boxplot1.png')
+    plt.show()
 
 # creating violin plots
 # firstly with all irises
-b = sns.violinplot(data=iris, linewidth=0.5, fliersize=6, inner='point', palette=color_theme2) # creates plot with formatting
-plt.tick_params(axis='both', which='major', labelsize=7) # sets ticks
-b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with formatting
-plt.suptitle('Violinplot (all classes)', fontsize=15, fontname='fantasy') # sets title with formatting
-plt.show()
+def violinplot_all_species():
+    b = sns.violinplot(data=iris, linewidth=0.5, fliersize=6, inner='point', palette=color_theme2) # creates plot with formatting
+    plt.tick_params(axis='both', which='major', labelsize=7) # sets ticks
+    b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with formatting
+    plt.suptitle('Violinplot (all classes)', fontsize=15, fontname='fantasy') # sets title with formatting
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/violinplot.png')
+    plt.show()
 
 # Stripplots
 # each class separated out. data points scattered violin plots.
-f, axes = plt.subplots(2,2) # creats a 2x2 grid
-# creates 4 violin plots
-sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme1)
-sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme1)
-sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme1)
-sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme1)
-# creates stipplots, i.e. data markers added to violin plots
-sns.stripplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], size=2, color='white', edgecolor='black', linewidth=.5)
-sns.stripplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], size=2, color='white', edgecolor='black', linewidth=.5)
-sns.stripplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], size=2, color='white', edgecolor='black', linewidth=.5)
-sns.stripplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], size=2, color='white', edgecolor='black', linewidth=.5)
-# sets x and y lables with formatting
-axes[0,0].set_xlabel(" ", fontsize=7)
-axes[0,0].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
-axes[0,1].set_xlabel(" ", fontsize=7)
-axes[0,1].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
-axes[1,0].set_xlabel(" ", fontsize=7)
-axes[1,0].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
-axes[1,1].set_xlabel(" ", fontsize=7)
-axes[1,1].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
-# format x,y ticks
-axes[0,0].tick_params(axis='both', which='major', labelsize=6)
-axes[0,1].tick_params(axis='both', which='major', labelsize=6)
-axes[1,0].tick_params(axis='both', which='major', labelsize=6)
-axes[1,1].tick_params(axis='both', which='major', labelsize=6)
-# sets title with formatting
-plt.suptitle('Strip plots (classes separated and data points scattered)', fontsize=13, fontname='fantasy')
-plt.show()
+def violin_strip_plots():
+    f, axes = plt.subplots(2,2) # creats a 2x2 grid
+    # creates 4 violin plots
+    sns.violinplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], linewidth=0.5, palette=color_theme1)
+    sns.violinplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], linewidth=0.5, palette=color_theme1)
+    sns.violinplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], linewidth=0.5, palette=color_theme1)
+    sns.violinplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], linewidth=0.5, palette=color_theme1)
+    # creates stipplots, i.e. data markers added to violin plots
+    sns.stripplot(x = 'species', y='sepal_length', data = iris, ax=axes[0,0], size=2, color='white', edgecolor='black', linewidth=.5)
+    sns.stripplot(x = 'species', y='sepal_width', data = iris, ax=axes[0,1], size=2, color='white', edgecolor='black', linewidth=.5)
+    sns.stripplot(x = 'species', y='petal_length', data = iris, ax=axes[1,0], size=2, color='white', edgecolor='black', linewidth=.5)
+    sns.stripplot(x = 'species', y='petal_width', data = iris, ax=axes[1,1], size=2, color='white', edgecolor='black', linewidth=.5)
+    # sets x and y lables with formatting
+    axes[0,0].set_xlabel(" ", fontsize=7)
+    axes[0,0].set_ylabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+    axes[0,1].set_xlabel(" ", fontsize=7)
+    axes[0,1].set_ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+    axes[1,0].set_xlabel(" ", fontsize=7)
+    axes[1,0].set_ylabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+    axes[1,1].set_xlabel(" ", fontsize=7)
+    axes[1,1].set_ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+    # format x,y ticks
+    axes[0,0].tick_params(axis='both', which='major', labelsize=6)
+    axes[0,1].tick_params(axis='both', which='major', labelsize=6)
+    axes[1,0].tick_params(axis='both', which='major', labelsize=6)
+    axes[1,1].tick_params(axis='both', which='major', labelsize=6)
+    # sets title with formatting
+    plt.suptitle('Strip plots (classes separated and data points scattered)', fontsize=13, fontname='fantasy')
+    plt.tight_layout()
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/stripplot.png')
+    plt.show()
 
 # histograms to show distribution of each variable
 # sets up 4 plots - 2x2.
-fig, axes = plt.subplots(2,2)
-# creates 4 histograms with formatting, including KDE curve. Alpha (transparency) set to 0.5 so we can see the patterns more clearly
-SP1 = sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axes[0,0])
-SP2 = sns.histplot(data=iris, x='sepal_width', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axes[0,1])
-SP3 = sns.histplot(data=iris, x='petal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axes[1,0])
-SP4 = sns.histplot(data=iris, x='petal_width', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, ax=axes[1,1])
-# sets x, y labels with formatting. substituing title for x label for clarity (looks cluttered below)
-SP1.set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
-SP1.set_xlabel(" ", fontsize=7)
-SP1.set_ylabel("count", fontsize=7, fontname='fantasy')
-SP2.set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
-SP2.set_xlabel(" ", fontsize=7)
-SP2.set_ylabel("count", fontsize=7, fontname='fantasy')
-SP3.set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
-SP3.set_ylabel("count", fontsize=7)
-SP4.set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
-SP4.set_ylabel("count", fontsize=7)
-# sets ticks
-SP1.tick_params(axis='both', which='major', labelsize=5)
-SP2.tick_params(axis='both', which='major', labelsize=5)
-SP3.tick_params(axis='both', which='major', labelsize=5)
-SP4.tick_params(axis='both', which='major', labelsize=5)
-# sets title with formatting
-plt.suptitle('Histograms (distribution frequency per variable)', fontsize=13, fontname='fantasy')
-plt.show()
+def histograms():
+    fig, axs = plt.subplots(2,2)
+    # creates 4 histograms with formatting, including KDE curve. Alpha (transparency) set to 0.5 so we can see the patterns more clearly
+    SP1 = sns.histplot(data=iris, x='sepal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axs[0,0])
+    SP2 = sns.histplot(data=iris, x='sepal_width', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axs[0,1])
+    SP3 = sns.histplot(data=iris, x='petal_length', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, legend=False, ax=axs[1,0])
+    SP4 = sns.histplot(data=iris, x='petal_width', binwidth=0.1, hue='species', kde=True, palette=color_theme1, alpha=0.5, ax=axs[1,1])
+    # sets x, y labels with formatting. substituing title for x label for clarity (looks cluttered positioned below)
+    SP1.set_title("sepal_length (cm)", fontsize=7, fontname='fantasy')
+    SP1.set_xlabel(" ", fontsize=7)
+    SP1.set_ylabel("count", fontsize=7, fontname='fantasy')
+    SP2.set_title("sepal_width (cm)", fontsize=7, fontname='fantasy')
+    SP2.set_xlabel(" ", fontsize=7)
+    SP2.set_ylabel("count", fontsize=7, fontname='fantasy')
+    SP3.set_xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+    SP3.set_ylabel("count", fontsize=7)
+    SP4.set_xlabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+    SP4.set_ylabel("count", fontsize=7)
+    # sets ticks
+    SP1.tick_params(axis='both', which='major', labelsize=5)
+    SP2.tick_params(axis='both', which='major', labelsize=5)
+    SP3.tick_params(axis='both', which='major', labelsize=5)
+    SP4.tick_params(axis='both', which='major', labelsize=5)
+    # sets title with formatting
+    plt.suptitle('Histograms (distribution frequency per variable)', fontsize=13, fontname='fantasy')
+    plt.tight_layout()
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/histogram.png')
+    plt.show()
 
 # creating a pairgrid for all the variables
-pg_1 = sns.PairGrid(iris, hue = 'species', palette=color_theme1)
-pg_1.map_upper(sns.scatterplot) # above and below the diagonal will be scatter plots
-pg_1.map_lower(sns.scatterplot)
-pg_1.map_diag(plt.hist, stacked=True) # creates histogram on the diagonal
-plt.subplots_adjust(top=.95) # creates apce above the plot for the title
-plt.tick_params(axis='both', which='major', labelsize=5) # sets ticks
-# sets title with formatting
-plt.suptitle('Pair Grid (scatterplots and histograms)', fontsize=15, fontname='fantasy')
-plt.show()
+def pairplot():
+    pg_1 = sns.pairplot(iris, hue = 'species', palette=color_theme1)
+    pg_1.map_diag(plt.hist, alpha=0.5) # creates histogram on the diagonal
+    plt.subplots_adjust(top=.95) # creates apce above the plot for the title
+    plt.tick_params(axis='both', which='major', labelsize=5) # sets ticks
+    # sets title with formatting
+    plt.suptitle('Pairs Plot (scatterplots and histograms)', fontsize=15, fontname='fantasy')
+    plt.tight_layout()
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairplot.png')
+    plt.show()
 
 # another pairplot with KDE this time
-pg_2 = sns.PairGrid(iris, hue = 'species', palette=color_theme1)
-pg_2.map_upper(sns.kdeplot, shade=True, alpha=0.5) # creates KDE above and below the diagonal. aplha set to 
-                                                    # so we can see through
-pg_2.map_lower(sns.kdeplot, shade=True, alpha=0.5)
-pg_2.map_diag(sns.kdeplot, shade=True, alpha=0.5) # KDE histogram on the diagonal
-plt.subplots_adjust(top=.95) # creates apce above the plot for the title
-plt.tick_params(axis='both', which='major', labelsize=5) # sets ticks
-# sets title and formatting
-plt.suptitle('Pair Grid (KDE scatterplots and histograms)', fontsize=13, fontname='fantasy')
-plt.show()
+def pairgrid():
+    pg_2 = sns.PairGrid(iris, hue = 'species', palette=color_theme1)
+    pg_2.map_upper(sns.kdeplot, shade=True, alpha=0.5) # creates KDE above and below the diagonal. aplha set to 
+                                                        # so we can see through
+    pg_2.map_lower(sns.kdeplot, alpha=0.5)
+    pg_2.map_diag(sns.kdeplot, shade=True, alpha=0.5) # KDE histogram on the diagonal
+    plt.subplots_adjust(top=.95) # creates apce above the plot for the title
+    plt.tick_params(axis='both', which='major', labelsize=5) # sets ticks
+    # sets title and formatting
+    plt.suptitle('Pair Grid (KDE scatterplots and histograms)', fontsize=13, fontname='fantasy')
+    plt.tight_layout()
+    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairgrid.png')
+    plt.show()
+
+def try_again():
+    a = input('do you want to check out more? y/n: ')
+    if a == 'y':
+        main_menu()
+    else:
+        print("OK! Come again soon!")
+
+def main_menu():
+    print("Choose one of the following options:")
+    x = input("For data text analysis press (1), for data visualisations press (2), or q to quit: ")
+    if x == '1':
+        y = input("\nChoose from the following:\n\n\t\t1) View the size, shape and column names\n\
+            \t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
+            \t3) View a statistical overview of the dataset\n\
+            \t4) View a statistical overview of each class\n\
+            \t5) View correlation between variables\n\
+            \t6) View data on each class with row totals and means\n\
+            \t7) View means and standard deviation for row totals\n\
+            \t8) Exit\n\t")
+        if y == '1':
+            print(I3, I4, I5)
+            try_again()
+        elif y == '2':
+            print(I7,I8,I9)
+            try_again()
+        elif y == '3':
+            print(I11)
+            try_again()
+        elif y == '4':
+            print(I12,I13,I14,I15)
+            try_again()
+        elif y == '5':
+            print(I16)
+            try_again()
+        elif y == '6':
+            print(I17,I18,I19,I20)
+            try_again()
+        elif y == '7':
+            print(I21,I22,I23,I24,I25,I26)
+            try_again()
+        elif y == '8':
+            print("OK! Sorry to see you go!")
+        else: 
+            print('Invalid selection')
+            main_menu()
+
+    elif x == '2':
+        z = input("\nChoose from the following:\n\n\t1) Heatmap\n\t2) Boxplot (all classes)\n\
+        3) Boxplots (classes separated)\n\t4) Violin Plots (all classes)\n\t5) Strip Plots (classes separated)\n\
+        6) Histograms\n\t7) Pairs Plot\n\t8) Pairgrid\n\t9) Quit\n\t")
+        if z == '1':
+            heatmap()
+            try_again()
+        elif z == '2':
+            boxplot_overall()
+            try_again()
+        elif z == '3':
+            boxplot_species_separated()
+            try_again()
+        elif z == '4':
+            violinplot_all_species()
+            try_again()
+        elif z == '5':
+            violin_strip_plots()
+            try_again()
+        elif z == '6':
+            histograms()
+            try_again()
+        elif z == '7':
+            pairplot()
+            try_again()
+        elif z == '8':
+            pairgrid()
+            try_again()
+        elif y == '9':
+            print("OK! Sorry to see you go!")
+        else:
+            print('invalid selection! Try again!')
+            main_menu()
+    elif x == 'q':
+        print("OK! Sorry to see you go!")
+    else:
+        print('invalid selection! Try again!')
+        main_menu()
+
+main_menu()

@@ -104,3 +104,11 @@ My birthday!
 Just a bit of research on other peoples work on the dataset just to see if I'm on the right track. Think i'm happy enough!
 Created a section in the readme describing the various files in the repositry.
 reordered the columns in the new csv file.
+
+18 April
+only a very few updates since last commit
+
+19 April
+Bit changes! Created functions out of all the plots! This way they are only created once called instead of every time the program runs
+Also, set it so they save automatically - savefig().
+Created a basic user interface and menu so particular info can be requested
