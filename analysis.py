@@ -10,44 +10,44 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import csv
 
+# this seems to get rid of an 'unused variable' warning I was getting!
 # pylint: disable=unused-variable
 
 # reads in the dataset
 iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
 
 # this is an initial exploration of the data
-# creating variables to be printed to a txt file
-I1 = ("-----FISHER'S IRIS DATASET ANALYSIS PROJECT-----\n\n")
-I2 = ("------------INITIAL DATA EXPLORATION------------\n\n*****\n")
-I3 = ("\nSIZE() - the total number of entries in the dataset:\n" + str(iris.size) + "\n\n******\n") # returns size of dataset
-I4 = ("\nSHAPE() - the number of rows and columns:\n" + str(iris.shape) + "\n\n******\n") # returns shape of dataset, i.e. no. of rows and columns
-I5 = ("\nCOLUMNS() - these are the column labels and the data type:\n" + str(iris.columns) + "\n\n******\n") # returns column names/labels
+# creating variables to be printed to a txt file and also to be used later in the menu section
+I1 = ("-----FISHER'S IRIS DATASET ANALYSIS PROJECT-----\n\n"\
+"------------INITIAL DATA EXPLORATION------------\n\n*****\n")
+I2 = ("\nSIZE() - the total number of entries in the dataset:\n" + str(iris.size) + "\n\n******\n" +\
+"\nSHAPE() - the number of rows and columns:\n" + str(iris.shape) + "\n\n******\n"\
+"\nCOLUMNS() - these are the column labels and the data type:\n" + str(iris.columns) + "\n\n******\n") # returns column names/labels
 # isnull() returns if there are any missing datapoints. If so they will be flagged as TRUE, otherwise FALSE
-I6 = ("\nISNULL() - this returns if there are any null or missing values.\nEverything here is FALSE which means no null values\n" + str(iris.isnull()) + "\n\n******\n")
+I3 = ("\nISNULL() - this returns if there are any null or missing values.\nEverything here is FALSE which means no null values\n" + str(iris.isnull()) + "\n\n******\n")
 # head(6) returns the first 6 entries. Default is 5 - guess I'm just demonstrating that I know that1 ;)
-I7 = ("\nHEAD() - this is a printout of the first 6 rows of the dataset:\n" + str(iris.head(6)) + "\n\n******\n")
-# tail(6) returns the last 6 entries
-I8 = ("\nTAIL() - this is a printout of the last 6 rows of the dataset:\n" + str(iris.tail(6)) + "\n\n******\n")
-# sample(6) returns a random or sample 6 entries
-I9 = ("\nSAMPLE() - this is a printout of a random 6 rows of the dataset:\n" + str(iris.sample(6)) + "\n\n******\n")
+I4 = ("\nHEAD() - this is a printout of the first 6 rows of the dataset:\n" + str(iris.head(6)) + "\n\n******\n" +\
+"\nTAIL() - this is a printout of the last 6 rows of the dataset:\n" + str(iris.tail(6)) + "\n\n******\n" +\
+"\nSAMPLE() - this is a printout of a random 6 rows of the dataset:\n" + str(iris.sample(6)) + "\n\n******\n")
 # this returns the number of entries per species
-I10 = ("\nVALUE_COUNTS() - this shows how many values for each class/species\n" + str(iris["species"].value_counts()) + "\n\n******\n")
+I5 = ("\nVALUE_COUNTS() - this shows how many values for each class/species\n" + str(iris["species"].value_counts()) + "\n\n******\n")
 iris_des = iris.describe()
 # decribe() gives me a table of overall analysis including count, mean, standard deviation, min, max, and 25/50/75  percentiles
 # transpose changes the x and y of the table. I think it's easier to read this way
-I11 = ("\nDESCRIBE() - this is a statistical overview of the dataset:\n" + str(iris_des.transpose()) + "\n\n******\n")
-# creating variables for individual classes
+I6 = ("\nDESCRIBE() - this is a statistical overview of the dataset:\n" + str(iris_des.transpose()) + "\n\n******\n")
+
+# this returns a table/dataframe of the correlation between the attributes
+I7 = ("\nCORR() - this shows the correlation between the variables in the data:\n" + str(iris.corr()) + "\n\n******\n")
+
 set_des = iris.loc[iris['species'] == "setosa"].describe()
 ver_des = iris.loc[iris['species'] == "versicolor"].describe()
 vir_des = iris.loc[iris['species'] == "virginica"].describe()
-I12 = ("\nDESCRIBE() by class - overview with each class isolated\n")
-# using the same describe() function on the individual classes
-I13 = ("--setosa--\n" + str(set_des.transpose()) + "\n\n")
-I14 = ("--versicolor--\n" + str(ver_des.transpose()) + "\n\n")
-I15 = ("--virginica--\n" + str(vir_des.transpose()) + "\n\n******\n")
-# this returns a table/dataframe of the correlation between the attributes
-I16 = ("\nCORR() - this shows the correlation between the variables in the data:\n" + str(iris.corr()) + "\n\n******\n")
-# creates a new copy of iris so we don't affect the plots to come later!
+I8 = ("\nDESCRIBE() by class - overview with each class isolated\n" +\
+"--setosa--\n" + str(set_des.transpose()) + "\n\n" +\
+"--versicolor--\n" + str(ver_des.transpose()) + "\n\n" +\
+"--virginica--\n" + str(vir_des.transpose()) + "\n\n******\n")
+
+# creates a new copy of iris to manipulate
 iris2 = iris.copy()
 # creates a variable for the columns in the dataset
 cols = iris2.columns
@@ -57,26 +57,25 @@ original_columns = iris2[cols[0:4]]
 iris2["totals"] = original_columns.sum(axis=1)
 # finds the mean for the first 4 columns in each row and creates a new column for the result
 iris2["mean"] = original_columns.mean(axis=1)
+
 # creating variables for individual classes in the new dataset
 setosa = iris2.loc[iris2["species"] == "setosa"]
 versicolor = iris2.loc[iris2["species"] == "versicolor"]
 virginica = iris2.loc[iris2["species"] == "virginica"]
 
-I17 = ("\nThe following are the first 5 rows of each class with totals and means of each row included:\n")
-# prints the first 5 rows for each class in the new dataset
-I18 = ("--setosa--\n" + str(setosa.head()) + "\n\n")
-I19 = ("--versicolor--\n" + str(versicolor.head()) + "\n\n")
-I20 = ("--virginica--\n" + str(virginica.head()) + "\n\n******\n")
+I9 = ("\nThe following are the first 5 rows of each class with totals and means of each row included:\n" +\
+"--setosa--\n" + str(setosa.head()) + "\n\n" +\
+"--versicolor--\n" + str(versicolor.head()) + "\n\n" +\
+"--virginica--\n" + str(virginica.head()) + "\n\n******\n")
 # returns the mean for total dimension for each class
-I21 = ("\nmean for setosa " + str(setosa[["totals"]].mean()) + "\n")
-I22 = ("mean for versicolor " + str(versicolor[["totals"]].mean()) + "\n")
-I23 = ("mean for virginica " + str(virginica[["totals"]].mean()) + "\n\n******\n")
-# returns the standard deviation for total dimension for each class
-I24 = ("\nstandard deviation for setosa " + str(setosa[['totals']].std()) + "\n")
-I25 = ("standard deviation for versicolor " + str(versicolor[['totals']].std()) + "\n")
-I26 = ("standard deviation for virginica " + str(virginica[['totals']].std()) + "\n")
+I10 = ("\nmean for setosa " + str(setosa[["totals"]].mean()) + "\n" +\
+"mean for versicolor " + str(versicolor[["totals"]].mean()) + "\n" +\
+"mean for virginica " + str(virginica[["totals"]].mean()) + "\n\n******\n" +\
+"\nstandard deviation for setosa " + str(setosa[['totals']].std()) + "\n" +\
+"standard deviation for versicolor " + str(versicolor[['totals']].std()) + "\n" +\
+"standard deviation for virginica " + str(virginica[['totals']].std()) + "\n")
 
-text_analysis = [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26]
+text_analysis = [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10]
 
 # prints all of the above info to a txt file - 'outputted_iris_data.txt'
 with open('outputted_iris_data_textfile.txt','w') as d_a:
@@ -262,34 +261,34 @@ def main_menu():
     print("Choose one of the following options:")
     x = input("For data text analysis press (1), for data visualisations press (2), or q to quit: ")
     if x == '1':
-        y = input("\nChoose from the following:\n\n\t\t1) View the size, shape and column names\n\
+        y = input("\n\tChoose from the following:\n\n\t\t1) View the size, shape and column names\n\
             \t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
             \t3) View a statistical overview of the dataset\n\
-            \t4) View a statistical overview of each class\n\
-            \t5) View correlation between variables\n\
+            \t4) View correlation between variables\n\
+            \t5) View a statistical overview of each class\n\
             \t6) View data on each class with row totals and means\n\
             \t7) View means and standard deviation for row totals\n\
             \t8) Exit\n\t")
         if y == '1':
-            print(I3, I4, I5)
+            print(I2)
             try_again()
         elif y == '2':
-            print(I7,I8,I9)
+            print(I4)
             try_again()
         elif y == '3':
-            print(I11)
+            print(I6)
             try_again()
         elif y == '4':
-            print(I12,I13,I14,I15)
+            print(I7)
             try_again()
         elif y == '5':
-            print(I16)
+            print(I8)
             try_again()
         elif y == '6':
-            print(I17,I18,I19,I20)
+            print(I9)
             try_again()
         elif y == '7':
-            print(I21,I22,I23,I24,I25,I26)
+            print(I10)
             try_again()
         elif y == '8':
             print("OK! Sorry to see you go!")
