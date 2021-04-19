@@ -109,6 +109,6 @@ reordered the columns in the new csv file.
 only a very few updates since last commit
 
 19 April
-Bit changes! Created functions out of all the plots! This way they are only created once called instead of every time the program runs
+Big changes! Created functions out of all the plots! This way they are only created once called instead of every time the program runs
 Also, set it so they save automatically - savefig().
 Created a basic user interface and menu so particular info can be requested

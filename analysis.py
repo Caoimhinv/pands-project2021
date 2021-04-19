@@ -73,7 +73,7 @@ I10 = ("\nmean for setosa " + str(setosa[["totals"]].mean()) + "\n" +\
 "mean for virginica " + str(virginica[["totals"]].mean()) + "\n\n******\n" +\
 "\nstandard deviation for setosa " + str(setosa[['totals']].std()) + "\n" +\
 "standard deviation for versicolor " + str(versicolor[['totals']].std()) + "\n" +\
-"standard deviation for virginica " + str(virginica[['totals']].std()) + "\n")
+"standard deviation for virginica " + str(virginica[['totals']].std()) + "\n\n******\n")
 
 text_analysis = [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10]
 
@@ -258,17 +258,22 @@ def try_again():
         print("OK! Come again soon!")
 
 def main_menu():
-    print("Choose one of the following options:")
-    x = input("For data text analysis press (1), for data visualisations press (2), or q to quit: ")
+    print("Please choose one of the following options:\n")
+    x = input("\t\t1) View text analysis\n\
+        \t2) View data visualisations\n\
+        \t3) Exit\n\t\t")
     if x == '1':
-        y = input("\n\tChoose from the following:\n\n\t\t1) View the size, shape and column names\n\
-            \t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
-            \t3) View a statistical overview of the dataset\n\
-            \t4) View correlation between variables\n\
-            \t5) View a statistical overview of each class\n\
-            \t6) View data on each class with row totals and means\n\
-            \t7) View means and standard deviation for row totals\n\
-            \t8) Exit\n\t")
+        y = input("\n\tChoose from the following:\n\n\
+        \t\t1) View the size, shape and column names\n\
+        \t\t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
+        \t\t3) View a statistical overview of the dataset\n\
+        \t\t4) View correlation between variables\n\
+        \t\t5) View a statistical overview of each class\n\
+        \t\t6) View data on each class with row totals and means\n\
+        \t\t7) View means and standard deviation for row totals\n\
+        \t\t8) View a complete overview of the data\n\
+        \t\t9) Back to main menu\n\
+        \t\t10) Exit\n\t\t")
         if y == '1':
             print(I2)
             try_again()
@@ -291,15 +296,28 @@ def main_menu():
             print(I10)
             try_again()
         elif y == '8':
+            print(I2, I4, I6, I7, I8, I9, I10)
+            try_again()
+        elif y == '9':
+            main_menu()
+        elif y == '10':
             print("OK! Sorry to see you go!")
         else: 
             print('Invalid selection1 Try again!')
             main_menu()
 
     elif x == '2':
-        z = input("\nChoose from the following:\n\n\t1) Heatmap\n\t2) Boxplot (all classes)\n\
-        3) Boxplots (classes separated)\n\t4) Violin Plots (all classes)\n\t5) Strip Plots (classes separated)\n\
-        6) Histograms\n\t7) Pairplot\n\t8) Pairgrid\n\t9) Quit\n\t")
+        z = input("\nChoose from the following:\n\n\
+        \t1) Heatmap\n\
+        \t2) Boxplot (all classes)\n\
+        \t3) Boxplots (classes separated)\n\
+        \t4) Violin Plots (all classes)\n\
+        \t5) Strip Plots (classes separated)\n\
+        \t6) Histograms\n\
+        \t7) Pairplot\n\
+        \t8) Pairgrid\n\
+        \t9) Back to main menu\n\
+        \t10) Quit\n\t")
         if z == '1':
             heatmap()
             try_again()
@@ -324,15 +342,25 @@ def main_menu():
         elif z == '8':
             pairgrid()
             try_again()
-        elif y == '9':
+        elif z == '9':
+            main_menu()
+        elif z == '10':
             print("OK! Sorry to see you go!")
         else:
             print('invalid selection! Try again!')
             main_menu()
-    elif x == 'q':
+    elif x == '3':
         print("OK! Sorry to see you go!")
     else:
         print('invalid selection! Try again!')
         main_menu()
+
+print("\n************\n\nFisher's Iris dataset is a multivarate dataset named after the statistician Ronald Fisher who introduced \
+it in his 1936 paper 'The Use of Multiple Measurements in Taxonic Problems' which was published in the journal \
+'Annals of Eugenics'. The original data was collected by botanist Edgar Anderson, whom it is also sometimes \
+named after, with the aim 'to quantify the morphologic variation of Iris flowers of three related species'.\n\n************\n")
+
+print("The following is an analysis of the dataset through standard statistical methods and visualisations with the dual goal of \
+gaining insight into the data and exploring the various tools available in the python language.\n\n************\n")
 
 main_menu()
