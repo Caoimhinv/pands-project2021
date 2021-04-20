@@ -19,30 +19,29 @@ iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/p
 # this is an initial exploration of the data
 # creating variables to be printed to a txt file and also to be used later in the menu section
 I1 = ("-----FISHER'S IRIS DATASET ANALYSIS PROJECT-----\n\n"\
-"------------INITIAL DATA EXPLORATION------------\n\n*****\n")
+"------------INITIAL DATA EXPLORATION------------\n\n******\n")
 I2 = ("\nSIZE() - the total number of entries in the dataset:\n" + str(iris.size) + "\n\n******\n" +\
 "\nSHAPE() - the number of rows and columns:\n" + str(iris.shape) + "\n\n******\n"\
-"\nCOLUMNS() - these are the column labels and the data type:\n" + str(iris.columns) + "\n\n******\n") # returns column names/labels
-# isnull() returns if there are any missing datapoints. If so they will be flagged as TRUE, otherwise FALSE
-I3 = ("\nISNULL() - this returns if there are any null or missing values.\nEverything here is FALSE which means no null values\n" + str(iris.isnull()) + "\n\n******\n")
+"\nCOLUMNS() - these are the column labels and the data type:\n" + str(iris.columns) + "\n\n******\n"\
+"\nISNULL() - this returns if there are any null or missing values (FALSE means no null values)\n" + str(iris.isnull().values.any()) + "\n\n******\n")
 # head(6) returns the first 6 entries. Default is 5 - guess I'm just demonstrating that I know that1 ;)
-I4 = ("\nHEAD() - this is a printout of the first 6 rows of the dataset:\n" + str(iris.head(6)) + "\n\n******\n" +\
+I3 = ("\nHEAD() - this is a printout of the first 6 rows of the dataset:\n" + str(iris.head(6)) + "\n\n******\n" +\
 "\nTAIL() - this is a printout of the last 6 rows of the dataset:\n" + str(iris.tail(6)) + "\n\n******\n" +\
 "\nSAMPLE() - this is a printout of a random 6 rows of the dataset:\n" + str(iris.sample(6)) + "\n\n******\n")
 # this returns the number of entries per species
-I5 = ("\nVALUE_COUNTS() - this shows how many values for each class/species\n" + str(iris["species"].value_counts()) + "\n\n******\n")
+I4 = ("\nVALUE_COUNTS() - this shows how many values for each class/species\n" + str(iris["species"].value_counts()) + "\n\n******\n")
 iris_des = iris.describe()
 # decribe() gives me a table of overall analysis including count, mean, standard deviation, min, max, and 25/50/75  percentiles
 # transpose changes the x and y of the table. I think it's easier to read this way
-I6 = ("\nDESCRIBE() - this is a statistical overview of the dataset:\n" + str(iris_des.transpose()) + "\n\n******\n")
+I5 = ("\nDESCRIBE() - this is a statistical overview of the dataset:\n" + str(iris_des.transpose()) + "\n\n******\n")
 
 # this returns a table/dataframe of the correlation between the attributes
-I7 = ("\nCORR() - this shows the correlation between the variables in the data:\n" + str(iris.corr()) + "\n\n******\n")
+I6 = ("\nCORR() - this shows the correlation between the variables in the data:\n" + str(iris.corr()) + "\n\n******\n")
 
 set_des = iris.loc[iris['species'] == "setosa"].describe()
 ver_des = iris.loc[iris['species'] == "versicolor"].describe()
 vir_des = iris.loc[iris['species'] == "virginica"].describe()
-I8 = ("\nDESCRIBE() by class - overview with each class isolated\n" +\
+I7 = ("\nDESCRIBE() by class - overview with each class isolated\n" +\
 "--setosa--\n" + str(set_des.transpose()) + "\n\n" +\
 "--versicolor--\n" + str(ver_des.transpose()) + "\n\n" +\
 "--virginica--\n" + str(vir_des.transpose()) + "\n\n******\n")
@@ -58,28 +57,32 @@ iris2["totals"] = original_columns.sum(axis=1)
 # finds the mean for the first 4 columns in each row and creates a new column for the result
 iris2["mean"] = original_columns.mean(axis=1)
 
+# reorders columns so we have 'species' last as before
+iris2 = iris2[['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'totals', 'mean', 'species']]
+
 # creating variables for individual classes in the new dataset
 setosa = iris2.loc[iris2["species"] == "setosa"]
 versicolor = iris2.loc[iris2["species"] == "versicolor"]
 virginica = iris2.loc[iris2["species"] == "virginica"]
 
-I9 = ("\nThe following are the first 5 rows of each class with totals and means of each row included:\n" +\
+I8 = ("\nThe following are the first 5 rows of each class with totals and means of each row included:\n" +\
 "--setosa--\n" + str(setosa.head()) + "\n\n" +\
 "--versicolor--\n" + str(versicolor.head()) + "\n\n" +\
 "--virginica--\n" + str(virginica.head()) + "\n\n******\n")
 # returns the mean for total dimension for each class
-I10 = ("\nmean for setosa " + str(setosa[["totals"]].mean()) + "\n" +\
+I9 = ("\nmean for setosa " + str(setosa[["totals"]].mean()) + "\n" +\
 "mean for versicolor " + str(versicolor[["totals"]].mean()) + "\n" +\
 "mean for virginica " + str(virginica[["totals"]].mean()) + "\n\n******\n" +\
 "\nstandard deviation for setosa " + str(setosa[['totals']].std()) + "\n" +\
 "standard deviation for versicolor " + str(versicolor[['totals']].std()) + "\n" +\
 "standard deviation for virginica " + str(virginica[['totals']].std()) + "\n\n******\n")
 
-text_analysis = [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10]
+text_analysis = [I1, I2, I3, I4, I5, I6, I7, I8, I9]
 
-# prints all of the above info to a txt file - 'outputted_iris_data.txt'
-with open('outputted_iris_data_textfile.txt','w') as d_a:
-    d_a.writelines(text_analysis)
+# function which prints all of the above info to a txt file - 'outputted_iris_data.txt'
+def print_text_file():
+    with open('outputted_iris_data_textfile.txt','w') as text_file:
+        text_file.writelines(text_analysis)
 
 # reorders columns so we have 'species' last as before
 iris2 = iris2[['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'totals', 'mean', 'species']]
@@ -100,8 +103,14 @@ color_theme2 = ['yellowgreen','teal','tomato', 'plum']
 def heatmap():
     iris_hm = iris.corr()
     sns.heatmap(iris_hm, annot=True, cmap="cubehelix") # my color_themes weren't really appropriate here unfortunately!
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/heatmap.png')
-    plt.show()
+    x = input("Enter (1) to view the heatmap or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/heatmap.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
 
 # creates a boxplot of all elements
 def boxplot_overall():
@@ -110,8 +119,14 @@ def boxplot_overall():
     plt.tick_params(axis='both', which='major', labelsize=7) # formats ticks on each axis
     b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with font and fontsize
     plt.suptitle('Boxplot (all classes)', fontsize=15, fontname='fantasy') # prints title and sets font and fontsize
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/boxplot.png')
-    plt.show()
+    x = input("Enter (1) to view the boxplot or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/boxplot.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
 
 # boxplot grid separating out each species
 def boxplot_species_separated():
@@ -140,8 +155,14 @@ def boxplot_species_separated():
     # prints title and formatting
     plt.suptitle('Boxplots (classes separated)', fontsize=15, fontname='fantasy')
     plt.tight_layout()
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/boxplot1.png')
-    plt.show()
+    x = input("Enter (1) to view the boxplots or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/boxplot1.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
 
 # creating violin plots
 # firstly with all irises
@@ -150,9 +171,15 @@ def violinplot_all_species():
     plt.tick_params(axis='both', which='major', labelsize=7) # sets ticks
     b.set_ylabel("(cm)", fontsize=7, fontname='fantasy') # sets y label with formatting
     plt.suptitle('Violinplot (all classes)', fontsize=15, fontname='fantasy') # sets title with formatting
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/violinplot.png')
-    plt.show()
-
+    x = input("Enter (1) to view the violinplot or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/violinplot.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
+    
 # Stripplots
 # each class separated out. data points scattered violin plots.
 def violin_strip_plots():
@@ -184,9 +211,15 @@ def violin_strip_plots():
     # sets title with formatting
     plt.suptitle('Strip plots (classes separated and data points scattered)', fontsize=13, fontname='fantasy')
     plt.tight_layout()
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/stripplot.png')
-    plt.show()
-
+    x = input("Enter (1) to view the stripplots or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/stripplot.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
+    
 # histograms to show distribution of each variable
 # sets up 4 plots - 2x2.
 def histograms():
@@ -215,9 +248,15 @@ def histograms():
     # sets title with formatting
     plt.suptitle('Histograms (distribution frequency per variable)', fontsize=13, fontname='fantasy')
     plt.tight_layout()
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/histogram.png')
-    plt.show()
-
+    x = input("Enter (1) to view the histograms or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/histogram.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
+    
 # creating a pairplot for all the variables
 def pairplot():
     pp_1 = sns.pairplot(iris, hue = 'species', palette=color_theme1)
@@ -231,8 +270,14 @@ def pairplot():
     # creates a new legend which I can position in a more suitable place
     pp_1.add_legend(bbox_to_anchor=(0.98, 0.2))
     plt.tight_layout()
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairplot.png')
-    plt.show()
+    x = input("Enter (1) to view the pairplot or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairplot.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
 
 # pairgrid with KDE this time
 def pairgrid():
@@ -247,63 +292,73 @@ def pairgrid():
     plt.suptitle('Pair Grid (KDE scatterplots and histograms)', fontsize=13, fontname='fantasy')
     pg_2.add_legend(bbox_to_anchor=(0.98, 0.22))
     plt.tight_layout()
-    plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairgrid.png')
-    plt.show()
+    x = input("Enter (1) to view the pairgrid or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/Images/pairgrid.png')
+    else:
+        print("Invalid selection!")
+        main_menu()
 
 def try_again():
     a = input('do you want to check out more? y/n: ')
     if a == 'y':
         main_menu()
     else:
-        print("OK! Come again soon!")
+        print("OK bye! Hope you learned something!")
 
 def main_menu():
     print("Please choose one of the following options:\n")
-    x = input("\t\t1) View text analysis\n\
-        \t2) View data visualisations\n\
+    x = input("\t\t1) Text analysis\n\
+        \t2) Data visualisations\n\
         \t3) Exit\n\t\t")
     if x == '1':
         y = input("\n\tChoose from the following:\n\n\
-        \t\t1) View the size, shape and column names\n\
-        \t\t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
-        \t\t3) View a statistical overview of the dataset\n\
-        \t\t4) View correlation between variables\n\
-        \t\t5) View a statistical overview of each class\n\
-        \t\t6) View data on each class with row totals and means\n\
-        \t\t7) View means and standard deviation for row totals\n\
-        \t\t8) View a complete overview of the data\n\
-        \t\t9) Back to main menu\n\
-        \t\t10) Exit\n\t\t")
+        \t1) View the size, shape and column names\n\
+        \t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
+        \t3) View a statistical overview of the dataset\n\
+        \t4) View correlation between variables\n\
+        \t5) View a statistical overview of each class\n\
+        \t6) View data on each class with row totals and means\n\
+        \t7) View means and standard deviation for row totals\n\
+        \t8) View a complete overview of the data\n\
+        \t9) Print text analysis to file\n\
+        \t10) Back to main menu\n\
+        \t11) Exit\n\t\t")
         if y == '1':
             print(I2)
             try_again()
         elif y == '2':
-            print(I4)
+            print(I3)
             try_again()
         elif y == '3':
-            print(I6)
+            print(I5)
             try_again()
         elif y == '4':
-            print(I7)
+            print(I6)
             try_again()
         elif y == '5':
-            print(I8)
+            print(I7)
             try_again()
         elif y == '6':
-            print(I9)
+            print(I8)
             try_again()
         elif y == '7':
-            print(I10)
+            print(I9)
             try_again()
         elif y == '8':
-            print(I2, I4, I6, I7, I8, I9, I10)
+            print(I2, I3, I5, I6, I7, I8, I9)
             try_again()
         elif y == '9':
-            main_menu()
+            print_text_file()
+            try_again()
         elif y == '10':
+            main_menu()
+        elif y == '11':
             print("OK! Sorry to see you go!")
         else: 
-            print('Invalid selection1 Try again!')
+            print('Invalid selection! Try again!')
             main_menu()
 
     elif x == '2':
@@ -317,7 +372,7 @@ def main_menu():
         \t7) Pairplot\n\
         \t8) Pairgrid\n\
         \t9) Back to main menu\n\
-        \t10) Quit\n\t")
+        \t10) Quit\n\t\t")
         if z == '1':
             heatmap()
             try_again()
@@ -357,10 +412,7 @@ def main_menu():
 
 print("\n************\n\nFisher's Iris dataset is a multivarate dataset named after the statistician Ronald Fisher who introduced \
 it in his 1936 paper 'The Use of Multiple Measurements in Taxonic Problems' which was published in the journal \
-'Annals of Eugenics'. The original data was collected by botanist Edgar Anderson, whom it is also sometimes \
-named after, with the aim 'to quantify the morphologic variation of Iris flowers of three related species'.\n\n************\n")
-
-print("The following is an analysis of the dataset through standard statistical methods and visualisations with the dual goal of \
+'Annals of Eugenics'. The following is an analysis of the dataset through standard statistical methods and visualisations with the dual goal of \
 gaining insight into the data and exploring the various tools available in the python language.\n\n************\n")
 
 main_menu()
