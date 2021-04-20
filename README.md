@@ -166,7 +166,8 @@ A further progression on this project would be to create an algorithim to test w
 - The **Images** folder contains all of the visualisations created by the python script (**analysis.py**) that are included above. Plus a few other downloaded example images from the web.
 - **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
 - **README.md** is this!
-- **analysis.py** is the main script. The program carries out statistical analysis on the dataset and prints out the results to the text file **outputted_iris_data_textfile.txt**. It contains a series of functions that once called, create and save the data visualisations contained in the **Images** folder. The final element is a user interface menu where individual elements can be requested.
+- **analysis.py** is the main script. Once run the user is presented with a series of menus where they can view (or save to file) all of the text based or visual analyses.
+- **plot_functions.py** contains functions that create all of the data visualisations. They are called as required in the **analysis.py** program.
 - **iris_dataset.csv** is the original dataset
 - **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
 - **notes.txt** is a rough journal of my progress through the project.

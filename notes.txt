@@ -112,3 +112,8 @@ only a very few updates since last commit
 Big changes! Created functions out of all the plots! This way they are only created once called instead of every time the program runs
 Also, set it so they save automatically - savefig().
 Created a basic user interface and menu so particular info can be requested
+
+20 April
+Mostly tweaking things.
+Then decided to move all of the plot functions to a new file. Think it tidies things up a bit.
+May look to do a bit more of that.
