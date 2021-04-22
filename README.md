@@ -27,9 +27,7 @@
 
 >**Taxonomy** - *"... the scientific study of naming, defining and classifying groups of biological organisms based on shared characteristics."* 
 
-Fisher's Iris dataset is a collection of measurements of the attributes of different species of Iris flower. It was introduced by the statistician Ronald Fisher in a 1936 paper *"The Use of Multiple Measurements in Taxonic Problems*, and has developed into a very popular testcase for students of various mathematic and scientific disciplines. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after.
-
->*"to quantify the morphologic variation of Iris flowers of three related species"*.  
+Fisher's Iris dataset is a collection of measurements of the attributes of different species of Iris flower. It was introduced by the statistician Ronald Fisher in a 1936 paper *"The Use of Multiple Measurements in Taxonic Problems*, and has developed into a very popular testcase for students of various mathematic and scientific disciplines. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, *"to quantify the morphologic variation of Iris flowers of three related species"*.  
 
 ## Background <a name="Background"></a>
 The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after. The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four attributes were measured from each sample - lengths and widths of both sepals and petals in cemtimetres. The samples from the setosa and versicolar were all collected on the same day from the same field by the same person. The third species was collected elsewhere.
@@ -119,7 +117,7 @@ The findings are very clear when presented like this with the darker areas repre
 
 ![boxplot explained](./Images/box_plot_explained2.png)
 
-The box plot seemed to be the best place to start to get an overall impression of the data. We started with an overall boxplot taking in all of the data at once.
+The boxplot seemed to be the best place to start to get an overall impression of the data. We started with an overall boxplot taking in all of the data at once.
 
 ![overall boxplot](./Images/boxplot.png)
 
@@ -155,7 +153,7 @@ We created these by first defining the grid as we did with the boxplots **plt.su
 
 ### Histogram <a name="Histogram"></a>  
 
->*"A **histogram** is an approximate representation of the distribution of numerical data.*
+>*"A **histogram** is a graphical display of data using bars of different heights. In a histogram, each bar groups numbers into ranges. Taller bars show that more data falls in that range.*
 
 These are the most commonly used graph to show frequency distributions. I've again created 4 subplots of histograms - one for each variable/attribute. 
 
@@ -201,12 +199,12 @@ When the program is run, the user is given a short introduction followed by a ch
 - **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
 - **README.md** you are here!
 - **analysis.py** is the main script. Once run the user is presented with a series of menus where they can view (or save to file) all of the text based or visual analyses.
-- **plot_functions.py** contains functions that create all of the data visualisations. This is imported into **analysis.py** and the functions are called as required.
-- **text_analysis.py** contains all of the text analysis. This is also imported into **analysis.py** and accessed as required from there.
 - **iris_dataset.csv** is the original dataset
 - **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
 - **notes.txt** is a rough journal of my progress through the project.
 - **outputted_iris_data_textfile.txt** is the data analysis created by the main program script **analysis.py**
+- **plot_functions.py** contains functions that create all of the data visualisations. This is imported into **analysis.py** and the functions are called as required.
+- **text_analysis.py** contains all of the text analysis. This is also imported into **analysis.py** and accessed as required from there.
 
 ## Conclusion <a name="Conclusion"></a>
 Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day :confused:!  
