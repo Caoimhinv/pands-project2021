@@ -1,6 +1,8 @@
-# Fisher’s Iris dataset analysis project  
-## Programming and Scripting module 2021  
-## Caoimhin Vallely
+# Fisher’s Iris dataset - Analysis Project  
+
+## **student_name:** Caoimhin Vallely  
+## **student_number:** G00398568
+## **course:** HDip in Data Analytics, GMIT
 
 # Table of contents
 1. [Introduction](#Introduction)
