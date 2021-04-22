@@ -121,7 +121,7 @@ I've created a grid here of 4 boxplots here using the **plt.subplots()** tool. *
 Here we can see the setosa species emerging as being quite distinct from the others particularly in terms of petal length and width. But we can also define somewhat of a difference between the other two species in terms of petal dimensions.
 
 ### Violinplot <a name="Violinplot"></a>   
-- **violin plot**  
+- **violinplot**  
 >"A violin plot plays a similar role as a box ... plot. It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared. Unlike a box plot, in which all of the plot components correspond to actual datapoints, the violin plot features a kernel density estimation of the underlying distribution."
 
 ![insert violin plots here](./Images/violinplot.png)
@@ -130,7 +130,7 @@ This violin plot is created using seaborn **sns.violinplot()**. The formatting i
 
 We can get some extra understanding of same data here. We can see a split in the petal visualisation suggesting some discrimination between the classes.  
 
-- **strip plot**  
+- **stripplot**  
 >"a good complement to a box or violin plot in cases where you want to show all observations along with some representation of the underlying distribution."
 
 These are in effect violin plots with the data points 'scattered' to represent the distribution of values. I've isolated each of the classes out again and we can see the pattern more clearly. The setosa petal again emerges distinct from the other species when we look at the petal dimensions.
@@ -161,7 +161,7 @@ From these histograms, we can clearly see the same pattern as above with the set
 ### Pairplot <a name="Pairplot"></a>
 Up until now all of the plotting has involved looking at one numeric parameter at a time. This kind of analysis is called **univariate analysis**. By looking at a second variable and the relationship between the two we are extending our analysis into **bivariate analysis**. Scatterplots are the simplest and most common method to explore this.  
 
-- **scatter plot**
+- **scatterplot**
 >"A scatterplot is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together."
 
 ![insert pairgrid Scatter here](./Images/pairplot.png)
@@ -175,15 +175,16 @@ Below is another visualisation of the same data this time using KDE (kernal dens
 Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
 ## Program <a name="Program"></a>
-The program has 2 main sections. The first prints all of the raw data analysis to a text file, and the plots to the folder **Images** (once each function is called). The coding of this section has been addressed above
-The second section is a user interface where elements of the analysis can be called on request. This is built through a series of **if/elif/else** clauses built inside 2 functions.
+The program runs from the file **analysis.py** with the modules **plot_functions.py** and **text_analysis.py** imported. I separated the program into 3 files as it was becoming very untidy and hard to manage as the project progressed!
+When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. For the plots they are given the choice to view or to save to file. There is also an option to save the text analysis to file. The coding of this section has been described above
 
 ## Guide_to_Repositry <a name="Guide_to_Repositry"></a>
 - The **Images** folder contains all of the visualisations created by the python script (**analysis.py**) that are included above. Plus a few other downloaded example images from the web.
 - **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
 - **README.md** is this!
 - **analysis.py** is the main script. Once run the user is presented with a series of menus where they can view (or save to file) all of the text based or visual analyses.
-- **plot_functions.py** contains functions that create all of the data visualisations. They are called as required in the **analysis.py** program.
+- **plot_functions.py** contains functions that create all of the data visualisations. This is imported into **analysis.py** and the functions are called as required.
+- **text_analysis.py** contains all of the text analysis. This is also imported into **analysis.py** and accessed as required from there.
 - **iris_dataset.csv** is the original dataset
 - **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
 - **notes.txt** is a rough journal of my progress through the project.
@@ -195,7 +196,7 @@ A further progression on this project would be to create an algorithim to test w
 
 ## References <a name="References"></a>
 
-### Background and source code
+### Background
 - *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the original) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
 - *Taxonomy* - https://en.wikipedia.org/wiki/Taxonomy_(biology)
 - *Linear Discriminant Analysis* - https://en.wikipedia.org/wiki/Linear_discriminant_analysis
@@ -206,8 +207,11 @@ A further progression on this project would be to create an algorithim to test w
 - *Basic statistics* - https://www.statisticshowto.com/statistics-basics/
 - *Quantitative Data: Definition, Types, Analysis and Examples* - https://www.questionpro.com/blog/quantitative-data/
 - *Your Guide to Qualitative and Quantitative Data Analysis Methods* - https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
-- *Markdown* - https://www.markdownguide.org/basic-syntax/
-- *Images in markdown* - https://stackoverflow.com/questions/41604263/how-do-i-display-local-image-in-markdown
+
+### Markdown
+- *General* - https://www.markdownguide.org/basic-syntax/
+- *Images* - https://stackoverflow.com/questions/41604263/how-do-i-display-local-image-in-markdown
+- *Table of contents* - https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents
 
 ### Initial data exploration
 - *Exploratory Data Analysis of IRIS Data Set Using Python* by Venkata Sai Reddy Avuluri - https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d

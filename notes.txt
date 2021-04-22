@@ -117,3 +117,11 @@ Created a basic user interface and menu so particular info can be requested
 Mostly tweaking things.
 Then decided to move all of the plot functions to a new file. Think it tidies things up a bit.
 May look to do a bit more of that.
+
+21 April
+more tweaking
+
+22 April 
+Moved all of the text into a new file to tidy things up a bit.
+Found a way of making a table of contents in markdown!
+Edited Readme a good bit!
