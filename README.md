@@ -2,10 +2,11 @@
 ## Programming and Scripting module 2021  
 ## Caoimhin Vallely
 
-{:toc}
-
 -----
-## Intro  
+
+## - Intro
+{:toc}  
+
 Fisher's Iris dataset is a multivarate dataset named after the statistician Ronald Fisher who introduced it in his 1936 paper *"The Use of Multiple Measurements in Taxonic Problems* which was published in the journal *'Annals of Eugenics'*. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, with the aim *"to quantify the morphologic variation of Iris flowers of three related species"*.  
 
 ### Background
