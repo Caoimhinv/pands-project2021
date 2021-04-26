@@ -52,7 +52,7 @@ In preparation, I did some revision of basic statistical methods. However, apart
 
 ## Program <a name="Program"></a>
 The program runs from the file **analysis.py** with the modules **plot_functions.py** and **text_analysis.py** imported. I separated the program into 3 files as it was becoming very untidy and hard to manage as the project expanded.
-When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. In the text section, the user can request to view individual elements of analysis, a complete overview, or to save the overview to file. There is also an option to save the amended dataset to file. For the visualisation they are given the choice to view each plot or to save to file. I've included saved versions of the text and plots in the repositry.
+When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. In the text section, the user can request to view individual elements of analysis, a complete overview, or to save the overview to file. There is also an option to save the amended dataset to file. For the visualisations, they are given the choice to view each plot or to save to file. I've included saved versions of the text and all of the plots in the repositry.
 
 ## Guide_to_Repositry <a name="Guide_to_Repositry"></a>
 - The **Images** folder contains all of the visualisations created by the program, plus a few other downloaded example images from the web.
@@ -133,7 +133,7 @@ The findings are very clear when presented like this with the darker areas repre
 
 ### Parallel_coordinates <a name="Parallel_coordinates"></a> 
 
-Parallel coordinates are an interesting way to view the data. Each row of the dataset is represented by a line on the plot. With the classes separated by colour, we can again see that the petal measurements, and in particular petal_length, are better at separating species.  
+Parallel coordinates are an interesting way to view the data. Each row of the dataset is represented by a line on the plot. With the classes separated by colour, we can see that the petal measurements, and in particular petal_length, are better at separating species.  
 
 ![parallel_coordinates](./Images/parallel_coordinates.png)   
 
@@ -291,7 +291,7 @@ A further progression on this project would be to create an algorithim to test w
 - *legend* - https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot
 - *legend* - https://stackoverflow.com/questions/34301418/python3-seaborn-pairgrid-legend-outside-subplots
 
-#### Miscellaneous>
+#### Miscellaneous
 - *unused variables* - https://stackoverflow.com/questions/60531586/unused-variable-warning-in-visual-studio-code-python
 
 
