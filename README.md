@@ -7,19 +7,20 @@
 # Table of contents
 1. [Introduction](#Introduction)
 2. [Background](#Background)
-3. [Initial_data_exploration](#Initial_data_exploration)
+3. [Program](#Program)
+4. [Guide_to_Repositry](#Guide_to_Repositry)
+5. [Initial_data_exploration](#Initial_data_exploration)
     1. [Part1](#Part1)
     2. [Part2](#Part2)
     3. [Part3](#Part3)
     4. [Part4](#Part4)
-4. [Visualisation](#Visualisation)
+6. [Visualisation](#Visualisation)
     1. [Heatmap](#Heatmap)
-    2. [Boxplot](#Boxplot)
-    3. [Violinplot](#Violinplot)
-    4. [Histogram](#Histogram)
-    5. [Pairplot](#Pairplot)
-5. [Program](#Program)
-6. [Guide_to_Repositry](#Guide_to_Repositry)
+    2. [Parallel_coordinates](#Parallel_coordinates)
+    3. [Boxplot](#Boxplot)
+    4. [Violinplot](#Violinplot)
+    5. [Histogram](#Histogram)
+    6. [Pairplot](#Pairplot)
 7. [Conclusion](#Conclusion)
 8. [References](#Refernces)
 
@@ -29,10 +30,10 @@
 
 >**Taxonomy** - *"... the scientific study of naming, defining and classifying groups of biological organisms based on shared characteristics."* 
 
-Fisher's Iris dataset is a collection of measurements of the attributes of different species of Iris flower. It was introduced by the statistician Ronald Fisher in a 1936 paper *"The Use of Multiple Measurements in Taxonic Problems*, and has developed into a very popular testcase for students of various mathematic and scientific disciplines. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, *"to quantify the morphologic variation of Iris flowers of three related species"*.  
+Fisher's Iris dataset is a collection of measurements of the attributes of different species of the Iris flower. It was introduced by the statistician Ronald Fisher in a 1936 paper *"The Use of Multiple Measurements in Taxonic Problems*, and has developed into a very popular testcase for students of various mathematic and scientific disciplines. The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after, *"to quantify the morphologic variation of Iris flowers of three related species"*.  
 
 ## Background <a name="Background"></a>
-The original data was collected by botanist Edgar Anderson, whom it is also sometimes named after. The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four attributes were measured from each sample - lengths and widths of both sepals and petals in cemtimetres. The samples from the setosa and versicolar were all collected on the same day from the same field by the same person. The third species was collected elsewhere.
+The dataset consists of 50 samples from each of three species of iris - Iris setosa, Iris virginica and Iris versicolor. Four attributes were measured from each sample - lengths and widths of both sepals and petals in cemtimetres. The samples from the setosa and versicolar were all collected on the same day from the same field by the same person. The third species was collected elsewhere.
 
 ![Image of the 3 different species of Iris.](./Images/image_of_irises.png)
 
@@ -49,12 +50,29 @@ It's quite interesting to find out that although Fisher developed this model to 
 
 In preparation, I did some revision of basic statistical methods. However, apart from that, I haven't ventured outside the subject matter and methods covered in the lectures to date. There was a temptation to delve into machine learning, which it is suggested this dataset is quite appropriate for, but I resisted, reckoning I'd be better equipped for that further down the line.
 
+## Program <a name="Program"></a>
+The program runs from the file **analysis.py** with the modules **plot_functions.py** and **text_analysis.py** imported. I separated the program into 3 files as it was becoming very untidy and hard to manage as the project expanded.
+When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. In the text section, the user can request to view individual elements of analysis, a complete overview, or to save the overview to file. There is also an option to save the amended dataset to file. For the visualisation they are given the choice to view each plot or to save to file. I've included saved versions of the text and plots in the repositry.
+
+## Guide_to_Repositry <a name="Guide_to_Repositry"></a>
+- The **Images** folder contains all of the visualisations created by the program, plus a few other downloaded example images from the web.
+- **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
+- **README.md** you are here!
+- **analysis.py** is the main script. Once run the user is presented with a series of menus where they can view (or save to file) all of the text based or visual analyses.
+- **iris_dataset.csv** is the original dataset
+- **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
+- **notes.txt** is a rough journal of my progress through the project.
+- **outputted_iris_data_textfile.txt** is the data analysis created by the main program script **analysis.py**
+- **plot_functions.py** contains functions that create all of the data visualisations. This is imported into **analysis.py** and the functions are called as required.
+- **text_analysis.py** contains all of the text analysis. This is also imported into **analysis.py** and accessed as required from there.
+
 ## Initial data exploration <a name="Initial data exploration"></a>
 ### Part1 <a name="Part1"></a>
-While this section subsequently migrated to a separate file (**text_analysis.py**) for convenience and tidyness, it originated as the first pieces of code in my main script, so it seems logical place to start from. My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the **csv** file <iris_dataset.csv> in this repositry. I cross referenced this with another, more authentic looking version from https://archive.ics.uci.edu/ml/datasets/Iris but they were identical.
+While this section subsequently migrated to a separate file (**text_analysis.py**) for convenience and tidyness, it originated as the first pieces of code in my main script, so it seems a logical place to start from. My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the **csv** file <iris_dataset.csv> in this repositry. I cross referenced this with another, more authentic looking version from https://archive.ics.uci.edu/ml/datasets/Iris but they were identical.
 I imported the **pandas** and **csv** libraries to assist in the reading, writing, and analysis of the data for this section.
 
->**pandas** - "... is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language."
+>**pandas** - "... is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language."  
+
 >**csv** - "The csv library provides functionality to both read from and write to CSV files."
 
 Pandas, is imported as per convention, and economy of space, as **pd**.
@@ -111,7 +129,13 @@ We begin by creating a heatmap based on the correlation we investigated above. W
 
 ![heatmap](./Images/heatmap.png)  
 
-The findings are very clear when presented like this with the darker areas representing the least correlation and vice versa.  
+The findings are very clear when presented like this with the darker areas representing the least correlation and vice versa. So the petal measurements are highly correlated with each other while the sepal measurements aren't. And as we discovered above there is also high correlation between sepal length and both petal attributes.
+
+### Parallel_coordinates <a name="Parallel_coordinates"></a> 
+
+Parallel coordinates are an interesting way to view the data. Each row of the dataset is represented by a line on the plot. With the classes separated by colour, we can again see that the petal measurements, and in particular petal_length, are better at separating species.  
+
+![parallel_coordinates](./Images/parallel_coordinates.png)   
 
 ### Boxplot <a name="Boxplot"></a>  
 
@@ -192,25 +216,11 @@ Below is another visualisation of the same data this time using **KDE** (kernal 
 
 Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
 
-## Program <a name="Program"></a>
-The program runs from the file **analysis.py** with the modules **plot_functions.py** and **text_analysis.py** imported. I separated the program into 3 files as it was becoming very untidy and hard to manage as the project expanded!
-When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. In the text section, the user can request to view individual elements of analysis, a complete overview, or to save the overview to file. There is also an option to save the amended dataset to file. For the visualisation they are given the choice to view each plot or to save to file.
-
-## Guide_to_Repositry <a name="Guide_to_Repositry"></a>
-- The **Images** folder contains all of the visualisations created by the program, plus a few other downloaded example images from the web.
-- **.gitignore** is an automatically generated text file that tells Git which files or folders to ignore in a project.
-- **README.md** you are here!
-- **analysis.py** is the main script. Once run the user is presented with a series of menus where they can view (or save to file) all of the text based or visual analyses.
-- **iris_dataset.csv** is the original dataset
-- **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
-- **notes.txt** is a rough journal of my progress through the project.
-- **outputted_iris_data_textfile.txt** is the data analysis created by the main program script **analysis.py**
-- **plot_functions.py** contains functions that create all of the data visualisations. This is imported into **analysis.py** and the functions are called as required.
-- **text_analysis.py** contains all of the text analysis. This is also imported into **analysis.py** and accessed as required from there.
 
 ## Conclusion <a name="Conclusion"></a>
 Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day :confused:!  
-A further progression on this project would be to create an algorithim to test whether we could predict the species just from the attributes. I presume we'll be looking into this area later in the course.
+A further progression on this project would be to create an algorithim to test whether we could predict the species just from the attributes. This brings us into the whole area of machine learning. The library **scikit-learn** seems to be very appropriate for this purpose, and indeed has the dataset already loaded.
+
 
 ## References <a name="References"></a>
 
@@ -262,6 +272,7 @@ A further progression on this project would be to create an algorithim to test w
 - *Understanding Boxplots* (and source for 'boxplots explained' image) by Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
 - *Interpretting boxolots* - https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric. 
 - *saving plots* - https://chartio.com/resources/tutorials/how-to-save-a-plot-to-a-file-using-matplotlib/
+- *parallel coordinates plot* - https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_coordinates.html
 
 #### Seaborn
 - *Seaborn Tutorial 2020* (YouTube) by Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0

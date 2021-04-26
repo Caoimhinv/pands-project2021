@@ -33,6 +33,23 @@ def heatmap():
         print("Invalid selection!") # error handling
         heatmap() # gives the user another go!
 
+# creates a parallel coordinates plot
+def parallel_coordinates():
+    pd.plotting.parallel_coordinates(iris, 'species', color=color_theme1)
+    plt.suptitle("Parallel coordinates", fontsize=15, fontname='fantasy')
+    plt.xlim(-0.1,3.1) # increases plot dimension slightly so we can see the first and last lines
+    plt.ylabel("cm", fontsize=7, fontname='fantasy')
+    plt.tick_params(axis='y', which='major', labelsize=6)
+    plt.legend(loc='upper center')
+    x = input("Enter (1) to view the parallel coordinate plot or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('./Images/parallel_coordinates.png') # saves to the image folder
+    else:
+        print("Invalid selection!") # error handling
+        parallel_coordinates() # gives the user another go!
+
 # function to creates a boxplot of all attributes and classes
 def boxplot_overall():
     # creates a boxplot, with linesize, fliersize, and colour palette defined
@@ -223,3 +240,5 @@ def pairgrid():
     else:
         print("Invalid selection!")
         pairgrid()
+
+parallel_coordinates()
