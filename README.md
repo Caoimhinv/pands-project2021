@@ -102,7 +102,6 @@ For the visualisations, they are given the choice of viewing each plot or to sav
 - **analysis.py** is the main script. Once run the user is presented with a series of menus where they can view (or save to file) all of the text based or visual analyses.
 - **iris_dataset.csv** is the original dataset
 - **iris_dataset_with_totals.csv** is the dataset with extra columns - row totals, and row means.
-- **notes.txt** is a rough journal of my progress through the project.
 - **outputted_iris_data_textfile.txt** is the data analysis created by the main program script **analysis.py**
 - **plot_functions.py** contains functions that create all of the data visualisations. This is imported into **analysis.py** and the functions are called as required.
 - **text_analysis.py** contains all of the text analysis. This is also imported into **analysis.py** and accessed as required from there.
