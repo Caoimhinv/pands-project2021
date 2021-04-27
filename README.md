@@ -4,7 +4,7 @@
 ## **student_number:** G00398568
 ## **course:** HDip in Data Analytics, GMIT
 
-# Table of contents
+### Table of contents
 1. [Introduction](#Introduction)
 2. [Background](#Background)
 3. [Program](#Program)
@@ -109,7 +109,7 @@ For the visualisations, they are given the choice of viewing each plot or to sav
 
 ## Initial data exploration <a name="Initial data exploration"></a>
 ### Part1 <a name="Part1"></a>
-While this section subsequently migrated to a separate file (**text_analysis.py**) for convenience and tidyness, it originated as the first pieces of code in my main script, so it seems a logical place to start from. My first step was to download the dataset which I did from <https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv> and save it as the **csv** file <iris_dataset.csv> in this repositry. I cross referenced this with another, more authentic looking version from https://archive.ics.uci.edu/ml/datasets/Iris but they were identical.
+While this section subsequently migrated to a separate file (**text_analysis.py**) for convenience and tidyness, it originated as the first pieces of code in my main script, so it seems a logical place to start from. My first step was to download the dataset which I did from <https://archive.ics.uci.edu/ml/datasets/Iris and save it as the **csv** file <iris_dataset.csv> and saved it as a **csv** file in this repositry. (I subsequently learned that the dataset was already loaded into the **seaborn** library but by that stage I'd half the project already complete!)
 I imported the **pandas** and **csv** libraries to assist in the reading, writing, and analysis of the data for this section.
 
 >**pandas** - "... is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language."  
@@ -273,75 +273,72 @@ A further progression on this project would be to create an algorithim to test w
 ## References <a name="References"></a>
 
 ### Background
-- *THE USE OF MULTIPLE MEASUREMENTS IN TAXONOMIC PROBLEMS* by R. A. Fisher (the original) - https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x
-- *Taxonomy* - https://en.wikipedia.org/wiki/Taxonomy_(biology)
-- *Linear Discriminant Analysis* - https://en.wikipedia.org/wiki/Linear_discriminant_analysis
-- *Iris Data Set* (source for code and some background) - https://archive.ics.uci.edu/ml/datasets/Iris
-- *Another source for code* - https://gist.github.com/curran/a08a1080b88344b0c8a7#file-iris-csv
-- *Iris flower data set* (Wikipedia) - https://en.wikipedia.org/wiki/Iris_flower_data_set
-- *The Iris Dataset — A Little Bit of History and Biology* by Yong Cui - https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5
-- *Basic statistics* - https://www.statisticshowto.com/statistics-basics/
-- *Quantitative Data: Definition, Types, Analysis and Examples* - https://www.questionpro.com/blog/quantitative-data/
-- *Your Guide to Qualitative and Quantitative Data Analysis Methods* - https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/
+- Fisher, R.A. 1936, *The Use of Multiple Measurements in Taxonomic Problems*, 'Annals of Eugenics, 7: 179-188 (1936)', <https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1469-1809.1936.tb02137.x>
+- *Iris Data Set*, <https://archive.ics.uci.edu/ml/datasets/Iris>
+- *Iris flower data set*, <https://en.wikipedia.org/wiki/Iris_flower_data_set>
+- Cui, Yong 2020, *The Iris Dataset — A Little Bit of History and Biology*, <https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>
+- *Taxonomy (biology)*, <https://en.wikipedia.org/wiki/Taxonomy_(biology)>
+- *Linear Discriminant Analysis*, <https://en.wikipedia.org/wiki/Linear_discriminant_analysis>
 
 ### Markdown
-- *General* - https://www.markdownguide.org/basic-syntax/
-- *Images* - https://stackoverflow.com/questions/41604263/how-do-i-display-local-image-in-markdown
-- *Table of contents* - https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents
+- *Basic Syntax*, <https://www.markdownguide.org/basic-syntax/>
+- *How do I display local image in markdown?*, <https://stackoverflow.com/questions/41604263/how-do-i-display-local-image-in-markdown>
+- *Markdown to create pages and table of contents?*, <https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents>
 
 ### Initial data exploration
-- *Exploratory Data Analysis of IRIS Data Set Using Python* by Venkata Sai Reddy Avuluri - https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d
-- *Python File writelines() Method* - https://www.w3schools.com/python/ref_file_writelines.asp
-- *Python – Basics of Pandas using Iris Dataset* - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
-- *Reading and Writing CSV Files in Python* - https://realpython.com/python-csv/
-- *How to Export Pandas DataFrame to CSV* - https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03
-- *Python Set copy() Method* - https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.
-- *Source for irises image* - https://morioh.com/p/eafb28ccf4e3
-- *round when sending to .csv file* - https://github.com/pandas-dev/pandas/issues/13159
-- *writelines()* - https://www.w3schools.com/python/ref_file_writelines.asp
+- *Statistics Basics*, <https://www.statisticshowto.com/statistics-basics/>
+- *Quantitative Data: Definition, Types, Analysis and Examples*, <https://www.questionpro.com/blog/quantitative-data/>
+- Bhatia, Manu 2018, *Your Guide to Qualitative and Quantitative Data Analysis Methods*, <https://humansofdata.atlan.com/2018/09/qualitative-quantitative-data-analysis-methods/>
+- Avuluri, Venkata Sai Reddy 2019, *Exploratory Data Analysis of IRIS Data Set Using Python*, <https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d>
+- Fincher, Jon n.d., *Reading and Writing CSV Files in Python*, <https://realpython.com/python-csv/>
+- *Python File writelines() Method*, <https://www.w3schools.com/python/ref_file_writelines.asp>
+- *Python – Basics of Pandas using Iris Dataset*, <https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/>
+- H., Barney 2020, *How to Export Pandas DataFrame to CSV*, <https://towardsdatascience.com/how-to-export-pandas-dataframe-to-csv-2038e43d9c03>
+- Singh, Chaitanya n.d., *Python Set copy() Method with examples*, <https://beginnersbook.com/2019/03/python-set-copy-method/#:~:text=The%20copy()%20method%20in,()%20method%20instead%20of%20%3D%20operator.>
+- *DOC: floating point precision on writing/reading to csv*, <https://github.com/pandas-dev/pandas/issues/13159>
+- Sporer, Zena 2020, *Iris Species Classification — Machine Learning Model*, <https://morioh.com/p/eafb28ccf4e3>
 
 ### Data visualisation
 
 #### pandas/matplotlib.pyplot
-- *matplotlib.pyplot* - https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html
-- *Scatter plots* - https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html
-- *How to Set Axis Range (xlim, ylim) in Matplotlib* - https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/
-- *Multiple subplots* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py
-- *Set a Single Main Title for All the Subplots in Matplotlib* - https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/
-- *Legend* - https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/
-- *Legends in subplot* - https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot
-- *Creating multiple subplots using plt.subplots* - https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html
-- *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn* - https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas
-- *Matplotlib make tick labels font size smaller* - https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller
-- *set_linestyle* - https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle
-- *How to use Pandas Scatter Matrix (Pair Plot) to Visualize Trends in Data* by Erik Marsja - https://www.marsja.se/pandas-scatter-matrix-pair-plot/
-- *Pair plots using Scatter matrix in Pandas* - https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
-- *List of named colors in matplotlib* - https://matplotlib.org/stable/gallery/color/named_colors.html
-- *Understanding Boxplots* (and source for 'boxplots explained' image) by Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
-- *Interpretting boxplots* - https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric. 
-- *saving plots* - https://chartio.com/resources/tutorials/how-to-save-a-plot-to-a-file-using-matplotlib/
-- *parallel coordinates plot* - https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_coordinates.html
+- *matplotlib.pyplot*, <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html>
+- *matplotlib.pyplot.scatter*, <https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.scatter.html>
+- *Multiple subplots*, <https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html#sphx-glr-gallery-subplots-axes-and-figures-subplot-py>
+- *Creating multiple subplots using plt.subplots*, <https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplots_demo.html>
+- *List of named colors*, <https://matplotlib.org/stable/gallery/color/named_colors.html>
+- *pandas.plotting.parallel_coordinates*, <https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_coordinates.html>
+- Landup, David n.d., *How to Set Axis Range (xlim, ylim) in Matplotlib*, <https://stackabuse.com/how-to-set-axis-range-xlim-ylim-in-matplotlib/>
+- *Set a Single Main Title for All the Subplots in Matplotlib*, <https://www.delftstack.com/howto/matplotlib/how-to-set-a-single-main-title-for-all-the-subplots-in-matplotlib/>
+- *Matplotlib.pyplot.legend() in Python*, <https://www.geeksforgeeks.org/matplotlib-pyplot-legend-in-python/>
+- *Matplotlib legends in subplot*, <https://stackoverflow.com/questions/27016904/matplotlib-legends-in-subplot>
+- Solomon, Brad n.d., *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn*, <https://realpython.com/python-histograms/#visualizing-histograms-with-matplotlib-and-pandas>
+- *Matplotlib make tick labels font size smaller*, <https://stackoverflow.com/questions/6390393/matplotlib-make-tick-labels-font-size-smaller>
+- *matplotlib.lines.Line2D*, <https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle>
+- Marsaja, Erik 2020, *How to use Pandas Scatter Matrix (Pair Plot) to Visualize Trends in Data*, <https://www.marsja.se/pandas-scatter-matrix-pair-plot/>
+- *Pair plots using Scatter matrix in Pandas*, <https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/>
+- Galarnyk, Michael 2018, *Understanding Boxplots*, <https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51>
+- McLeod, Saul 2019, *What does a box plot tell you?*, <https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric.>
+- Welch, AJ n.d., *How to Save a Plot to a File Using Matplotlib*, <https://chartio.com/resources/tutorials/how-to-save-a-plot-to-a-file-using-matplotlib/>
+
 
 #### Seaborn
-- *Seaborn Tutorial 2020* (YouTube) by Derek Banas - https://www.youtube.com/watch?v=6GUZXDef2U0
-- *seaborn.pairplot* - https://seaborn.pydata.org/generated/seaborn.pairplot.html
-- *seaborn.histplot* - https://seaborn.pydata.org/generated/seaborn.histplot.html
-- *seaborn.scatterplot* - https://seaborn.pydata.org/generated/seaborn.scatterplot.html
-- *seaborn.kdeplot* - https://seaborn.pydata.org/generated/seaborn.kdeplot.html
-- *seaborn.violinplot* - https://seaborn.pydata.org/generated/seaborn.violinplot.html
-- *seaborn.swarmplot* - https://seaborn.pydata.org/generated/seaborn.swarmplot.html
-- *Subplot for seaborn boxplot* - https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot
-- *Building structured multi-plot grids in seaborn* - https://seaborn.pydata.org/tutorial/axis_grids.html
-- *Choosing color palettes in seaborn* - https://seaborn.pydata.org/tutorial/color_palettes.html
-- *How To Change Edge Color on Seaborn Scatter Plot* - https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/
-- *Seaborn Title Position* - https://stackoverflow.com/questions/52096050/seaborn-title-position
-- *KDE Plot Visualization with Pandas and Seaborn* - https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
-- *legend* - https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot
-- *legend* - https://stackoverflow.com/questions/34301418/python3-seaborn-pairgrid-legend-outside-subplots
+- Banas, Derek 2020, *Seaborn Tutorial 2020*, <https://www.youtube.com/watch?v=6GUZXDef2U0>
+- *seaborn.pairplot*, <https://seaborn.pydata.org/generated/seaborn.pairplot.html>
+- *seaborn.histplot*, <https://seaborn.pydata.org/generated/seaborn.histplot.html>
+- *seaborn.scatterplot*, <https://seaborn.pydata.org/generated/seaborn.scatterplot.html>
+- *seaborn.kdeplot*, <https://seaborn.pydata.org/generated/seaborn.kdeplot.html>
+- *seaborn.violinplot*, <https://seaborn.pydata.org/generated/seaborn.violinplot.html>
+- *seaborn.swarmplot*, <https://seaborn.pydata.org/generated/seaborn.swarmplot.html>
+- *Building structured multi-plot grids*, <https://seaborn.pydata.org/tutorial/axis_grids.html>
+- *Choosing color palettes*, <https://seaborn.pydata.org/tutorial/color_palettes.html>
+- *Subplot for seaborn boxplot*, <https://stackoverflow.com/questions/41384040/subplot-for-seaborn-boxplot>
+- *How To Change Edge Color on Seaborn Scatter Plot*, <https://datavizpyr.com/change-edge-color-on-seaborn-scatter-plot/>
+- *Seaborn Title Position*, <https://stackoverflow.com/questions/52096050/seaborn-title-position>
+- Prateek, Saurav 2019, *KDE Plot Visualization with Pandas and Seaborn*, <https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/>
 - Ebner, Joshua 2019, *How to make A Seaborn Scatter Plot* - <https://www.sharpsightlabs.com/blog/seaborn-scatter-plot/>
 
 #### Miscellaneous
-- *unused variables* - https://stackoverflow.com/questions/60531586/unused-variable-warning-in-visual-studio-code-python
+- *Unused Variable warning in Visual Studio Code (Python)*, <https://stackoverflow.com/questions/60531586/unused-variable-warning-in-visual-studio-code-python>
 
 
 
