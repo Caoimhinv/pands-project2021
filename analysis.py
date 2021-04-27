@@ -57,7 +57,7 @@ def main_menu():
     if response1 == '1':
         response2 = input("\n\tChoose from the following:\n\n\
         \t1) View the size, shape and column names\n\
-        \t2) View the 1st and last 5 rows and a random sample of 5 rows\n\
+        \t2) View first and last 6 rows and a random sample of 6 rows\n\
         \t3) View a statistical overview of the dataset\n\
         \t4) View correlation between variables\n\
         \t5) View a statistical overview of each class\n\
@@ -105,42 +105,54 @@ def main_menu():
     elif response1 == '2':
         response3 = input("\nChoose from the following:\n\n\
         \t1) Heatmap\n\
-        \t2) Boxplot (all classes)\n\
-        \t3) Boxplots (classes separated)\n\
-        \t4) Violin Plots (all classes)\n\
-        \t5) Strip Plots (classes separated)\n\
-        \t6) Histograms\n\
-        \t7) Pairplot\n\
-        \t8) Pairgrid\n\
-        \t9) Back to main menu\n\
-        \t10) Quit\n\t\t")
+        \t2) Parallel Coordinates\n\
+        \t3) Boxplot ~ all classes\n\
+        \t4) Boxplots ~ classes separated\n\
+        \t5) Violinplots ~ all classes\n\
+        \t6) Stripplots ~ classes separated\n\
+        \t7) Histograms\n\
+        \t8) Scatterplot ~ Sepals\n\
+        \t9) Scatterplot ~ Petals\n\
+        \t10) Pairplot\n\
+        \t11) Pairgrid\n\
+        \t12) Back to main menu\n\
+        \t13) Quit\n\t\t")
         if response3 == '1':
             pf.heatmap()
             try_again()
         elif response3 == '2':
-            pf.boxplot_overall()
+            pf.parallel_coordinates()
             try_again()
         elif response3 == '3':
-            pf.boxplot_species_separated()
+            pf.boxplot_overall()
             try_again()
         elif response3 == '4':
-            pf.violinplot_all_species()
+            pf.boxplot_species_separated()
             try_again()
         elif response3 == '5':
-            pf.violin_strip_plots()
+            pf.violinplot_all_species()
             try_again()
         elif response3 == '6':
-            pf.histograms()
+            pf.violin_strip_plots()
             try_again()
         elif response3 == '7':
-            pf.pairplot()
+            pf.histograms()
             try_again()
         elif response3 == '8':
-            pf.pairgrid()
+            pf.scatter1()
             try_again()
         elif response3 == '9':
-            main_menu()
+            pf.scatter2()
+            try_again()       
         elif response3 == '10':
+            pf.pairplot()
+            try_again()
+        elif response3 == '11':
+            pf.pairgrid()
+            try_again()
+        elif response3 == '12':
+            main_menu()
+        elif response3 == '13':
             print("OK! Sorry to see you go!")
         else:
             print('invalid selection! Try again!')
@@ -153,7 +165,7 @@ def main_menu():
 
 # Main program!
 # Prints a little intro
-print("\n************\n\nWelcome to my analysis project on Fisher's Iris dataset. The dataset comprises measurements of Iris flowers \
+print("\n************\n\nWelcome to this analysis project on Fisher's Iris dataset. The dataset comprises measurements of Iris flowers \
 and was named after the statistician Ronald Fisher who introduced it in his 1936 paper 'The Use of Multiple Measurements in Taxonic Problems'. \
 The following is an analysis of the dataset through standard statistical methods and visualisations with the dual goal of \
 gaining some insight into the data and exploring the various tools available in the python programming language. Please follow the menus \

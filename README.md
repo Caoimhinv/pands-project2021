@@ -20,7 +20,8 @@
     3. [Boxplot](#Boxplot)
     4. [Violinplot](#Violinplot)
     5. [Histogram](#Histogram)
-    6. [Pairplot](#Pairplot)
+    6. [Scatterplot](#Scatterplot)
+    7. [Pairplot](#Pairplot)
 7. [Conclusion](#Conclusion)
 8. [References](#Refernces)
 
@@ -52,7 +53,47 @@ In preparation, I did some revision of basic statistical methods. However, apart
 
 ## Program <a name="Program"></a>
 The program runs from the file **analysis.py** with the modules **plot_functions.py** and **text_analysis.py** imported. I separated the program into 3 files as it was becoming very untidy and hard to manage as the project expanded.
-When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. In the text section, the user can request to view individual elements of analysis, a complete overview, or to save the overview to file. There is also an option to save the amended dataset to file. For the visualisations, they are given the choice to view each plot or to save to file. I've included saved versions of the text and all of the plots in the repositry.
+When the program is run, the user is given a short introduction followed by a choice of text analysis or data visualisation. 
+
+    Please choose one of the following options:
+
+		    1) Text analysis
+            2) Data visualisations
+            3) Exit
+
+From here they are able to navigate between all of the sections of the analysis through a series of **if/elif/else** clauses built inside 2 functions. In the text section, the user can request to view individual elements of analysis, a complete overview, or to save the overview to file. There is also an option to save the amended dataset to file. 
+
+    Choose from the following:
+
+        	1) View the size, shape and column names
+        	2) View the 1st and last 5 rows and a random sample of 5 rows
+        	3) View a statistical overview of the dataset
+        	4) View correlation between variables
+        	5) View a statistical overview of each class
+        	6) View data on each class with row totals and means
+        	7) View means and standard deviation for row totals
+        	8) View a complete overview of the data
+        	9) Print text analysis to file
+        	10) Back to main menu
+        	11) Exit
+
+For the visualisations, they are given the choice of viewing each plot or to save each to file. I've included saved versions of the text and all of the plots in the repositry.
+
+    Choose from the following:
+
+        	1) Heatmap
+        	2) Parallel Coordinates
+        	3) Boxplot ~ all classes
+        	4) Boxplots ~ classes separated
+        	5) Violinplots ~ all classes
+        	6) Stripplots ~ classes separated
+        	7) Histograms
+        	8) Scatterplot ~ Sepals
+        	9) Scatterplot ~ Petals
+        	10) Pairplot
+        	11) Pairgrid
+        	12) Back to main menu
+        	13) Quit
 
 ## Guide_to_Repositry <a name="Guide_to_Repositry"></a>
 - The **Images** folder contains all of the visualisations created by the program, plus a few other downloaded example images from the web.
@@ -198,7 +239,7 @@ We've already seem **palette** and **ax** before.
 
 From these histograms, we can clearly see the same pattern as above with the setosa petal quite separate to the others. The KDE also shows the relative relationships to normal distribution, the most notable aspect of which is the narrowness, and proxomity to the mean, of the petal attributes of the setosa species.
 
-### Pairplot <a name="Pairplot"></a>
+### Scatterplot <a name="Scatterplot"></a>
 
 >**Multivariate statistics** - *"... a subdivision of statistics encompassing the simultaneous observation and analysis of more than one outcome variable."*  
 
@@ -206,16 +247,23 @@ Up until now all of the plotting has involved looking at one numeric parameter a
 
 >*"A **scatterplot** is a graphic representation of points referencing two variables. To create a scatterplot, two variables are observed and plotted on a graph. The resulting display demonstrates the relationship between the variables. The relationship is strongest where the points are clustered closest together."*
 
+![insert scatter1 here](./Images/scatter1.png)
+
+![insert scatter2 here](./Images/scatter2.png)
+
+The two scatterplots above explore the relationship between the sepal attributes and the petal attributes of each of the classes. Again we can see a separation with the setosa class in both cases, and some separation between versicolor and virginica when it comes to petal attributes. 
+
+### Pairplot <a name="Pairplot"></a>
+
+We can also explore all of the other possible combinations of variables using the very useful seaborn tool **.pairplot()**. This creates a **scatterplot matrix** which, as well as comparing all of the different combinations of variables and their inverse, also produces four histograms on the diagonal.
+
 ![insert pairgrid Scatter here](./Images/pairplot.png)
 
-I've used the seaborn **.pairplot()** tool to create a **scatterplot matrix** where each combination of variable is plotted against each other. The four diagonal boxes show more histograms. 
-
-Below is another visualisation of the same data this time using **KDE** (kernal density estimation) and **.pairgrid()**. KDE is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information. Pairgrid gives me some extra flexibility over pairplot as I can use different visualisations in different sections, so we can see the set of scatterplots above the diagonal are shaded and those below aren't. 
+Below is another visualisation of the same data this time using **KDE** (kernal density estimation) and **.pairgrid()**. KDE is a technique that uses probability estimation to create a smooth curve. While normally used with histograms, I think it works well here and looks visually pleasing and less cluttered than the scatter plots while revealing the same information. Pairgrid gives some extra flexibility over pairplot as I can use different visualisations in different sections, so we can see the set of scatterplots above the diagonal are shaded and those below aren't. 
 
 ![insert pairgrid KDE here](./Images/pairgrid.png)
 
-Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.
-
+Again we can see clearly that the setosa species is quite distinct from the other two in each of the variables, especially petal dimensions. In terms of sepal dimensions, versicolar and virginica are quite closely aligned, but less so when it comes to petal dimensions where we can see a bit of divergence. However it doesn't quite separate them.  
 
 ## Conclusion <a name="Conclusion"></a>
 Most of the literature I read when embarking on this project suggested that only one species, setosa, could be separated linearly. This was quite clearly borne out through all of my analysis. There does appear to be another method that can discriminate between the other two species - **nonlinear principal component analysis** - though the scary wikipedia entry convinces me to leave that to another day :confused:!  
@@ -270,7 +318,7 @@ A further progression on this project would be to create an algorithim to test w
 - *Pair plots using Scatter matrix in Pandas* - https://www.geeksforgeeks.org/pair-plots-using-scatter-matrix-in-pandas/
 - *List of named colors in matplotlib* - https://matplotlib.org/stable/gallery/color/named_colors.html
 - *Understanding Boxplots* (and source for 'boxplots explained' image) by Michael Galarnyk - https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51
-- *Interpretting boxolots* - https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric. 
+- *Interpretting boxplots* - https://www.simplypsychology.org/boxplots.html#:~:text=Box%20plots%20are%20useful%20as%20they%20show%20the%20skewness%20of,then%20the%20distribution%20is%20symmetric. 
 - *saving plots* - https://chartio.com/resources/tutorials/how-to-save-a-plot-to-a-file-using-matplotlib/
 - *parallel coordinates plot* - https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_coordinates.html
 
@@ -290,6 +338,7 @@ A further progression on this project would be to create an algorithim to test w
 - *KDE Plot Visualization with Pandas and Seaborn* - https://www.geeksforgeeks.org/kde-plot-visualization-with-pandas-and-seaborn/
 - *legend* - https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot
 - *legend* - https://stackoverflow.com/questions/34301418/python3-seaborn-pairgrid-legend-outside-subplots
+- Ebner, Joshua 2019, *How to make A Seaborn Scatter Plot* - <https://www.sharpsightlabs.com/blog/seaborn-scatter-plot/>
 
 #### Miscellaneous
 - *unused variables* - https://stackoverflow.com/questions/60531586/unused-variable-warning-in-visual-studio-code-python

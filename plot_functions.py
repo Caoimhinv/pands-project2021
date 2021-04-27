@@ -196,7 +196,39 @@ def histograms():
     else:
         print("Invalid selection!")
         histograms()
+
+# function for scatterplot1 - sepal length v width
+def scatter1():
+    sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species', edgecolor='black', palette=color_theme1)
+    plt.xlabel("sepal_length (cm)", fontsize=7, fontname='fantasy')
+    plt.ylabel("sepal_width (cm)", fontsize=7, fontname='fantasy')
+    plt.tick_params(axis='both', which='major', labelsize=6)
+    plt.suptitle('Scatterplot - sepal length v width', fontsize=13, fontname='fantasy')
+    x = input("Enter (1) to view the scatterplot or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('./Images/scatter1.png')
+    else:
+        print("Invalid selection!")
+        scatter1()
     
+# function for scatterplot2 - petal length v width
+def scatter2():
+    sns.scatterplot(data=iris, x='petal_length', y='petal_width', hue='species', edgecolor='black', palette=color_theme1)
+    plt.xlabel("petal_length (cm)", fontsize=7, fontname='fantasy')
+    plt.ylabel("petal_width (cm)", fontsize=7, fontname='fantasy')
+    plt.tick_params(axis='both', which='major', labelsize=6)
+    plt.suptitle('Scatterplot - petal length v width', fontsize=13, fontname='fantasy')
+    x = input("Enter (1) to view the scatterplot or (2) to save to file? ")
+    if x == '1':
+        plt.show()
+    elif x == '2':
+        plt.savefig('./Images/scatter2.png')
+    else:
+        print("Invalid selection!")
+        scatter2()
+
 # Function to create a pairplot for all the variables
 def pairplot():
     pp_1 = sns.pairplot(iris, hue = 'species', palette=color_theme1)
@@ -240,5 +272,3 @@ def pairgrid():
     else:
         print("Invalid selection!")
         pairgrid()
-
-parallel_coordinates()
