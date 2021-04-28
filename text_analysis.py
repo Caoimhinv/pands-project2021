@@ -10,7 +10,7 @@ import csv
 import plot_functions as pf
 
 # reads in the dataset
-iris = pd.read_csv("/Users/caoimhinvallely/Desktop/Programming/Programming2021/pands-project2021/iris_dataset.csv")
+iris = pd.read_csv("iris_dataset.csv")
 
 # This is the initial text based exploration of the data
 

@@ -64,7 +64,7 @@ def main_menu():
         \t6) View data on each class with row totals and means\n\
         \t7) View means and standard deviation for row totals\n\
         \t8) View a complete overview of the data\n\
-        \t9) Print text analysis to file\n\
+        \t9) Save complete overview to file\n\
         \t10) Back to main menu\n\
         \t11) Exit\n\t\t")
         if response2 == '1':
