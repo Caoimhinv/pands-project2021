@@ -193,13 +193,13 @@ The plot is created using pandas (**pd**) with the following code:
     plt.tick_params(axis='y', which='major', labelsize=6)
     plt.legend(loc='upper center')
 
-**iris** refers to the dataset to be used - in this case the main Iris dataset
-**'species'** is the column name, how we're separating the data
-**color** is the color to be used for each class - in this case I have used my own theme
-**plt.suptitle** sets the main title with fontsize and style defined
-**plt.xlim** increases the size of the x axis slightly so we can clearly see the demarcation for the first and last attributes
-**plt.tick_params** formats the size of the tick parameters
-**plt.legend(loc='upper center')** places the legend so as not to obscure any of the data  
+**iris** refers to the dataset to be used - in this case the main Iris dataset  
+**'species'** is the column name, how we're separating the data  
+**color** is the color to be used for each class - in this case I have used my own theme  
+**plt.suptitle** sets the main title with fontsize and style defined  
+**plt.xlim** increases the size of the x axis slightly so we can clearly see the demarcation for the first and last attributes  
+**plt.tick_params** formats the size of the tick parameters  
+**plt.legend(loc='upper center')** places the legend so as not to obscure any of the data    
 
 As lot of the same formatting is repeated in subsequent plots so I won't repeat the descriptions.  
 
@@ -262,7 +262,7 @@ A few extra elements were involved in the formatting here:
 **kde=True** kde is kernal density estimation. It draws a continuous curved line which estimates the values between the data points  
 **alpha=0.5** refers to transparency - this allows some blending of the data so that one doesn't overlap the other    
 **legend=False** as the legend is the same for all I've only included it on one  
-We've already seem **palette** and **ax** before.  
+We've already seen **palette** and **ax** before.  
 
 From these histograms, we can clearly see the same familiar pattern as before with the setosa petal quite separate to the others. The KDE also shows the relative relationships to normal distribution, the most notable aspect of which is the narrowness, and proximity to the mean, of the petal attributes of the setosa species.  
 
