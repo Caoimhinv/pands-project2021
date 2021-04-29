@@ -203,7 +203,7 @@ The plot is created using pandas (**pd**) with the following code:
 **plt.tick_params** formats the size of the tick parameters  
 **plt.legend(loc='upper center')** places the legend so as not to obscure any of the data    
 
-As lot of the same formatting is repeated in subsequent plots so I won't repeat the descriptions.  
+As a lot of the same formatting is repeated in subsequent plots, I won't repeat the descriptions.  
 
 ### Boxplot <a name="Boxplot"></a>  
 
@@ -211,11 +211,11 @@ As lot of the same formatting is repeated in subsequent plots so I won't repeat 
 
 ![boxplot explained](./Images/box_plot_explained2.png)
 
-The boxplot is an excellent way to get an overall impression of the data. We start with a boxplot taking in all of the data at once.
+The boxplot is an excellent way to get an overall impression of the data. This first plot looks at all of the data at once.
 
 ![overall boxplot](./Images/boxplot.png)
 
-I created this boxplot with seaborn **sns.boxplot()**. I formatted the **linewidth** and **fliersize** (diamonds representing outliers), and set the colour palette to my customised **color_theme2** (required 4 colours as opposed to 3). I formatted the **ticks_params** a little (**axis='both', which='major', labelsize=7**), and the **ylabel** - **"(cm)", fontsize=7, fontname='fantasy'**. I'm using the **fantasy** font and trying to use the same fontsizes globally for each element for consistency. The **xlabel** didn't need anything more than the class names which are there by default.
+I created this boxplot with seaborn **.boxplot()**. I formatted the **linewidth** and **fliersize** (diamonds representing outliers), and set the colour palette to my customised **color_theme2** (this required 4 colours as opposed to 3). I formatted the **ticks_params** a little (**axis='both', which='major', labelsize=7**), and the **ylabel** - **"(cm)", fontsize=7, fontname='fantasy'**. I'm using the **fantasy** font and trying to use the same fontsizes globally for each element for consistency. The **xlabel** didn't need anything more than the class names which are there by default.
 
 We can see here clearly all the relative dimensions of each element. Sepal_length has the greatest individual value, and highest median value, while petal_width has the smallest individual value and lowest median. Petal_length has the greatest dispersion while the sepal width has the least, albeit with quite a few outliers. We saw this information already in the text analysis above but it is much easier to appreciate when presented in this manner. A normal distribution would be where all 4 quartiles are relatively even. We can see here that sepal_length is the closest in that regard, while both petal dimensions are quite skewed.  
 
@@ -223,7 +223,7 @@ To find out more we need to isolate the attributes and see what is happening wit
 
 ![separated boxplot](./Images/boxplot1.png)
 
-I've created a grid here of 4 boxplots here using the **plt.subplots()** tool. **(2,2)**reot I've defined the position, e.g. **ax=axes[0,1]** where the 0 is the first row and 1 the 2nd column. I've formatted all of the same elements as above trying to maintain consistency in the style.
+I've created a grid here of 4 boxplots here using the **plt.subplots()** tool. **(2,2)** refers to 2 rows of 2 columns. For each plot the position is defined by the code **ax=axes[0,1]** where 0 is the first row and 1 the second column. I've formatted a lot of the same elements as before trying to maintain consistency in the style.  
 
 Here we can see the setosa species emerging as being quite distinct from the others particularly in terms of petal length and width. But we can also define somewhat of a difference between the other two species in terms of petal dimensions.  
 
@@ -233,9 +233,9 @@ Here we can see the setosa species emerging as being quite distinct from the oth
 
 ![insert violin plots here](./Images/violinplot.png)
 
-This violinplot is created using seaborn **sns.violinplot()**. The formatting is nearly the same as the boxplot except an extra element **inner='point'** is defined - this refers to the data points inside the plot.
+This violinplot is created using seaborn **.violinplot()**. The formatting is nearly the same as the boxplot except an extra element **inner='point'** is defined - this refers to the data points inside the plot.  
 
-We can get some extra understanding of same data here. We can see a split in the petal visualisation suggesting some discrimination between the classes.  
+We can get some extra understanding of same data here. We can see a split in the petal visualisations suggesting some discrimination between the classes.  
 
 ### Stripplot <a name="Stripplot"></a>  
 
