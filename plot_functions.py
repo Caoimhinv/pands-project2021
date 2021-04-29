@@ -35,7 +35,7 @@ def heatmap():
 
 # creates a parallel coordinates plot
 def parallel_coordinates():
-    pd.plotting.parallel_coordinates(iris, 'species', color=color_theme1)
+    pd.plotting.parallel_coordinates(iris, 'species', color=color_theme1, linewidth=1, alpha=0.5)
     plt.suptitle("Parallel coordinates", fontsize=15, fontname='fantasy')
     plt.xlim(-0.1,3.1) # increases plot dimension slightly so we can see the first and last lines
     plt.ylabel("cm", fontsize=7, fontname='fantasy')
