@@ -164,7 +164,7 @@ We used **matplotlib.pyplot** and **seaborn** for this section, imported as **pl
 
 >**seaborn** - "... is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics."
 
-Visualising data makes it much easier to interpret and present. The libraries **matplotlib.pyplot**, and its relative **seaborn**, contain many powerful and highly effective analysis and visualisation tools, so I endeavoured to exploit them as much as I could. I started out using matplotlib.pyplot exclusively as that was what we had been using during the labs and lectures, but it quickly became apparent that seaborn had more advanced features and a slicker output.
+Visualising data makes it much easier to interpret and present. The libraries **matplotlib.pyplot**, and its relative **seaborn**, contain many powerful and highly effective analysis and visualisation tools, so I endeavoured to exploit them as much as I could. I started out using matplotlib.pyplot exclusively as that was what we had been using during the labs and lectures, but it quickly became apparent that seaborn had more advanced features and a slicker output.  
 I've set a global colour theme and grid style (**.set_style()**) for all of the visualisations to give a bit of consistency. I spent a lot of time formatting a lot of the stylistic elements including the various font sizes and styles; the legends; marker sizes and styles; linestyles and sizes, etc. This was both to make everything more aesthetically pleasing and also to make the information clearer and easier to interpret and understand.  
 All of the plots are created in functions for ease of recalling in the second part of this program. There is also an option in each function to save the plot to file - examples are already saved to the folder **Images** in this repositry.  
 
@@ -195,10 +195,10 @@ The plot is created using pandas (**pd**) with the following code:
 
 **iris** refers to the dataset to be used - in this case the main Iris dataset  
 **'species'** is the column name, how we're separating the data  
-**color** is the color to be used for each class - in this case I have used my own theme
-**linewidth** - I decreased the linewidth slightly as it looked neater
-**alpha** is the transparency of the lines when they overlap
-**plt.suptitle** sets the main title with fontsize and style defined  
+**color** is the color to be used for each class - in this case I have used my own theme  
+**linewidth** - I decreased the linewidth slightly as it looked neater  
+**alpha** is the transparency of the lines when they overlap  
+**plt.suptitle** sets the main title with fontsize and style defined   
 **plt.xlim** increases the size of the x axis slightly so we can clearly see the demarcation for the first and last attributes  
 **plt.tick_params** formats the size of the tick parameters  
 **plt.legend(loc='upper center')** places the legend so as not to obscure any of the data    
