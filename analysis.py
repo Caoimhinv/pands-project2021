@@ -30,7 +30,7 @@ def print_text_file():
 def print_updated_dataset():
     reply = input("Do you want to save this new dataset to file? y/n ")
     if reply == 'y':
-        t.iris2.to_csv('iris_dataset_with_totals.csv', float_format='%.2f')
+        t.iris2.to_csv('iris_dataset_with_totals.csv', float_format='%.2f', index=False)
         try_again()
     elif reply == 'n':
         try_again()

@@ -281,7 +281,7 @@ Up until now all of the plotting has involved looking at one numeric parameter a
 ![insert scatter2 here](./Images/scatter2.png)
 
 The two scatterplots above explore the relationship between the sepal attributes and the petal attributes of each of the classes. Again we can see a separation with the setosa class in both cases, and some separation between versicolor and virginica when it comes to petal attributes.  
-The scatterplots were created with seaborn - **sns.scatterplot()**. The coding is mostly identical to the preceding plots with maybe the only new element being **edgecolor**, which I thought was worth changing to help define the markers better with my colour theme.  
+The scatterplots were created with seaborn **.scatterplot()**. The coding is mostly identical to the preceding plots with maybe the only new element being **edgecolor**, which I thought was worth changing to help define the markers better with my colour theme.  
 
 ### Pairplot <a name="Pairplot"></a>
 
