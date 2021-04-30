@@ -1,4 +1,5 @@
-# This file contains text analysis on the Iris dataset to be used in conjunction the analysis.py program.
+# This file contains text analysis on the Iris dataset to be used in conjunction 
+# with the analysis.py program.
 
 # Author: Caoimhin Vallely
 
@@ -6,7 +7,7 @@
 import pandas as pd
 import csv
 
-# importing my own plot functions module
+# importing my own plot_functions module
 import plot_functions as pf
 
 # reads in the dataset
@@ -15,6 +16,7 @@ iris = pd.read_csv("iris_dataset.csv")
 # This is the initial text based exploration of the data
 
 # Creating variables which can be saved to a txt file or called in the menu section
+# Simple title string with some formatting
 text_1 = ("-----FISHER'S IRIS DATASET ANALYSIS PROJECT-----\n\n"\
 "------------INITIAL DATA EXPLORATION------------\n\n******\n")
 
@@ -55,7 +57,6 @@ text_7 = ("\nDESCRIBE() by class - overview with each class isolated\n" +\
 iris2 = iris.copy() # creates a new copy of the dataset to manipulate
 cols = iris2.columns # creates a variable for the columns in the dataset
 original_columns = iris2[cols[0:4]] # creates a variable for the first 4 columns in the dataset
-
 # adds the totals for the first 4 columns in each row and creates a new column for the result
 iris2["totals"] = original_columns.sum(axis=1)
 # finds the mean for the first 4 columns in each row and creates a new column for the result

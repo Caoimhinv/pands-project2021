@@ -42,7 +42,7 @@ The dataset consists of 50 samples from each of three species of iris - Iris set
 
 ![Image of the 3 different species of Iris.](./Images/image_of_irises.png)  
  
-I felt a good place to start was reading Ronald Fisher's original paper. I found this quite a diffcult read, with a lot of statistical terminology and methodology that is beyond my level of understanding at this point. What I did understand was very interesting though, and what impressed me most was that he did all of this without a calculator or computer!
+I felt a good place to start was Ronald Fisher's original paper. This was quite a diffcult read, with a lot of statistical terminology and methodology that is beyond my level of understanding at this point. What I did understand was very interesting though, and what impressed me most was that he did all of this without a calculator or computer!
 
  >**Linear discriminant analysis** - *"... method used in statistics and other fields, to find a linear combination of features that characterizes or separates two or more classes of objects or events."*  
 

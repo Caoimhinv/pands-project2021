@@ -1,5 +1,5 @@
-# this is an analysis script on Fisher's iris dataset as part of 
-# a project for the Programming and scripting module of HDIP in Data
+# This is an analysis script on Fisher's iris dataset as part of 
+# a project for the Programming and Scripting module of HDIP in Data
 # Analytics at GMIT (2021)
 
 # This is the main script from which the program runs but it is relient
@@ -68,8 +68,8 @@ def main_menu():
         \t10) Back to main menu\n\
         \t11) Exit\n\t\t")
         if response2 == '1':
-            print(t.text_2)
-            try_again()
+            print(t.text_2) # returns text_2 from text_analysis.py
+            try_again() # asks how the user wants to procede
         elif response2 == '2':
             print(t.text_3)
             try_again()
@@ -118,10 +118,10 @@ def main_menu():
         \t12) Back to main menu\n\
         \t13) Quit\n\t\t")
         if response3 == '1':
-            pf.heatmap()
-            try_again()
+            pf.heatmap() # lets user choose between viewing or saving heatmap from plot_functions.py
+            try_again() # asks user how they want to procede
         elif response3 == '2':
-            pf.parallel_coordinates()
+            pf.parallel_coordinates() # as above but parallel cooridindates plot. 
             try_again()
         elif response3 == '3':
             pf.boxplot_overall()
